@@ -1,0 +1,20 @@
+{
+    "fr": {
+        "nav_home": "Accueil",
+        "nav_about": "À propos",
+        "nav_inventory": "Inventaire",
+        "nav_projects": "Projets",
+        "nav_contact": "Contact",
+        "nav_lang_label": "Langue",
+        "nav_access_label": "Accessibilité"
+    },
+    "en": {
+        "nav_home": "Home",
+        "nav_about": "About",
+        "nav_inventory": "Inventory",
+        "nav_projects": "Projects",
+        "nav_contact": "Contact",
+        "nav_lang_label": "Language",
+        "nav_access_label": "Accessibility"
+    }
+}

@@ -1,0 +1,28 @@
+[
+    {
+        "id": "devisnet",
+        "title": "Système DevisNet",
+        "rarity": "epic",
+        "icon": "database",
+        "type": "alternance",
+        "origin": "XLConcept",
+        "period_fr": "Octobre 2025 — Présent",
+        "period_en": "October 2025 — Present",
+        "description_fr": "Développement d'une interface métier complexe B2B permettant la production d'offres de marchés publics. Gestion des flux de données relationnelles SQL Server.",
+        "description_en": "Development of a complex B2B business interface for public tender offers. Management of SQL Server relational data flows.",
+        "stack": ["C#", "SQL Server", "ASP.NET", "Blazor"]
+    },
+    {
+        "id": "iot_sensoriel",
+        "title": "Salle Snoezelen Connectée",
+        "rarity": "rare",
+        "icon": "home",
+        "type": "cdd",
+        "origin": "Pétrarque Digital",
+        "period_fr": "Avril 2024 — Décembre 2024",
+        "period_en": "April 2024 — December 2024",
+        "description_fr": "Conception de systèmes domotiques IoT sous Jeedom pour des espaces sensoriels. Développement d'APIs pour diffuseurs de parfums et éclairages connectés.",
+        "description_en": "Design of IoT home automation systems using Jeedom for sensory spaces. Development of APIs for connected fragrance diffusers and lighting.",
+        "stack": ["Jeedom", "PHP", "IoT"]
+    }
+]

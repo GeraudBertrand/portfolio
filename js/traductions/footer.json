@@ -1,0 +1,22 @@
+{
+    "fr": {
+        "footer_title_prefix": "Prêt pour la prochaine ",
+        "footer_title_span": "aventure",
+        "footer_subtitle": "Collaboration logiciel, IoT ou création.",
+        "footer_social_github": "GitHub",
+        "footer_social_linkedin": "LinkedIn",
+        "footer_social_email": "Email",
+        "footer_quote": "\"Un bon ingénieur est un créateur qui a trouvé les variables du problème.\"",
+        "footer_copyright": "© - Géraud BERTRAND • Synology Web Station"
+    },
+    "en": {
+        "footer_title_prefix": "Ready for the next ",
+        "footer_title_span": "adventure",
+        "footer_subtitle": "Software collaboration, IoT or creation.",
+        "footer_social_github": "GitHub",
+        "footer_social_linkedin": "LinkedIn",
+        "footer_social_email": "Email",
+        "footer_quote": "\"A good engineer is a creator who found the problem's variables.\"",
+        "footer_copyright": "© - Géraud BERTRAND • Synology Web Station"
+    }
+}

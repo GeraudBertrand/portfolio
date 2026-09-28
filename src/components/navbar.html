@@ -1,0 +1,101 @@
+<!-- Navigation Principale -->
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-6" role="navigation">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <!-- Logo / Nom -->
+        <a href="/index.html#accueil" class="flex items-center gap-2 group">
+            <div class="w-10 h-10 bg-violet-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-violet-500/20 group-hover:bg-violet-500 transition-colors">
+                &lt;/&gt;
+            </div>
+            <span class="text-xl font-bold tracking-tight text-white italic">Géraud<span class="text-violet-500">.B</span></span>
+        </a>
+
+        <!-- Menu Desktop -->
+        <div class="hidden lg:flex items-center gap-6">
+            <!-- Liens de Navigation -->
+            <div class="flex items-center gap-8 text-sm font-medium text-slate-200 mr-4">
+                <a href="/index.html#accueil" class="hover:text-violet-400 transition-colors">
+                    <span data-i18n="nav_home">Accueil</span>
+                </a>
+                <a href="/index.html#a-propos" class="hover:text-violet-400 transition-colors">
+                    <span data-i18n="nav_about">À propos</span>
+                </a>
+                <a href="/index.html#projets" class="hover:text-violet-400 transition-colors">
+                    <span data-i18n="nav_inventory">Inventaire</span>
+                </a>
+                <a href="/index.html#contact" class="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-full transition-all shadow-md">
+                    <span data-i18n="nav_contact">Contact</span>
+                </a>
+            </div>
+
+            <!-- Séparateur vertical -->
+            <div class="h-6 w-px bg-slate-800"></div>
+
+            <!-- Contrôles Accessibilité & Langue -->
+            <div class="flex items-center gap-3 ml-4">
+                <button onclick="window.toggleAccessModal()" class="p-2 text-slate-400 hover:text-white transition-colors" aria-label="Accessibilité">
+                    <i data-lucide="accessibility" size="20"></i>
+                </button>
+                <button onclick="window.toggleLanguage()" class="px-3 py-1 border border-slate-700 rounded-lg text-[10px] font-bold text-slate-300 hover:border-violet-500 hover:text-white transition-all">
+                    <span id="lang-indicator">FR</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bouton Menu Mobile -->
+        <button class="lg:hidden text-white p-2" onclick="window.toggleMobileMenu()">
+            <i data-lucide="menu"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Menu Mobile -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] glass hidden flex flex-col items-center justify-center gap-8 text-2xl font-bold">
+    <button class="absolute top-6 right-6 p-2 text-white" onclick="window.toggleMobileMenu()">
+        <i data-lucide="x" size="32"></i>
+    </button>
+    
+    <a href="/index.html#accueil" onclick="window.toggleMobileMenu()" class="text-white">
+        <span data-i18n="nav_home">Accueil</span>
+    </a>
+    <a href="/index.html#a-propos" onclick="window.toggleMobileMenu()" class="text-white">
+        <span data-i18n="nav_about">À propos</span>
+    </a>
+    <a href="/index.html#projets" onclick="window.toggleMobileMenu()" class="text-white">
+        <span data-i18n="nav_projects">Projets</span>
+    </a>
+    <a href="/index.html#contact" onclick="window.toggleMobileMenu()" class="px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white rounded-full transition-all">
+        <span data-i18n="nav_contact">Contact</span>
+    </a>
+
+    <div class="flex items-center gap-6 mt-8">
+        <button onclick="window.toggleAccessModal(); window.toggleMobileMenu();" class="flex flex-col items-center gap-2 text-slate-400">
+            <i data-lucide="accessibility" size="28"></i>
+            <span class="text-[10px] uppercase tracking-widest font-bold" data-i18n="nav_access_label">Accessibilité</span>
+        </button>
+        <button onclick="window.toggleLanguage(); window.toggleMobileMenu();" class="flex flex-col items-center gap-2 text-slate-400">
+            <div class="w-10 h-10 border-2 border-slate-700 rounded-xl flex items-center justify-center text-xs font-black">
+                <span id="lang-indicator-mobile">FR</span>
+            </div>
+            <span class="text-[10px] uppercase tracking-widest font-bold" data-i18n="nav_lang_label">Langue</span>
+        </button>
+    </div>
+</div>
+
+<!-- MODALE ACCESSIBILITÉ -->
+    <!-- <div id="access-modal" class="fixed inset-0 z-[110] glass hidden items-center justify-center p-6 backdrop-blur-md">
+        <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full relative">
+            <button onclick="toggleAccessModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x"></i></button>
+            <h2 class="text-2xl font-extrabold mb-6" data-i18n="access_title">Accessibilité</h2>
+            <div class="space-y-6">
+                <div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3" data-i18n="access_vision">Vision (Daltonisme)</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setVisionFilter('none')" class="p-2 bg-slate-800 rounded-lg text-xs" data-i18n="vision_none">Normal</button>
+                        <button onclick="setVisionFilter('protanopia')" class="p-2 bg-slate-800 rounded-lg text-xs" data-i18n="vision_protan">Protanopie</button>
+                        <button onclick="setVisionFilter('deuteranopia')" class="p-2 bg-slate-800 rounded-lg text-xs" data-i18n="vision_deuter">Deutéranopie</button>
+                        <button onclick="setVisionFilter('tritanopia')" class="p-2 bg-slate-800 rounded-lg text-xs" data-i18n="vision_tritan">Tritanopie</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->

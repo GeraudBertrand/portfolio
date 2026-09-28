@@ -1,0 +1,251 @@
+/* * PORTFOLIO GÉRAUD BERTRAND - FEUILLE DE STYLE PRINCIPALE
+ * Structure : Variables > Base > Design System > Composants > Animations > Responsive
+ */
+
+/* --- 1. VARIABLES & CONFIGURATION --- */
+:root {
+    --primary-violet: #7c3aed;
+    --primary-fuchsia: #d946ef;
+    --primary-blue: #3b82f6;
+    --bg-slate: #020617;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --border-white: rgba(255, 255, 255, 0.1);
+    
+    /* Variable d'accessibilité pour l'échelle globale */
+    --text-multiplier: 1;
+}
+
+/* --- 2. BASE & RESET --- */
+html {
+    /* On définit la taille de base qui pilotera tous les 'rem' du site */
+    font-size: calc(16px * var(--text-multiplier)) !important;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-slate);
+    color: #f8fafc;
+    transition: filter 0.3s ease, background-color 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Thème Clair */
+body.light-mode {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+body.light-mode .glass {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(15, 23, 42, 0.1);
+    color: #1e293b;
+}
+
+/* Filtres Accessibilité (SVG Filters) */
+body.protanopia { filter: url('#protanopia-filter'); }
+body.deuteranopia { filter: url('#deuteranopia-filter'); }
+body.tritanopia { filter: url('#tritanopia-filter'); }
+body.grayscale { filter: grayscale(100%); }
+
+/* --- 3. DESIGN SYSTEM (REUSABLE) --- */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-white);
+}
+
+/* Rareté & Loot States */
+.border-legendary { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+.border-rare { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+.border-epic { border-color: #d946ef; box-shadow: 0 0 15px rgba(217, 70, 239, 0.2); }
+
+.text-legendary { color: #d8b4fe; }
+.text-rare { color: #93c5fd; }
+.text-epic { color: #f5d0fe; }
+
+/* --- 4. MODAL D'ACCESSIBILITÉ (CORRECTION POSITIONNEMENT) --- */
+#access-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+}
+
+#access-modal-content {
+    /* On bloque la taille de la modal pour qu'elle reste utilisable même à 140% */
+    font-size: 16px !important;
+    min-height: 75vh;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 30rem;
+}
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-trigger {
+    width: 100%;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.dropdown-trigger:hover {
+    border-color: var(--primary-violet);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    border-radius: 16px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 50;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-menu.active {
+    display: flex!important;
+    animation: slideUp 0.3s ease-out;
+}
+
+.dropdown-item {
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-item:hover {
+    background: rgba(124, 58, 237, 0.2);
+    color: white;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar */
+.dropdown-menu::-webkit-scrollbar { width: 4px; }
+.dropdown-menu::-webkit-scrollbar-thumb { background: var(--primary-violet); border-radius: 10px; }
+
+
+
+/* --- 5. COMPOSANTS SPÉCIFIQUES --- */
+.skill-box { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.skill-details { max-height: 0; opacity: 0; transition: all 0.4s ease-in-out; }
+.group:hover .skill-details { max-height: 200px; opacity: 1; margin-top: 1rem; }
+
+/* Section Experiences (Timeline) */
+.timeline-container {
+    position: relative;
+    padding-left: 3rem;
+    margin-top: 2rem;
+}
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #3b82f6, #3b51f6);
+    border-radius: 1px;
+}
+.timeline-item { position: relative; margin-bottom: 3rem; }
+.timeline-dot {
+    position: absolute;
+    left: -2.95rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #3b82f6;
+    border: 2px solid #020617;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    z-index: 10;
+}
+
+/* Inventaire */
+.inv-slot {
+    width: calc(64px * var(--text-multiplier));
+    height: calc(64px * var(--text-multiplier));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #1e293b;
+    background: rgba(15, 23, 42, 0.8);
+    cursor: pointer; transition: all 0.2s ease;
+}
+.inv-slot:hover { 
+    border-color: var(--primary-violet);
+    background: rgba(124, 58, 237, 0.1);
+}
+.inv-slot.active { 
+    border-color: #a78bfa;
+    background: rgba(124, 58, 237, 0.2);
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+}
+.inv-slot svg { 
+    width: calc(32px * var(--text-multiplier));
+    height: calc(32px * var(--text-multiplier));
+}
+
+/* Toasts */
+.achievement-toast { animation: steamSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; transition: all 0.5s ease; }
+.achievement-toast.hide { animation: steamSlideOut 0.5s ease forwards; opacity: 0; margin-top: -90px; }
+
+/* UI Elements */
+.cursor { display: inline-block; width: 2px; background-color: #a78bfa; margin-left: 2px; animation: blink 1s infinite; }
+.sticky-access { position: fixed; bottom: 24px; left: 24px; z-index: 100; pointer-events: auto; }
+
+/* --- 6. ANIMATIONS --- */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes steamSlideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes steamSlideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(150%); opacity: 0; } }
+
+/* --- 7. RÉPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .inv-slot { 
+        width: calc(64px * var(--text-multiplier)); 
+        height: calc(64px * var(--text-multiplier));
+    }
+    .inv-slot svg {
+        width: calc(32px * var(--text-multiplier));
+        height: calc(32px * var(--text-multiplier));
+    }
+    #project-details-content {
+        min-height: auto;
+    }
+}
+
+/* --- 8. UTILS & SCROLLBAR --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: var(--primary-violet); border-radius: 10px; }
+:focus-visible { outline: 2px solid #a78bfa; outline-offset: 4px; }

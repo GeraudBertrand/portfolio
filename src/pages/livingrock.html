@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Rock | Géraud BERTRAND</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="overflow-x-hidden bg-slate-950 text-slate-50">
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-60">
+            <img src="/assets/img/livingrock/illustration.webp" class="w-full h-full object-cover blur-sm" alt="Living Rock">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950"></div>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-widest text-blue-300 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full">
+                <span data-i18n="project_type">Puzzle Game • Artefact Rare</span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tighter text-white">
+                LIVING <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">ROCK</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed italic" data-i18n="project_tagline">
+                L'émergence par la pierre : un défi de physique en 48 heures.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-10 px-6">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-12">
+            <aside class="space-y-6">
+                <!-- Summary Section -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-blue-400 mb-4" data-i18n="summary_title">Résumé</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex flex-col border-b border-slate-800 pb-3">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold" data-i18n="label_event">Événement</span>
+                            <span class="font-semibold italic text-white mt-1">UniJam 2023</span>
+                        </li>
+                        <li class="flex flex-col border-b border-slate-800 pb-3">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold" data-i18n="label_concept">Concept</span>
+                            <span class="font-semibold italic text-white mt-1" data-i18n="label_concept_text">Distance</span>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold" data-i18n="label_origin">Origine</span>
+                            <span class="font-semibold italic text-white mt-1"><u>Gamejam Universitaire</u> - Licence professionnelle Game & Level Designer</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Team Section -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-slate-400 mb-6">L'Équipe de Quête</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center border border-violet-500/30 text-violet-400 font-bold italic">G</div>
+                            <div>
+                                <h4 class="font-bold text-s text-white uppercase tracking-tighter">Géraud Bertrand</h4>
+                                <p class="text-[10px] text-violet-400 font-medium uppercase">Game Designer | Level Designer</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center border border-violet-500/30 text-violet-400 font-bold italic">R</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Robin Lefebvre</h4>
+                                <p class="text-[10px] text-violet-400 font-medium uppercase">Level Designer | Game Designer</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-fuchsia-600/20 rounded-lg flex items-center justify-center border border-fuchsia-500/30 text-fuchsia-400 font-bold italic">J</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Justine Guillou</h4>
+                                <p class="text-[10px] text-fuchsia-400 font-medium uppercase">Game Art</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-fuchsia-600/20 rounded-lg flex items-center justify-center border border-fuchsia-500/30 text-fuchsia-400 font-bold italic">S</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Sally Niasse</h4>
+                                <p class="text-[10px] text-fuchsia-400 font-medium uppercase">Game Art</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold italic">L</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Louka Doz</h4>
+                                <p class="text-[10px] text-blue-400 font-medium uppercase">Game Dev</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold italic">G</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Gaston Rouquette</h4>
+                                <p class="text-[10px] text-blue-400 font-medium uppercase">Game Dev</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold italic">E</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Emmanuel Dietlin</h4>
+                                <p class="text-[10px] text-blue-400 font-medium uppercase">Game Dev</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://tiosstud.itch.io/living-rock" target="_blank" class="inline-flex items-center gap-2 px-6 py-4 glass rounded-xl border border-slate-800 hover:text-blue-400 transition-all font-bold text-xs text-white justify-center w-full">
+                    <i data-lucide="gamepad-2" size="12"></i>
+                    <span data-i18n="play_btn">Jouer sur Itch.io</span>
+                </a>
+            </aside>
+
+            <div class="lg:col-span-2 space-y-12">
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="info" class="text-blue-500"></i> <span data-i18n="section_context">Le Contexte</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="context_desc">
+                        Le projet Living Rock a été développé durant l'UniJam 2022, un événement de création de jeux vidéo à but pédagogique.Organisé par l'Université de Bobigny, l'UniJam rassemble des étudiants de différentes disciplines pour créer des jeux en seulement 48 heures.
+                    </p>
+                </section>
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="book-alert" class="text-blue-500"></i> <span data-i18n="section_constraint">Les contraintes</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="constraint_desc">
+                        Le thème de l'édition 2022 était "distance makes everything infinitely more precious", inspirant les équipes à explorer des concepts liés à la distance, la valeur et la connexion. 
+                        La contrainte obligé les équipes à créer des jeux où la distance joue un rôle central dans le gameplay ou la narration, encourageant l'innovation et la créativité dans la conception de jeux. 
+                        Il existait différentes interprétations possibles du thème, allant de la distance émotionnelle à la distance physique, en passant par des concepts plus abstraits liés à la séparation et à la connexion. 
+                        Dans notre cas, nous avons choisi d'y voir une interprétation physique, une contrainte même sur la vie du personnage.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="constraint-end">
+                        Living Rock est né de cette contrainte !
+                    </p>
+                </section>
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="scroll-text" class="text-blue-500"></i> <span data-i18n="section_concept">Le Concept</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="concept_desc">
+                        Le joueur doit résoudre des énigmes basées sur la physique pour avancer dans les niveaux, il devra faire preuve d'ingéniosité pour manipuler les éléments du décor et trouver des solutions créatives aux défis posés par le jeu.
+                        Tout en résolvant les énigmes, le joueur est confronté à la mécanique principale du jeu : la pierre vivante. Cette pierre, qui est à la fois un obstacle et une aide, doit être utilisée de manière stratégique pour progresser dans les niveaux.
+                        Le joueur doit apprendre à maîtriser les propriétés uniques de la pierre vivante, telles que sa capacité à se déplacer, à interagir avec l'environnement et à réagir aux actions du joueur. Tout en faisant attention à la distance entre celle-ci et le personnage, car si elle s'éloigne trop, elle se désintègre, obligeant le joueur à trouver un équilibre délicat entre l'utilisation de la pierre et la gestion de sa distance pour réussir les niveaux.
+                        Il y a aussi une mécanique secondaire, des éléments interactifs pour déplacer, accéder à des lieux et restreindre des mouvements :
+                    </p>
+                    <ul class="list-disc list-inside text-slate-300 leading-relaxed mt-4">
+                        <li data-i18n="concept_mechanics_1">Des plaques qui ne peuvent être activées que par la pierre vivante ou des caisses d'énergie</li>
+                        <li data-i18n="concept_mechanics_2">Des tapis à sens unique</li>
+                        <li data-i18n="concept_mechanics_3">Des leviers pour maintenir les portes ouvertes</li>
+                    </ul>
+                </section>
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="land-plot" class="text-blue-500"></i> <span data-i18n="section_level">Level Design</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="level_desc">
+                        J'ai assisté Robin sur la réalisation du level design, nous avons pensé les salles de manière à apporter une phase d'apprentissage, qui est suivie d'une phase d'application et d'un twist pour apporter une surprise avant la fin.
+                        L'objectif était de créer une courbe d'apprentissage progressive pour le joueur, en introduisant les mécaniques du jeu de manière graduelle et en augmentant la difficulté au fur et à mesure que le joueur progresse dans les niveaux.
+                        Nous nous sommes concentrés sur la création d'un seul niveau qui permettrait de mettre en valeur les mécaniques du jeu et de créer une expérience de jeu satisfaisante et engageante pour les joueurs.
+                    </p>
+                    <!-- Affichage image niveau et image légende-->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                        <div class="rounded-2xl aspect-video shadow-2xl">
+                            <img src="/assets/img/livingrock/level1.webp" alt="Level Design" class="w-full rounded-lg border border-slate-800">
+                            <p class="text-xs text-slate-500 mt-2 italic text-center" data-i18n="level_caption">Niveau conçu pour le jeu, mettant en avant les mécaniques de la pierre vivante et les éléments interactifs.</p>
+                        </div>
+                        <div class="rounded-2xl aspect-video shadow-2xl">
+                            <img src="/assets/img/livingrock/legende.webp" alt="Level Design 2" class="w-full rounded-lg border border-slate-800">
+                            <p class="text-xs text-slate-500 mt-2 italic text-center" data-i18n="level_caption_2">Légende des éléments du niveau.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="circle-dot" class="text-blue-500"></i> <span data-i18n="section_conclusion">Conclusion</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="conclusion_desc">
+                        Ce projet a permis de mettre en pratique les compétences acquises en développement de jeux vidéo, notamment dans la création de niveaux et l'implémentation de mécaniques de jeu. La collaboration avec Robin a été essentielle pour atteindre les objectifs fixés et créer une expérience de jeu cohérente et engageante.
+                        J'ai particulièrement apprécié le défi de concevoir un jeu en seulement 48 heures, ce qui a nécessité une planification rigoureuse et une prise de décision rapide pour maximiser notre temps de développement.
+                    </p>
+                </section>
+
+                <div class="pt-8 border-t border-slate-900">
+                    <a href="/index.html#projets" class="inline-flex items-center gap-2 px-6 py-3 glass rounded-xl hover:text-blue-400 transition-all font-bold text-xs text-white group">
+                        <i data-lucide="arrow-left" size="18" class="group-hover:-translate-x-1 transition-transform"></i>
+                        <span data-i18n="back_btn">Retour à l'inventaire</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/lang.js"></script>
+    <script src="/js/accessibility.js"></script>
+    <script src="/js/components-loader.js"></script>
+
+    <script>
+        window.addEventListener('load', async () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

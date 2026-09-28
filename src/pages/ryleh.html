@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lisière de R'yleh | Géraud BERTRAND</title>
+    
+    <!-- Bibliothèques Externes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Chemin Absolu pour le CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="overflow-x-hidden bg-slate-950 text-slate-50">
+
+    <!-- COMPOSANT : NAVIGATION (Injecté via components-loader.js) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- HEADER DU PROJET -->
+    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-60">
+            <img src="/assets/img/ryleh/setup.webp" class="w-full h-full object-cover blur-sm" alt="setup" onerror="this.src='https://images.unsplash.com/photo-1610812392211-137887d4672f?auto=format&fit=crop&q=80&w=1600'">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-fuchsia-300 uppercase bg-fuchsia-500/10 border border-fuchsia-500/20 rounded-full">
+                Jeu de Société • Artefact Épique
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tighter text-white">
+                La Lisière de <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-violet-500">R'yleh</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Une expérience de stratégie asymétrique et de survie mentale dans l'univers de H.P. Lovecraft.
+            </p>
+        </div>
+    </header>
+
+    <!-- SECTION DÉTAILS -->
+    <main class="py-10 px-6">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-12">
+
+            <!-- Colonne latérale -->
+            <aside class="space-y-6">
+                <!-- RÉSUMÉ DU PROJET -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-fuchsia-400 mb-4">Résumé du Projet</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex flex-col border-b border-slate-800 pb-3">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold">Concept Clé</span>
+                            <span class="font-semibold italic text-white mt-1">Contrôle de ressource</span>
+                        </li>
+                        <li class="flex flex-col border-b border-slate-800 pb-3">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold">Systèmes Majeur</span>
+                            <span class="font-semibold italic text-white mt-1">Gestion des ressources / Coopération</span>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold">Origine</span>
+                            <span class="font-semibold italic text-white mt-1"><u>Projet Universitaire</u> - Licence professionnelle Game & Level Designer</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- L'ÉQUIPE DE QUÊTE -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-slate-400 mb-6">L'Équipe de Quête</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center border border-violet-500/30 text-violet-400 font-bold italic">G</div>
+                            <div>
+                                <h4 class="font-bold text-s text-white uppercase tracking-tighter">Géraud Bertrand</h4>
+                                <p class="text-[10px] text-violet-400 font-medium uppercase">Game Designer</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-fuchsia-600/20 rounded-lg flex items-center justify-center border border-fuchsia-500/30 text-fuchsia-400 font-bold italic">M</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Mélanie Velasco</h4>
+                                <p class="text-[10px] text-fuchsia-400 font-medium uppercase">Graphiste</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold italic">A</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Adrien Chateau</h4>
+                                <p class="text-[10px] text-blue-400 font-medium uppercase">Craft & Médiation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOM FRANÇAIS : COMPÉTENCES CRÉATIVES -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-slate-400 mb-4">Compétences Créatives</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-bold uppercase">Excel</span>
+                        <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-bold uppercase">System Design</span>
+                        <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-bold uppercase">Équilibrage</span>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTS DU PROJET -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-fuchsia-400 mb-4">Archives du Grimoire</h3>
+                    <div class="space-y-3">
+                        <a href="/assets/docs/ryleh/rules.pdf" target="_blank" class="flex items-center justify-between p-3 bg-slate-900/50 hover:bg-fuchsia-500/10 rounded-xl border border-slate-800 transition-all group">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="scroll-text" class="text-slate-400 group-hover:text-fuchsia-400" size="18"></i>
+                                <span class="text-xs font-medium text-slate-300 group-hover:text-white">Livret de Règles</span>
+                            </div>
+                            <i data-lucide="download" size="14" class="text-slate-500"></i>
+                        </a>
+                        <a href="/assets/docs/ryleh/tableur.pdf" target="_blank" class="flex items-center justify-between p-3 bg-slate-900/50 hover:bg-fuchsia-500/10 rounded-xl border border-slate-800 transition-all group">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="table-2" class="text-slate-400 group-hover:text-fuchsia-400" size="18"></i>
+                                <span class="text-xs font-medium text-slate-300 group-hover:text-white">Tableau d'équilibrage</span>
+                            </div>
+                            <i data-lucide="download" size="14" class="text-slate-500"></i>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contenu Principal -->
+            <div class="lg:col-span-2 space-y-12">
+                <section class="reveal active">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="scroll-text" class="text-fuchsia-500"></i> Le Concept
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Le jeu oppose deux camps aux objectifs diamétralement opposés. D'un côté, une équipe d'**investigateurs** doit coopérer pour explorer des lieux occultes et sceller des portails interdimensionnels. De l'autre, un joueur incarne le **Grand Ancien**, une entité surpuissante dont le but est d'anéantir la santé mentale des humains.
+                    </p>
+                </section>
+
+                <section class="reveal active">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="brain" class="text-fuchsia-500"></i> Mécaniques de Folie
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        Le cœur du jeu repose sur la gestion de la <b>Santé Mentale</b>. Chaque action risquée érode la psyché des joueurs, les rapprochant inévitablement de la défaite ou de capacités interdites.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-900/50 rounded-xl border border-slate-800">
+                            <h4 class="font-bold text-sm mb-2 text-fuchsia-300 italic">Asymétrie Totale</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Le Grand Ancien joue avec des cartes cachées, tandis que les investigateurs misent sur la coopération.</p>
+                        </div>
+                        <div class="p-4 bg-slate-900/50 rounded-xl border border-slate-800">
+                            <h4 class="font-bold text-sm mb-2 text-fuchsia-300 italic">Phase Émergente</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Le plateau évolue dynamiquement selon les portails ouverts par la Horde.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="reveal active border-l-2 border-fuchsia-500/30 pl-6 py-2">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="palette" class="text-fuchsia-500"></i> Design Visuel
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed mb-8">
+                        L'intégralité des assets graphiques a été réalisée par <b>Mélanie Velasco</b>. Son travail a permis d'instaurer une esthétique sombre, renforçant l'immersion.
+                    </p>
+
+                    <section class="reveal active py-2">
+                        <h2 class="text-2xl font-bold mb-8 flex items-center gap-3 text-white border-b border-slate-900 pb-4">
+                            <i data-lucide="layout" class="text-fuchsia-500"></i> Présentation du Matériel
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="group relative overflow-hidden rounded-2xl border border-slate-800 aspect-video shadow-2xl">
+                                <img src="/assets/img/ryleh/cartes.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Toutes les cartes">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-fuchsia-400">Vue d'ensemble</p>
+                                    <p class="text-white text-sm font-bold">Le deck de jeu complet</p>
+                                </div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl border border-slate-800 aspect-video shadow-2xl">
+                                <img src="/assets/img/ryleh/setup.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Plateau de jeu">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-fuchsia-400">Prototype Physique</p>
+                                    <p class="text-white text-sm font-bold">Mise en place sur le plateau gravé</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION : BESTIAIRE & ARTEFACTS -->
+                    <section class="reveal active py-2">
+                        <h2 class="text-2xl font-bold mb-8 flex items-center gap-3 text-white border-b border-slate-900 pb-4">
+                            <i data-lucide="book-open" class="text-fuchsia-500"></i> Bestiaire & Objets
+                        </h2>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed italic max-w-2xl">
+                            Aperçu détaillé des cartes "Rejetons" et "Actions". Chaque carte a été équilibrée statistiquement pour garantir une tension constante.
+                        </p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6">
+                            <!-- CARTE 1 -->
+                            <div class="group relative aspect-[2/3] rounded-xl overflow-hidden border border-slate-800 bg-slate-900 transition-all hover:border-fuchsia-500/50 hover:shadow-[0_0_20px_rgba(217,70,239,0.2)]">
+                                <img src="/assets/img/ryleh/shoggoth.webp" class="w-full h-full object-cover" alt="Shoggoth">
+                                <div class="absolute inset-x-0 bottom-0 p-3 bg-slate-950/80 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform">
+                                    <p class="text-[9px] font-bold text-fuchsia-400 uppercase">Rejeton</p>
+                                    <p class="text-[11px] text-white font-bold">Shoggoth</p>
+                                </div>
+                            </div>
+                            <!-- CARTE 2 -->
+                            <div class="group relative aspect-[2/3] rounded-xl overflow-hidden border border-slate-800 bg-slate-900 transition-all hover:border-fuchsia-500/50 hover:shadow-[0_0_20px_rgba(217,70,239,0.2)]">
+                                <img src="/assets/img/ryleh/abomination.webp" class="w-full h-full object-cover" alt="Abomination">
+                                <div class="absolute inset-x-0 bottom-0 p-3 bg-slate-950/80 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform">
+                                    <p class="text-[9px] font-bold text-fuchsia-400 uppercase">Rejeton</p>
+                                    <p class="text-[11px] text-white font-bold">L'Abomination</p>
+                                </div>
+                            </div>
+                            <!-- CARTE 3 -->
+                            <div class="group relative aspect-[2/3] rounded-xl overflow-hidden border border-slate-800 bg-slate-900 transition-all hover:border-fuchsia-500/50 hover:shadow-[0_0_20px_rgba(217,70,239,0.2)]">
+                                <img src="/assets/img/ryleh/ancien_nosfer.webp" class="w-full h-full object-cover" alt="Nosfer">
+                                <div class="absolute inset-x-0 bottom-0 p-3 bg-slate-950/80 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform">
+                                    <p class="text-[9px] font-bold text-fuchsia-400 uppercase">Ancien</p>
+                                    <p class="text-[11px] text-white font-bold">Nosfer</p>
+                                </div>
+                            </div>
+                            <!-- CARTE 4 (ACTION) -->
+                            <div class="group relative aspect-[2/3] rounded-xl overflow-hidden border border-slate-800 bg-slate-900 transition-all hover:border-violet-500/50 hover:shadow-[0_0_20px_rgba(167,139,250,0.2)]">
+                                <img src="/assets/img/ryleh/tonic.webp" class="w-full h-full object-cover" alt="Tonic">
+                                <div class="absolute inset-x-0 bottom-0 p-3 bg-slate-950/80 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform">
+                                    <p class="text-[9px] font-bold text-violet-400 uppercase">Action</p>
+                                    <p class="text-[11px] text-white font-bold">Tonic III</p>
+                                </div>
+                            </div>
+                            <!-- CARTE 5 (ACTION) -->
+                            <div class="group relative aspect-[2/3] rounded-xl overflow-hidden border border-slate-800 bg-slate-900 transition-all hover:border-violet-500/50 hover:shadow-[0_0_20px_rgba(167,139,250,0.2)]">
+                                <img src="/assets/img/ryleh/poison.webp" class="w-full h-full object-cover" alt="Poison">
+                                <div class="absolute inset-x-0 bottom-0 p-3 bg-slate-950/80 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform">
+                                    <p class="text-[9px] font-bold text-violet-400 uppercase">Action</p>
+                                    <p class="text-[11px] text-white font-bold">Poison I</p>
+                                </div>
+                            </div>
+                            <!-- CARTE 6 (DOS) -->
+                            <div class="group relative aspect-[2/3] rounded-xl overflow-hidden border border-slate-800 bg-slate-900 transition-all hover:border-slate-500/50">
+                                <img src="/assets/img/ryleh/dos_rejeton.webp" class="w-full h-full object-cover" alt="Dos Rejeton">
+                                <div class="absolute inset-x-0 bottom-0 p-3 bg-slate-950/80 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform">
+                                    <p class="text-[9px] font-bold text-slate-500 uppercase">Verso</p>
+                                    <p class="text-[11px] text-white font-bold">Dos de carte</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <div class="pt-8 border-t border-slate-900">
+                    <a href="/index.html#projets" class="inline-flex items-center gap-2 px-6 py-3 glass rounded-xl hover:text-fuchsia-400 transition-all font-bold text-sm text-white">
+                        <i data-lucide="arrow-left" size="18"></i> Retour à l'inventaire
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/lang.js"></script>
+    <script src="/js/accessibility.js"></script>
+    <script src="/js/components-loader.js"></script>
+    
+    <script>
+        
+        window.addEventListener('load', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumiscape | Géraud BERTRAND</title>
+    
+    <!-- Bibliothèques Externes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Chemin Absolu pour le CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="overflow-x-hidden bg-slate-950 text-slate-50">
+
+    <!-- COMPOSANT : NAVIGATION -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- HEADER DU PROJET -->
+    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-30">
+            <img src="/assets/img/projects/lumiscape.webp" class="w-full h-full object-cover" alt="Lumiscape" onerror="this.src='https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1600'">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950"></div>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-widest text-fuchsia-300 uppercase bg-fuchsia-500/10 border border-fuchsia-500/20 rounded-full">
+                <span data-i18n="project_type">Projet de fin d'études • Artefact Épique</span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 tracking-tighter text-white uppercase">
+                LUMI<span class="text-fuchsia-500">SCAPE</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed italic" data-i18n="project_tagline">
+                Coopération, lumière et asymétrie dans une usine oubliée.
+            </p>
+        </div>
+    </header>
+
+    <!-- SECTION DÉTAILS -->
+    <main class="py-10 px-6">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-12">
+
+            <!-- Colonne latérale -->
+            <aside class="space-y-6">
+                <!-- RÉSUMÉ DU PROJET -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-fuchsia-400 mb-4" data-i18n="summary_title">Résumé du Projet</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex flex-col border-b border-slate-800 pb-3">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold" data-i18n="label_concept">Concept Clé</span>
+                            <span class="font-semibold italic text-white mt-1" data-i18n="val_concept">Puzzle-game coopératif</span>
+                        </li>
+                        <li class="flex flex-col border-b border-slate-800 pb-3">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold" data-i18n="label_context">Contexte</span>
+                            <span class="font-semibold italic text-white mt-1" data-i18n="val_context">Fin d'étude Universitaire</span>
+                        </li>
+                        <li class="flex flex-col">
+                            <span class="text-slate-500 text-[10px] uppercase font-bold" data-i18n="label_origin">Origine</span>
+                            <span class="font-semibold italic text-white mt-1" data-i18n="val_origin">Licence MJV</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- L'ÉQUIPE -->
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-slate-400 mb-6" data-i18n="team_title">L'Équipe</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-fuchsia-600/20 rounded-lg flex items-center justify-center border border-fuchsia-500/30 text-fuchsia-500 font-bold italic">G</div>
+                            <div>
+                                <h4 class="font-bold text-s text-white uppercase tracking-tighter">Géraud Bertrand</h4>
+                                <p class="text-[10px] text-fuchsia-400 font-medium uppercase" data-i18n="role_artist">Artiste 3D </p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center border border-blue-500/30 text-blue-500 font-bold italic">A</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Allan David</h4>
+                                <p class="text-[10px] text-blue-400 font-medium uppercase" data-i18n="role_dev">Développeur </p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center border border-violet-500/30 text-violet-500 font-bold italic">H</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Hugo Lefebvre</h4>
+                                <p class="text-[10px] text-violet-400 font-medium uppercase" data-i18n="role_game">Game Designer</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center border border-violet-500/30 text-violet-500 font-bold italic">K</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Kieran Mignon</h4>
+                                <p class="text-[10px] text-violet-400 font-medium uppercase" data-i18n="role_design">Narrative & Sound Designer</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-violet-600/20 rounded-lg flex items-center justify-center border border-violet-500/30 text-violet-500 font-bold italic">E</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white uppercase tracking-tighter">Elwan Saillant</h4>
+                                <p class="text-[10px] text-violet-400 font-medium uppercase" data-i18n="role_level">Level Designer</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass p-6 rounded-2xl border-slate-800">
+                    <h3 class="font-bold text-sm uppercase tracking-widest text-slate-400 mb-4" data-i18n="skills_title">Expertise</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-bold uppercase">Unreal Engine</span>
+                        <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-bold uppercase">Blender</span>
+                        <span class="px-2 py-1 bg-slate-900 border border-slate-800 rounded text-[10px] font-bold uppercase">Substance</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contenu Principal -->
+            <div class="lg:col-span-2 space-y-12">
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-white">
+                        <i data-lucide="scroll-text" class="text-fuchsia-500"></i> <span data-i18n="section_concept">Le Concept</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="concept_desc">
+                        Lumiscape est un puzzle-game coopératif asymétrique développé sous Unreal Engine. Deux entités électriques doivent collaborer pour s'échapper d'une usine de jouets abandonnée en manipulant l'énergie et la lumière pour résoudre des énigmes environnementales.
+                    </p>
+                </section>
+
+                <!-- Section Résultats -->
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                        <i data-lucide="check-circle" class="text-fuchsia-500"></i> <span data-i18n="section_results">Résultats Techniques & Artistiques</span>
+                    </h2>
+                    <ul class="space-y-4 list-none">
+                        <li class="flex gap-4 p-4 glass rounded-xl border-white/5">
+                            <i data-lucide="box" class="text-fuchsia-500 shrink-0" size="20"></i>
+                            <span class="text-sm text-slate-300 leading-relaxed" data-i18n="result_1">Modélisation 3D modulaire : création d'un set d'assets optimisés pour l'environnement industriel.</span>
+                        </li>
+                        <li class="flex gap-4 p-4 glass rounded-xl border-white/5">
+                            <i data-lucide="palette" class="text-fuchsia-500 shrink-0" size="20"></i>
+                            <span class="text-sm text-slate-300 leading-relaxed" data-i18n="result_2">Texturing PBR : application de textures réalistes via Substance Painter pour renforcer l'ambiance "jouet ancien".</span>
+                        </li>
+                        <li class="flex gap-4 p-4 glass rounded-xl border-white/5">
+                            <i data-lucide="layers" class="text-fuchsia-500 shrink-0" size="20"></i>
+                            <span class="text-sm text-slate-300 leading-relaxed" data-i18n="result_3">Level Design asymétrique : conception de puzzles nécessitant une communication constante entre les joueurs.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section Leçons -->
+                <section class="reveal">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                        <i data-lucide="lightbulb" class="text-fuchsia-500"></i> <span data-i18n="section_lessons">Leçons Apprises</span>
+                    </h2>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <li class="p-5 bg-slate-900/50 rounded-2xl border border-slate-800 flex flex-col gap-2">
+                            <h4 class="font-bold text-xs text-fuchsia-300 uppercase tracking-widest" data-i18n="lesson_title_1">Pipeline Art</h4>
+                            <p class="text-xs text-slate-400" data-i18n="lesson_1">Maîtrise du flux de travail complet : de la modélisation à l'intégration temps réel dans le moteur.</p>
+                        </li>
+                        <li class="p-5 bg-slate-900/50 rounded-2xl border border-slate-800 flex flex-col gap-2">
+                            <h4 class="font-bold text-xs text-fuchsia-300 uppercase tracking-widest" data-i18n="lesson_title_2">Expérience Coop</h4>
+                            <p class="text-xs text-slate-400" data-i18n="lesson_2">Compréhension des enjeux de l'asymétrie pour éviter la frustration des joueurs.</p>
+                        </li>
+                        <li class="p-5 bg-slate-900/50 rounded-2xl border border-slate-800 flex flex-col gap-2">
+                            <h4 class="font-bold text-xs text-fuchsia-300 uppercase tracking-widest" data-i18n="lesson_title_3">Optimisation</h4>
+                            <p class="text-xs text-slate-400" data-i18n="lesson_3">Gestion du budget polygone et des textures pour garantir la fluidité sur Unreal Engine.</p>
+                        </li>
+                        <li class="p-5 bg-slate-900/50 rounded-2xl border border-slate-800 flex flex-col gap-2">
+                            <h4 class="font-bold text-xs text-fuchsia-300 uppercase tracking-widest" data-i18n="lesson_title_4">Gestion de projet</h4>
+                            <p class="text-xs text-slate-400" data-i18n="lesson_4">Coordination au sein d'une équipe créative pour respecter la vision artistique globale.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="pt-8 border-t border-slate-900">
+                    <a href="/index.html#projets" class="inline-flex items-center gap-2 px-6 py-3 glass rounded-xl hover:text-fuchsia-400 transition-all font-bold text-sm text-white group">
+                        <i data-lucide="arrow-left" size="18" class="group-hover:-translate-x-1 transition-transform"></i> 
+                        <span data-i18n="back_btn">Retour à l'inventaire</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/lang.js"></script>
+    <script src="/js/accessibility.js"></script>
+    <script src="/js/components-loader.js"></script>
+    
+    <script>
+        window.addEventListener('load', async () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
