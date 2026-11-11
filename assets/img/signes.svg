@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Signes du site. Le trait (couleur, épaisseur) vient du svg qui les appelle. -->
+  <!-- Les six écoles : marques alchimiques -->
+  <symbol id="feu" viewBox="0 0 24 24"><path d="M12 3L22 21H2Z"/></symbol>
+  <symbol id="terre" viewBox="0 0 24 24"><path d="M2 3H22L12 21ZM5 13H19"/></symbol>
+  <symbol id="air" viewBox="0 0 24 24"><path d="M12 3L22 21H2ZM5 11H19"/></symbol>
+  <symbol id="mercure" viewBox="0 0 24 24"><circle cx="12" cy="11" r="5"/><path d="M7 1.5a5 5 0 0 0 10 0M12 16v7M8.5 19.5h7"/></symbol>
+  <symbol id="eau" viewBox="0 0 24 24"><path d="M2 3H22L12 21Z"/></symbol>
+  <symbol id="sel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12H21"/></symbol>
+  <!-- Liens : clé = page du site, arche = site externe, feuillet = document, lettre = courriel -->
+  <symbol id="cle" viewBox="0 0 24 24"><circle cx="6.5" cy="12" r="4.5"/><path d="M11 12H22M17.5 12v4.5M21 12v3"/></symbol>
+  <symbol id="porte" viewBox="0 0 24 24"><path d="M5 22V12Q5 5 12 2Q19 5 19 12V22M2 22H22"/></symbol>
+  <symbol id="feuillet" viewBox="0 0 24 24"><path d="M6 3H18V21H6ZM9.5 8.5h5M9.5 12.5h5M9.5 16.5h3"/></symbol>
+  <symbol id="lettre" viewBox="0 0 24 24"><path d="M3 5H21V19H3ZM3 5L12 13L21 5"/></symbol>
+</svg>

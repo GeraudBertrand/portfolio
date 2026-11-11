@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="en">
 <head>
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
@@ -15,205 +15,200 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#1b131f">
     <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#1b131f">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Géraud BERTRAND | Ingénieur Logiciel & Créateur de rêves</title>
+    <title>Géraud Bertrand | Software engineer in training</title>
+    <meta name="description" content="Géraud Bertrand, work-study software engineer: C#/.NET, signals, AI tools and games. Everything I have built, sorted by craft.">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
 </head>
-<body class="overflow-x-hidden bg-slate-950 text-slate-50">
+<body>
+
+    <!-- Bords encrés : déformation des formes pleines, jamais du texte -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
 
     <div id="navbar-placeholder"></div>
 
-    <!-- HERO SECTION -->
-    <section id="accueil" class="relative min-h-screen flex flex-col justify-center items-center px-6">
-        <div class="relative z-10 text-center max-w-4xl">
-            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-violet-300 uppercase bg-violet-500/10 border border-violet-500/20 rounded-full" data-i18n="hero_badge">
-                Ingénieur Logiciel & Créateur d'imaginaire
-            </div>
-            <h1 class="text-5xl md:text-8xl font-extrabold mb-6 tracking-tighter">
-                Géraud <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-fuchsia-500">BERTRAND</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                <span id="typewriter-text" data-text="De l'algorithme à la solution !"></span><span class="cursor">|</span>
-            </p>
-            <div class="flex gap-4 justify-center">
-                <a href="#projets" class="px-8 py-4 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-xl transition-all shadow-xl shadow-violet-500/20 flex items-center justify-center gap-2">
-                    <i data-lucide="package" size="18"></i> <span data-i18n="hero_btn">Ouvrir l'inventaire</span>
-                </a>
-            </div>
-        </div>
-    </section>
+    <main class="page">
 
-    <!-- SECTION À PROPOS -->
-    <section id="a-propos" class="py-24 px-6 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
-                    <span class="text-violet-500" data-i18n="about_title_1">Créateur de rêves,</span>
-                    <span data-i18n="about_title_2">Ingénieur par métier</span>
-                </h2>
-                <p class="text-slate-300 mb-12 leading-relaxed max-w-3xl" data-i18n="about_desc">
-                    Étudiant à l'ESILV Nantes, je fusionne la rigueur du code avec la joie et la liberté de l'esprit.
-                </p>
+        <!-- OUVERTURE -->
+        <section id="accueil" class="ouverture">
+            <div class="masse" aria-hidden="true"><i></i></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-                    <div class="group skill-box glass p-6 rounded-2xl border border-white/5 hover:border-violet-500/50 hover:bg-slate-900/80 cursor-default">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="gamepad-2" class="text-violet-500" size="24"></i>
-                            <h4 class="font-bold text-base ml-3 text-white uppercase tracking-tight" data-i18n="skills_gd">Game</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400" data-i18n="tag_balancing">Équilibrage</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400" data-i18n="tag_design">Game Design</span>
-                        </div>
-                        <div class="skill-details overflow-hidden">
-                            <p class="text-xs text-slate-400 leading-relaxed mb-3" data-i18n="about_gd_details">
-                                Conception de systèmes de jeu (R'yleh, Living Rock, Lumiscape). Focus sur l'expérience utilisateur et l'immersion.
-                            </p>
-                            <div class="flex items-center gap-2 text-[10px] text-violet-400 font-bold uppercase">
-                                <span data-i18n="ref_ryleh">Projet : La Lisière de R'yleh | Living Rock</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- EMBLÈME PROVISOIRE : à remplacer par l'illustration du paresseux nécromancien (un <img> carré suffit) -->
+            <svg class="sceau" viewBox="0 0 240 240" role="img" aria-labelledby="sceau-titre">
+                <title id="sceau-titre" data-i18n="emblem_alt">Emblem: a skeletal sloth hanging from a branch, inside a seal with six marks.</title>
+                <circle cx="120" cy="120" r="112" fill="#0e0910" stroke="#e7dcc4" stroke-width="5"/>
+                <circle cx="120" cy="120" r="99" fill="none" stroke="#e7dcc4" stroke-width="1.5"/>
+                <!-- six losanges sur le pourtour, un par école -->
+                <path fill="var(--accent)" d="M120 7.5l7 7-7 7-7-7zM211.4 60.3l7 7-7 7-7-7zM211.4 165.7l7 7-7 7-7-7zM120 218.5l7 7-7 7-7-7zM28.6 165.7l7 7-7 7-7-7zM28.6 60.3l7 7-7 7-7-7z"/>
+                <path d="M88 152L78 78M152 152L162 78" stroke="#e7dcc4" stroke-width="16" stroke-linecap="round"/>
+                <path d="M33 76H207" stroke="#e7dcc4" stroke-width="11"/>
+                <path d="M70 72V54M78 72V51M86 72V54M154 72V54M162 72V51M170 72V54" stroke="#e7dcc4" stroke-width="4.5" stroke-linecap="round"/>
+                <ellipse cx="120" cy="160" rx="45" ry="38" fill="#e7dcc4"/>
+                <path d="M97 156h46M93 169h54M100 182h40" stroke="#0e0910" stroke-width="5"/>
+                <path d="M120 148v44" stroke="#0e0910" stroke-width="4"/>
+                <circle cx="120" cy="118" r="30" fill="#e7dcc4" stroke="#0e0910" stroke-width="4"/>
+                <ellipse cx="108" cy="116" rx="11" ry="7" transform="rotate(25 108 116)" fill="#0e0910"/>
+                <ellipse cx="132" cy="116" rx="11" ry="7" transform="rotate(-25 132 116)" fill="#0e0910"/>
+                <circle cx="109" cy="116" r="3" fill="var(--accent)"/><circle cx="131" cy="116" r="3" fill="var(--accent)"/>
+                <path d="M114 128h12l-6 7z" fill="#0e0910"/>
+                <path d="M108 139q12 7 24 0M113 139v5M120 141v5M127 139v5" fill="none" stroke="#0e0910" stroke-width="2.2"/>
+            </svg>
 
-                    <div class="group skill-box glass p-6 rounded-2xl border border-white/5 hover:border-violet-500/50 hover:bg-slate-900/80 cursor-default">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="monitor" class="text-violet-500" size="24"></i>
-                            <h4 class="font-bold text-base ml-3 text-white uppercase tracking-tight" data-i18n="skills_soft">Software</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">C# / .NET</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">SQL</span>
-                        </div>
-                        <div class="skill-details overflow-hidden">
-                            <p class="text-xs text-slate-400 leading-relaxed mb-3" data-i18n="about_soft_details">
-                                Développement d'architectures robustes et mise en place de flux de données chez XLConcept.
-                            </p>
-                            <div class="flex items-center gap-2 text-[10px] text-violet-400 font-bold uppercase">
-                                <span data-i18n="ref_devisnet">Projet : DevisNet</span>
-                            </div>
-                        </div>
-                    </div>
+            <h1 class="nom gothique">Géraud<span>Bertrand</span></h1>
 
-                    <!-- Box 3: IA -->
-                    <div class="group skill-box glass p-6 rounded-2xl border border-white/5 hover:border-violet-500/50 hover:bg-slate-900/80 cursor-default">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="brain-circuit" class="text-violet-500" size="24"></i>
-                            <h4 class="font-bold text-base ml-3 text-white uppercase tracking-tight" data-i18n="skills_ia">IA</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">Python</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">OCR / Vision</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">YOLO8</span>
-                        </div>
-                        <div class="skill-details overflow-hidden">
-                            <p class="text-xs text-slate-400 leading-relaxed mb-3" data-i18n="about_ia_details">
-                                Apprentissage du fonctionnement des IA et des systèmes de vision par ordinateur. Développement de compétences en développement de modèles d'IA.
-                            </p>
-                            <div class="flex items-center gap-2 text-[10px] text-violet-400 font-bold uppercase">
-                                <span data-i18n="ref_tcg">Projet : TCG Scanner</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Box 4: Code -->
-                    <div class="group skill-box glass p-6 rounded-2xl border border-white/5 hover:border-violet-500/50 hover:bg-slate-900/80 cursor-default">
-                        <div class="flex items-center mb-4">
-                            <i data-lucide="code-2" class="text-violet-500" size="24"></i>
-                            <h4 class="font-bold text-base ml-3 text-white uppercase tracking-tight" data-i18n="skills_code">Code</h4>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">C++</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">C#</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">JS</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">Python</span>
-                            <span class="px-2 py-0.5 bg-slate-800 border border-white/10 rounded text-[9px] font-bold uppercase text-slate-400">React</span>
-                        </div>
-                        <div class="skill-details overflow-hidden">
-                            <p class="text-xs text-slate-400 leading-relaxed mb-3" data-i18n="about_code_details">
-                                Multiple projet de développement de mes compétences en programmation, d'implémentation de systèmes logique complexes. Passion pour l'optimisation et la qualité du code.
-                            </p>
-                            <div class="flex items-center gap-2 text-[10px] text-violet-400 font-bold uppercase">
-                                <span data-i18n="ref_performance">Focus : Transcription & Traduction</span>
-                            </div>
-                        </div>
-                    </div>
-
+            <div class="suite">
+                <div>
+                    <p class="metier" data-i18n="hero_role">Software engineer in training. C#/.NET on weekdays. Signals, familiars and games after dark.</p>
+                    <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span data-i18n="hero_github">The code, on GitHub</span></a>
                 </div>
+                <blockquote class="chronique">
+                    <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                    <span data-i18n="hero_chronicle">He is slow, as his kind are slow. Do not mistake it for sleep: what he raises, stays raised.</span>
+                    <cite data-i18n="chronicler">The Chronicler</cite>
+                </blockquote>
             </div>
-        </div>
-    </section>
 
-    <!-- SECTION PARCOURS -->
-    <section id="experiences" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal mb-12">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">
-                    <span data-i18n="exp_title">Parcours </span>
-                    <span class="text-violet-500" data-i18n="exp_title_span">Professionnel</span>
-                </h2>
-                <p class="text-slate-400 italic" data-i18n="exp_subtitle">Chronologie de mes aventures en entreprise.</p>
-            </div>
-            
-            <div id="experience-timeline" class="timeline-container">
-                <!-- Spinner waiting for injection -->
-                <div class="flex items-center justify-center py-20">
-                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-violet-500"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p class="tampon gothique" data-i18n="hero_stamp">Sought: an internship abroad, summer of 2027</p>
 
-    <!-- SECTION PROJETS -->
-    <section id="projets" class="py-24 px-6  bg-slate-900/50">
-        <div class="max-w-7xl mx-auto text-white">
-            <div class="reveal mb-12">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">
-                    <span data-i18n="inventory_title">Inventaire de </span>
-                    <span class="text-violet-500" data-i18n="inventory_title_span">Projets</span>
-                </h2>
-                <p class="text-slate-400 italic" data-i18n="inventory_subtitle">Examinez mes artéfacts.</p>
-            </div>
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="w-full lg:w-1/3 glass p-6 rounded-2xl">
-                    <div class="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
-                        <i data-lucide="package" class="text-violet-500"></i>
-                        <span id="inventory-count" class="text-xs font-bold uppercase" data-i18n="inventory_count_label">Sac d'objets</span>
-                    </div>
-                    <div id="inventory-grid" class="grid grid-cols-4 gap-3">
-                        <!-- Spinner waiting for injection -->
-                        <div class="flex items-center justify-center py-20">
-                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-violet-500"></div>
-                        </div>
-                    </div>
-                </div>
-                <div id="item-details" class="w-full lg:w-2/3 min-h-[450px] relative">
-                    <div id="project-details-placeholder" class="h-full flex items-center justify-center glass rounded-2xl border-dashed border-2 border-slate-800 text-slate-500 italic p-12 text-center" data-i18n="item_placeholder">
-                        Sélectionnez un artéfact.
-                    </div>
-                    <div id="project-details-content" class="hidden h-full"></div>
-                </div>
-            </div>
+            <ul class="barres faits">
+                <li data-i18n="fact_work">Work-study developer at XLConcept since 2025</li>
+                <li data-i18n="fact_school">Engineering student, software and AI, ESILV Nantes, 2025 to 2028</li>
+                <li data-i18n="fact_languages">French, English, some German</li>
+            </ul>
+        </section>
+
+        <!-- LES SIX ÉCOLES : les projets viennent de /js/projects.json, rendus par /js/index.js -->
+        <h2 id="ecoles" class="titre gothique" data-i18n="schools_title">The six schools</h2>
+        <div class="intro">
+            <p><span data-i18n="schools_intro">What I have built and what I am building, sorted by craft.</span> <span id="nb-projets"></span> <span data-i18n="schools_count">entries, finished or not.</span></p>
+            <ul class="barres legende">
+                <li><i class="etat vivant" aria-hidden="true"></i><span data-i18n="state_alive_legend">alive: in use</span></li>
+                <li><i class="etat rituel" aria-hidden="true"></i><span data-i18n="state_ritual_legend">in ritual: in progress</span></li>
+                <li><i class="etat repos" aria-hidden="true"></i><span data-i18n="state_rest_legend">at rest: finished</span></li>
+            </ul>
         </div>
-    </section>
+
+        <div class="ecoles">
+            <!-- Galvanisme en vedette : c'est la direction visée (neurotechnologies) -->
+            <section class="ecole parchemin vedette">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <div class="scel" style="top:-2.6rem; right:2.4rem" aria-hidden="true"><i class="cire"><svg><use href="/assets/img/signes.svg#feu"/></svg></i><span class="ruban g" data-i18n="seal_heading">where I'm heading</span><span class="ruban d" data-i18n="seal_due">April 2027</span></div>
+                <div class="vedette-texte">
+                    <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#feu"/></svg><div><h3 class="gothique" data-i18n="school_galvanism">Galvanism</h3><div class="sous" data-i18n="school_galvanism_sub">hardware and signal</div></div></header>
+                    <p class="dit" data-i18n="school_galvanism_say">Dead metal, a little current, and the patience to wait for a twitch.</p>
+                    <p class="cap" data-i18n="galvanism_cap">The field I want to work in: neurotechnology, signals from the body turned into control.</p>
+                    <ul class="registre" data-ecole="galvanisme"></ul>
+                </div>
+                <figure class="schema">
+                    <svg viewBox="0 0 560 160" role="img" aria-labelledby="schema-titre">
+                        <title id="schema-titre" data-i18n="schema_alt">From muscle to metal: EMG sensors on the forearm, an ESP32-S3, a decoding model, then the robot arm.</title>
+                        <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- signal EMG -->
+                            <path d="M14 62h14l5-20 7 40 6-50 7 58 6-36 5 16 5-8h30" stroke-width="3.5"/>
+                            <!-- flèches -->
+                            <path d="M112 62h36M142 55l8 7-8 7M252 62h36M282 55l8 7-8 7M392 62h36M422 55l8 7-8 7"/>
+                            <!-- puce ESP32-S3 -->
+                            <rect x="166" y="30" width="68" height="64"/><rect x="184" y="48" width="32" height="28"/>
+                            <path d="M178 30v-9M194 30v-9M210 30v-9M226 30v-9M178 94v9M194 94v9M210 94v9M226 94v9"/>
+                            <!-- modèle -->
+                            <path d="M310 36l36 14M310 36l36 38M310 62l36-12M310 62l36 12M310 88l36-38M310 88l36-14M346 50l30 12M346 74l30-12"/>
+                            <circle cx="310" cy="36" r="6" fill="#e7dcc4"/><circle cx="310" cy="62" r="6" fill="#e7dcc4"/><circle cx="310" cy="88" r="6" fill="#e7dcc4"/>
+                            <circle cx="346" cy="50" r="6" fill="#e7dcc4"/><circle cx="346" cy="74" r="6" fill="#e7dcc4"/><circle cx="376" cy="62" r="6" fill="currentColor"/>
+                            <!-- bras et pince -->
+                            <path d="M446 104h44M468 104l8-42 34-16M510 46l12-12h10M510 46l12 12h10" stroke-width="5"/>
+                            <circle cx="476" cy="62" r="5" fill="#e7dcc4"/><circle cx="510" cy="46" r="5" fill="#e7dcc4"/>
+                        </g>
+                        <g class="schema-legendes" fill="currentColor" text-anchor="middle">
+                            <text x="62" y="140" data-i18n="schema_muscle">forearm EMG</text>
+                            <text x="200" y="140">ESP32-S3</text>
+                            <text x="342" y="140" data-i18n="schema_model">model</text>
+                            <text x="488" y="140" data-i18n="schema_arm">PiPER arm</text>
+                        </g>
+                    </svg>
+                </figure>
+            </section>
+
+            <section class="ecole encre a1">
+                <div class="plaque" aria-hidden="true"><i></i></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#terre"/></svg><div><h3 class="gothique" data-i18n="school_artifice">Artifice</h3><div class="sous" data-i18n="school_artifice_sub">applications and tools</div></div></header>
+                <p class="dit" data-i18n="school_artifice_say">Tools, mostly. Forged because someone needed them on a Monday.</p>
+                <ul class="registre" data-ecole="artifice"></ul>
+            </section>
+
+            <section class="ecole prune a2">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <div class="scel" style="top:-2.5rem; right:2.1rem" aria-hidden="true"><i class="cire"><svg><use href="/assets/img/signes.svg#air"/></svg></i><span class="ruban g" data-i18n="seal_daily">in daily use</span><span class="ruban d" data-i18n="seal_three">three bound</span></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#air"/></svg><div><h3 class="gothique" data-i18n="school_conjuration">Conjuration</h3><div class="sous" data-i18n="school_conjuration_sub">AI familiars</div></div></header>
+                <p class="dit court" data-i18n="school_conjuration_say">Small spirits bound to small chores: notes, larder, ledger.</p>
+                <ul class="registre" data-ecole="conjuration"></ul>
+            </section>
+
+            <section class="ecole parchemin b1">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <div class="scel" style="top:-2.75rem; right:2.5rem" aria-hidden="true"><i class="cire"><svg><use href="/assets/img/signes.svg#mercure"/></svg></i><span class="ruban g" data-i18n="seal_measured">measured</span><span class="ruban d" data-i18n="seal_not_guessed">not guessed</span></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#mercure"/></svg><div><h3 class="gothique" data-i18n="school_divination">Divination</h3><div class="sous" data-i18n="school_divination_sub">data and game AI</div></div></header>
+                <p class="dit court" data-i18n="school_divination_say">Numbers, asked politely what comes next.</p>
+                <ul class="registre" data-ecole="divination"></ul>
+            </section>
+
+            <section class="ecole encre b2">
+                <div class="plaque" aria-hidden="true"><i></i></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#eau"/></svg><div><h3 class="gothique" data-i18n="school_illusion">Illusion</h3><div class="sous" data-i18n="school_illusion_sub">games</div></div></header>
+                <p class="dit" data-i18n="school_illusion_say">Worlds made of rules, and the long evenings spent balancing them.</p>
+                <ul class="registre" data-ecole="illusion"></ul>
+            </section>
+
+            <section class="ecole prune c2">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#sel"/></svg><div><h3 class="gothique" data-i18n="school_transmutation">Transmutation</h3><div class="sous" data-i18n="school_transmutation_sub">the workshop, Créalab</div></div></header>
+                <p class="dit" data-i18n="school_transmutation_say">A workshop of plastic and heat, and the ledger that keeps it honest.</p>
+                <ul class="registre" data-ecole="transmutation"></ul>
+            </section>
+        </div>
+
+        <!-- LA CHRONIQUE : parcours -->
+        <h2 id="parcours" class="titre gothique" data-i18n="path_title">The chronicle</h2>
+        <div class="intro"><p data-i18n="path_intro">Where I have served, and where I have studied.</p></div>
+
+        <div class="parcours">
+            <section>
+                <h3 data-i18n="path_work">in service</h3>
+                <ol class="annales">
+                    <li><div class="dates">2025 – <span data-i18n="path_now">now</span></div><div><b data-i18n="work1_title">Full-stack developer, work-study. XLConcept</b><span data-i18n="work1_text">Sole developer of an internal B2B bid-production tool, from back end to front end. C#, .NET, Blazor.</span></div></li>
+                    <li><div class="dates">2023 – 2024</div><div><b data-i18n="work2_title">Developer, internship then fixed-term contract. Pétrarque</b><span data-i18n="work2_text">A complete home-automation system on Jeedom, then a website and REST API collecting IoT sensor data.</span></div></li>
+                    <li><div class="dates">2021 – 2022</div><div><b data-i18n="work3_title">Full-stack developer, work-study. XLConcept Corporation</b><span data-i18n="work3_text">Web platform for workplace cleaning management: business API and back end. C#, .NET, SQL Server.</span></div></li>
+                </ol>
+            </section>
+            <section>
+                <h3 data-i18n="path_studies">in study</h3>
+                <ol class="annales">
+                    <li><div class="dates">2025 – 2028</div><div><b data-i18n="study1_title">Engineering degree, software engineering and AI</b><span>ESILV, Nantes</span></div></li>
+                    <li><div class="dates">2022 – 2023</div><div><b data-i18n="study2_title">Professional bachelor's, video game careers</b><span>IUT Sorbonne Paris Nord</span></div></li>
+                    <li><div class="dates">2021 – 2022</div><div><b data-i18n="study3_title">Professional bachelor's, web and mobile development</b><span>IUT Sorbonne Paris Nord</span></div></li>
+                    <li><div class="dates">2019 – 2021</div><div><b data-i18n="study4_title">DUT, computer science</b><span>IUT Sorbonne Paris Nord</span></div></li>
+                </ol>
+            </section>
+        </div>
+    </main>
 
     <div id="footer-placeholder"></div>
-    <div id="achievement-container" class="fixed bottom-6 right-6 z-[100] flex flex-col gap-3 items-end pointer-events-none"></div>
 
-    <!-- Scripts (Ordre important) -->
+    <!-- Scripts (ordre important) -->
     <script src="/js/lang.js"></script>
     <script src="/js/accessibility.js"></script>
     <script src="/js/components-loader.js"></script>
-    <script src="/js/models/projects.js"></script>
-    <script src="/js/models/experience.js"></script>
     <script src="/js/index.js"></script>
 </body>
 </html>

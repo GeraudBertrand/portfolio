@@ -1,0 +1,45 @@
+{
+    "year": "2026 – now",
+    "en": {
+        "lede": "The platform of Créalab, the maker space of my school: print and cutting requests, 3D-printer monitoring, inventory, maintenance, members. I built the first version alone; it is now being tested.",
+        "say": "Plastic, heat, and the ledger that keeps the workshop honest.",
+        "facts": [["Context", "Student association, ESILV"], ["Role", "Sole developer"], ["Status", "First version, in testing"]],
+        "sections": [
+            { "h": "Why", "p": ["A maker space receives all kinds of requests: a part to print, a sheet to cut, a machine to repair, a training session to plan. CreaState tries to answer each of them in one place, instead of one tool per need. It is less a single site than a set of tools for the association."] },
+            { "h": "What it does", "ul": [
+                "A public side for students: submit a print or cutting request, follow it, talk about it in a chat.",
+                "A private side for members: dashboard, printers, requests, inventory, maintenance, events, training sessions.",
+                "Live state of the Bambu Lab printers, read over MQTT.",
+                "Sign-up restricted to the school's e-mail domain, with permissions per role."
+            ] },
+            { "h": "Where it stands", "p": ["I designed it, built it and produced the first version. The association is now testing it, to decide whether it will be adopted in full. Whatever the answer, it maps what Créalab actually needs, and that alone was worth doing."] },
+            { "h": "How it is built", "p": ["Blazor Server on .NET 9 with REST controllers in the same host, MySQL through Entity Framework, ASP.NET Core Identity. Permissions in the database become claims, then policies; a role is just a set of permissions. Packaged with Docker, meant to run on a Raspberry Pi in the workshop."] },
+            { "h": "What it taught me", "ul": [
+                "In Blazor Server there is no HTTP context inside the live connection, so login has to go through a form posted to a controller.",
+                "Talking to real machines: MQTT over TLS, reconnections, shared state in memory.",
+                "The same authorization pattern as DevisNet. Each project improves the other."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "La plateforme du Créalab, le fablab de mon école : demandes d'impression et de découpe, suivi des imprimantes 3D, inventaire, maintenance, membres. J'en ai construit seul la première version ; elle est en test.",
+        "say": "Du plastique, de la chaleur, et le registre qui garde l'atelier honnête.",
+        "facts": [["Contexte", "Association étudiante, ESILV"], ["Rôle", "Seul développeur"], ["Statut", "Première version, en test"]],
+        "sections": [
+            { "h": "Pourquoi", "p": ["Un fablab reçoit toutes sortes de demandes : une pièce à imprimer, une plaque à découper, une machine à réparer, une formation à organiser. CreaState essaie d'y répondre au même endroit, plutôt qu'avec un outil par besoin. C'est moins un site qu'un ensemble d'outils pour l'association."] },
+            { "h": "Ce qu'il fait", "ul": [
+                "Un espace public pour les élèves : déposer une demande d'impression ou de découpe, la suivre, en discuter dans un chat.",
+                "Un espace privé pour les membres : tableau de bord, imprimantes, demandes, inventaire, maintenance, événements, formations.",
+                "L'état en direct des imprimantes Bambu Lab, lu en MQTT.",
+                "Inscription réservée au domaine de messagerie de l'école, avec des permissions par rôle."
+            ] },
+            { "h": "Où il en est", "p": ["Je l'ai conçu, construit, et j'en ai produit la première version. L'association la teste maintenant, pour décider si elle sera exploitée entièrement. Quelle que soit la réponse, elle cartographie ce dont le Créalab a vraiment besoin, et rien que pour ça, ça valait le coup."] },
+            { "h": "Comment il est construit", "p": ["Blazor Server sous .NET 9 avec des contrôleurs REST dans le même hôte, MySQL via Entity Framework, ASP.NET Core Identity. Des permissions en base deviennent des claims, puis des policies ; un rôle n'est qu'un ensemble de permissions. Empaqueté avec Docker, prévu pour tourner sur un Raspberry Pi dans l'atelier."] },
+            { "h": "Ce qu'il m'a appris", "ul": [
+                "En Blazor Server, il n'y a pas de contexte HTTP dans la connexion vivante : la connexion doit passer par un formulaire envoyé à un contrôleur.",
+                "Parler à de vraies machines : MQTT sur TLS, reconnexions, état partagé en mémoire.",
+                "Le même modèle d'autorisation que DevisNet. Chaque projet améliore l'autre."
+            ] }
+        ]
+    }
+}

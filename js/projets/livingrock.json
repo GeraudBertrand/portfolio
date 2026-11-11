@@ -1,0 +1,45 @@
+{
+    "year": "2023",
+    "team": [
+        { "name": "Géraud Bertrand", "en": "game and level design", "fr": "game et level design", "me": true },
+        { "name": "Robin Lefebvre", "en": "level and game design", "fr": "level et game design" },
+        { "name": "Justine Guillou", "en": "game art", "fr": "graphisme" },
+        { "name": "Sally Niasse", "en": "game art", "fr": "graphisme" },
+        { "name": "Louka Doz", "en": "development", "fr": "développement" },
+        { "name": "Gaston Rouquette", "en": "development", "fr": "développement" },
+        { "name": "Emmanuel Dietlin", "en": "development", "fr": "développement" }
+    ],
+    "figures": [
+        { "src": "/assets/img/livingrock/illustration.webp", "w": 630, "h": 500, "en": "Cover art of the game.", "fr": "L'illustration du jeu." },
+        { "src": "/assets/img/livingrock/level1.webp", "w": 547, "h": 337, "en": "A level designed for the game, built around the living rock.", "fr": "Un niveau conçu pour le jeu, construit autour du rocher vivant." },
+        { "src": "/assets/img/livingrock/legende.webp", "w": 380, "h": 574, "en": "Key to the interactive elements of the level.", "fr": "Légende des éléments interactifs du niveau." }
+    ],
+    "en": {
+        "lede": "A minimalist physics puzzle game made in 48 hours at UniJam 2023. Your companion is a living rock, and it crumbles if you walk too far from it.",
+        "say": "A stone that dies of loneliness. They built it in two nights.",
+        "facts": [["Context", "UniJam 2023, 48 hours"], ["Role", "Game and level design"], ["Theme", "Distance makes everything infinitely more precious"]],
+        "sections": [
+            { "h": "The constraint", "p": ["The theme of the jam asked for distance to matter. We read it literally: distance becomes a direct threat to the character's companion."] },
+            { "h": "The game", "p": ["You solve physics puzzles by moving pieces of the room. The main piece is the living rock: useful everywhere, but if it strays too far from you, it falls apart."], "ul": [
+                "Pressure plates that only the rock or an energy crate can hold down.",
+                "One-way conveyor belts.",
+                "Levers that keep doors open."
+            ] },
+            { "h": "My part", "p": ["With Robin Lefebvre, I designed the levels. Each room teaches a mechanic, asks you to use it, then adds a twist, so the difficulty climbs without a wall. In 48 hours, that meant deciding fast and cutting what did not fit."] }
+        ]
+    },
+    "fr": {
+        "lede": "Un jeu de réflexion physique minimaliste fait en 48 heures à l'UniJam 2023. Votre compagnon est un rocher vivant, et il s'effrite si vous vous éloignez trop.",
+        "say": "Une pierre qui meurt de solitude. Ils l'ont bâtie en deux nuits.",
+        "facts": [["Contexte", "UniJam 2023, 48 heures"], ["Rôle", "Game et level design"], ["Thème", "La distance rend tout infiniment plus précieux"]],
+        "sections": [
+            { "h": "La contrainte", "p": ["Le thème de la jam demandait que la distance compte. Nous l'avons pris au pied de la lettre : la distance devient une menace directe pour le compagnon du personnage."] },
+            { "h": "Le jeu", "p": ["On résout des énigmes physiques en déplaçant des éléments de la salle. L'élément principal est le rocher vivant : utile partout, mais s'il s'éloigne trop de vous, il se désagrège."], "ul": [
+                "Des plaques de pression que seul le rocher ou une caisse d'énergie peut maintenir.",
+                "Des tapis roulants à sens unique.",
+                "Des leviers qui gardent les portes ouvertes."
+            ] },
+            { "h": "Ma part", "p": ["Avec Robin Lefebvre, j'ai conçu les niveaux. Chaque salle apprend une mécanique, la fait utiliser, puis ajoute une surprise, pour que la difficulté monte sans mur. En 48 heures, cela voulait dire décider vite et couper ce qui ne rentrait pas."] }
+        ]
+    }
+}

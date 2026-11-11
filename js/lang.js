@@ -3,7 +3,7 @@
  * Gère le chargement asynchrone des ressources par fichiers JSON.
  */
 
-window.currentLang = localStorage.getItem('lang') || 'fr';
+window.currentLang = localStorage.getItem('lang') || 'en';
 window.translations = {};
 window.activeNamespaces = [];
 
@@ -70,10 +70,13 @@ window.toggleLanguage = async function() {
  * Met à jour l'interface utilisateur liée à la langue
  */
 function updateLanguageUI() {
+    // Le bouton annonce la langue vers laquelle on bascule, écrite dans cette langue.
     const indicator = document.getElementById('lang-indicator');
-    const mobileIndicator = document.getElementById('lang-indicator-mobile');
-    if (indicator) indicator.textContent = window.currentLang.toUpperCase();
-    if (mobileIndicator) mobileIndicator.textContent = window.currentLang.toUpperCase();
+    const autre = window.currentLang === 'fr' ? 'en' : 'fr';
+    if (indicator) {
+        indicator.textContent = autre === 'fr' ? 'Français' : 'English';
+        indicator.lang = autre;
+    }
     document.documentElement.lang = window.currentLang;
 }
 
@@ -83,7 +86,8 @@ window.addEventListener('DOMContentLoaded', () => {
     path = path.split('/').pop();
     path = path.substring(0, path.lastIndexOf('.'));
 
-    if (path) initialNamespaces.push(path);
+    // Les pages projet (body[data-projet]) portent leur texte dans /js/projets/, pas de namespace à charger.
+    if (path && !document.body.dataset.projet) initialNamespaces.push(path);
     if( path == "") initialNamespaces.push('index');
     window.loadTranslations(initialNamespaces);
 

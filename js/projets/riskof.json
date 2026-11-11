@@ -1,0 +1,49 @@
+{
+    "year": "2023 – now",
+    "figures": [
+        { "src": "/assets/img/riskof/grille.webp", "w": 800, "h": 499, "size": "moyenne",
+          "en": "The item grid on riskof.gerios.fr, with the tooltip of one item.", "fr": "La grille des objets sur riskof.gerios.fr, avec l’infobulle d’un objet." }
+    ],
+    "en": {
+        "lede": "A fast wiki of Risk of Rain 2 items, because the official wiki is too slow to read in the middle of a run.",
+        "say": "A bestiary of trinkets, kept light enough to read between two deaths.",
+        "facts": [["Context", "Personal project, online"], ["Role", "Everything, alone"], ["Content", "189 items and 44 equipment"]],
+        "sections": [
+            { "h": "Why", "p": ["In the game you need an item's effect in two seconds. The Fandom wiki is heavy and full of ads. I wanted one page with every icon and the numbers on hover."] },
+            { "h": "What it does", "ul": [
+                "Every item icon in one grid, folded by rarity.",
+                "Hover an icon: name, quote and effect, with the numbers in colour.",
+                "Instant search by name.",
+                "A switch for each expansion, to show or hide its items.",
+                "A protected admin page to edit items and upload icons."
+            ] },
+            { "h": "How it is built", "p": ["On purpose, without a framework or a build step: static HTML and vanilla JavaScript, a small PHP API that returns JSON, and MariaDB. It runs on my Synology NAS, behind a Cloudflare Tunnel.", "Items are imported automatically: a script reads the Lua modules behind the Fandom wiki and fills the database."] },
+            { "h": "Over the years", "ul": [
+                "2023: first version, a static page and a PHP API.",
+                "2025: one request instead of one per tab, search, redesign.",
+                "2026: automatic import from the wiki, then the admin page."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "Un wiki rapide des objets de Risk of Rain 2, parce que le wiki officiel est trop lent à lire en pleine partie.",
+        "say": "Un bestiaire de babioles, assez léger pour être lu entre deux morts.",
+        "facts": [["Contexte", "Projet personnel, en ligne"], ["Rôle", "Tout, seul"], ["Contenu", "189 objets et 44 équipements"]],
+        "sections": [
+            { "h": "Pourquoi", "p": ["En jeu, il faut l'effet d'un objet en deux secondes. Le wiki Fandom est lourd et plein de publicités. Je voulais une seule page avec toutes les icônes et les chiffres au survol."] },
+            { "h": "Ce qu'il fait", "ul": [
+                "Toutes les icônes dans une seule grille, repliée par rareté.",
+                "Au survol d'une icône : nom, citation et effet, avec les chiffres en couleur.",
+                "Recherche instantanée par nom.",
+                "Un interrupteur par extension, pour afficher ou masquer ses objets.",
+                "Une page d'administration protégée pour modifier les objets et téléverser les icônes."
+            ] },
+            { "h": "Comment il est construit", "p": ["Volontairement sans framework ni étape de build : HTML statique et JavaScript sans bibliothèque, une petite API PHP qui renvoie du JSON, et MariaDB. Il tourne sur mon NAS Synology, derrière un tunnel Cloudflare.", "Les objets sont importés automatiquement : un script lit les modules Lua derrière le wiki Fandom et remplit la base."] },
+            { "h": "Au fil des ans", "ul": [
+                "2023 : première version, une page statique et une API PHP.",
+                "2025 : une seule requête au lieu d'une par onglet, recherche, refonte visuelle.",
+                "2026 : import automatique depuis le wiki, puis la page d'administration."
+            ] }
+        ]
+    }
+}

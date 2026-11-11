@@ -1,0 +1,59 @@
+{
+    "year": "2026 – now",
+    "en": {
+        "lede": "Three MCP servers that give my AI assistants something real to work with: my notes, my kitchen, my accounts. Built for my own use, each time because I needed it.",
+        "say": "Small spirits bound to small chores. They serve one master, and they remember.",
+        "facts": [["Context", "Personal use, not public"], ["Role", "Everything, alone"], ["Count", "Three servers, in daily use"]],
+        "sections": [
+            { "h": "How I use AI", "p": [
+                "I use AI mostly to understand. To have a mechanism explained, to look at a problem from an angle I do not know yet, to borrow knowledge I do not have and check it. It knows things I don't; I ask, I read, I verify.",
+                "I do not use it to think in my place. I stay the one who reasons and decides; the assistant helps. A familiar, not a replacement.",
+                "These servers exist for that: an assistant is only as useful as what it knows of my context. MCP (Model Context Protocol) lets me hand it my notes, my kitchen or my accounts, with tools I wrote and limits I chose."
+            ] },
+            { "h": "The keeper of notes", "p": ["ObsidianGraph.Mcp. My notes already link to each other, so instead of cutting them into chunks and searching them blind, the server lets Claude and Gemini walk the graph of links: map a topic, read a summary, then one section, then the whole note only if needed. It saves tokens and gives better answers. Both assistants share it as one memory and write notes themselves, following one template."], "ul": [
+                "Graph in memory as adjacency lists, notes parsed with source-generated regular expressions, re-indexed when a file changes.",
+                "Typed relations written in the note itself, such as uses:: [[link]].",
+                "OAuth 2.1 only."
+            ] },
+            { "h": "The keeper of the larder", "p": ["Cuisine.Mcp. I send a photo of the fridge; the stock is updated, shelf by shelf. Shopping and dinner ideas come from what is there, what expires soon and what I usually eat, and recipes come from my own cookbook. The view appears inside the chat, through MCP Apps."], "ul": [
+                ".NET 10 with no NuGet package: I wrote the protocol by hand.",
+                "One JSON file written atomically, plus an append-only history.",
+                "Names compared without accents or ligatures; units never converted silently."
+            ] },
+            { "h": "The keeper of the ledger", "p": ["CompteRendu.Mcp. Once a month it tells me where the money went, from the bank's export and from supermarket receipts read line by line."], "ul": [
+                "Data in CSV files, readable without the tool; the server sees one folder and nothing else.",
+                "A receipt is accepted only if its lines add up to the total; duplicates are caught by the receipt's own code.",
+                "xUnit tests on real receipts."
+            ] },
+            { "h": "What they share", "p": ["C# and .NET, Docker on my Synology NAS, authentication on every call. They are reachable only by my own assistants. None of them is meant to become a public product: they are tools shaped around one person's habits, and that is the point."] }
+        ]
+    },
+    "fr": {
+        "lede": "Trois serveurs MCP qui donnent à mes assistants IA de quoi travailler pour de vrai : mes notes, ma cuisine, mes comptes. Construits pour mon propre usage, chaque fois parce que j'en avais besoin.",
+        "say": "De petits esprits liés à de petites corvées. Ils ne servent qu'un maître, et ils se souviennent.",
+        "facts": [["Contexte", "Usage personnel, non public"], ["Rôle", "Tout, seul"], ["Nombre", "Trois serveurs, utilisés chaque jour"]],
+        "sections": [
+            { "h": "Comment j'utilise l'IA", "p": [
+                "J'utilise l'IA surtout pour comprendre. Me faire expliquer un fonctionnement, regarder un problème sous un angle que je ne connais pas encore, emprunter des connaissances que je n'ai pas et les vérifier. Elle sait des choses que j'ignore ; je demande, je lis, je vérifie.",
+                "Je ne l'utilise pas pour réfléchir à ma place. C'est moi qui raisonne et qui décide ; l'assistant aide. Un familier, pas un remplaçant.",
+                "Ces serveurs existent pour ça : un assistant n'est utile qu'à la mesure de ce qu'il sait de mon contexte. MCP (Model Context Protocol) me permet de lui confier mes notes, ma cuisine ou mes comptes, avec des outils que j'ai écrits et des limites que j'ai choisies."
+            ] },
+            { "h": "Le gardien des notes", "p": ["ObsidianGraph.Mcp. Mes notes se lient déjà entre elles : au lieu de les découper en morceaux et de les fouiller à l'aveugle, le serveur laisse Claude et Gemini parcourir le graphe des liens. Cartographier un sujet, lire un résumé, puis une section, puis la note entière seulement si besoin. Moins de tokens, de meilleures réponses. Les deux assistants s'en servent comme d'une mémoire commune et écrivent eux-mêmes les notes, selon un même gabarit."], "ul": [
+                "Graphe en mémoire sous forme de listes d'adjacence, notes lues avec des expressions régulières générées à la compilation, réindexées quand un fichier change.",
+                "Des relations typées écrites dans la note elle-même, comme utilise:: [[lien]].",
+                "Authentification uniquement par OAuth 2.1."
+            ] },
+            { "h": "Le gardien du garde-manger", "p": ["Cuisine.Mcp. J'envoie une photo du frigo ; le stock est mis à jour, étagère par étagère. Les idées de courses et de dîner partent de ce qui est là, de ce qui périme bientôt et de ce que je mange d'habitude, et les recettes viennent de mon propre carnet. La vue s'affiche dans la conversation, grâce à MCP Apps."], "ul": [
+                ".NET 10 sans aucun paquet NuGet : j'ai écrit le protocole à la main.",
+                "Un seul fichier JSON écrit de façon atomique, plus un historique en ajout seul.",
+                "Noms comparés sans accents ni ligatures ; jamais de conversion d'unité en silence."
+            ] },
+            { "h": "Le gardien du registre", "p": ["CompteRendu.Mcp. Une fois par mois, il me dit où est parti l'argent, à partir de l'export de la banque et des tickets de supermarché lus ligne par ligne."], "ul": [
+                "Données en fichiers CSV, lisibles sans l'outil ; le serveur ne voit qu'un dossier et rien d'autre.",
+                "Un ticket n'est accepté que si ses lignes donnent le total ; les doublons sont repérés grâce au code du ticket.",
+                "Des tests xUnit sur de vrais tickets."
+            ] },
+            { "h": "Ce qu'ils ont en commun", "p": ["C# et .NET, Docker sur mon NAS Synology, authentification à chaque appel. Seuls mes propres assistants peuvent les joindre. Aucun n'a vocation à devenir un produit public : ce sont des outils taillés pour les habitudes d'une seule personne, et c'est tout l'intérêt."] }
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "year": "2025 – now",
+    "en": {
+        "lede": "The tool my employer uses to answer calls for tender: from the catalogue of cleaning operations to the contract the client signs.",
+        "say": "One scribe, one tome of contracts. Every room counted, every frequency written down.",
+        "facts": [["Context", "Work-study, XLConcept"], ["Role", "Sole developer, back end to front end"], ["In production", "Version 2.1"]],
+        "sections": [
+            { "h": "What it is for", "p": ["Account managers build answers to calls for tender for workplace cleaning. They need a catalogue of operations and frequencies, contracts split into sites and rooms, a technical specification for each site, and clean documents to send. DevisNet holds all of it, from the first draft to the signed contract."] },
+            { "h": "What I built", "ul": [
+                "A library of operations and grouped operations, generic or specific to one client, with Excel import and export.",
+                "Versioned contracts with history, states, annexes, and a lot › site › room tree built from room templates.",
+                "A rich editor for the technical specification of each site, with photos and drag and drop, exported to PDF.",
+                "A separate client portal where clients read their contracts, sign them and discuss them in a chat.",
+                "Document storage in Nextcloud, isolated per client, with a personal account for each user."
+            ] },
+            { "h": "How it is built", "p": ["Blazor Server on .NET 9, Entity Framework Core over MariaDB, ASP.NET Identity. The internal tool and the client portal are two applications sharing one library, each with its own database. PDF reports come from JasperReports and SQL views. Tests are written with xUnit and NSubstitute."] },
+            { "h": "Security and production", "ul": [
+                "Two-factor authentication is mandatory, sessions expire every 30 days, permissions are fine-grained, and every change is written to an audit log.",
+                "Authorization tests run before each deployment. The deploy script runs the tests and can roll back.",
+                "It runs on a Linux server under systemd, with a runbook and a written production protocol."
+            ] },
+            { "h": "What was hard", "p": [
+                "The hardest part was not a feature: it was serving two kinds of users at once. Account managers work inside the tool; clients and candidates come from outside. Each new request had to be placed on the right side, and every door to the outside had to be thought through before it was opened.",
+                "So I split it into two applications with separate databases, sharing only one library, and put security first: two-factor authentication, permissions per action, an audit log, authorization tests before each release. Security is not my first field; that is exactly why I treated it as a design question, not a finishing touch.",
+                "On the technical side, Blazor Server taught me one lesson the hard way: a database context shared by a whole connection fails as soon as two operations overlap. I moved to one context per operation."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "L'outil que mon employeur utilise pour répondre aux appels d'offres : du catalogue des opérations de nettoyage jusqu'au contrat signé par le client.",
+        "say": "Un seul scribe, un seul tome de contrats. Chaque pièce comptée, chaque fréquence écrite.",
+        "facts": [["Contexte", "Alternance, XLConcept"], ["Rôle", "Seul développeur, du back au front"], ["En production", "Version 2.1"]],
+        "sections": [
+            { "h": "À quoi il sert", "p": ["Les chargés d'affaires construisent des réponses à des appels d'offres de nettoyage en entreprise. Il leur faut un catalogue d'opérations et de fréquences, des contrats découpés en sites et en locaux, un cahier des clauses techniques (CCTP) par site, et des documents propres à envoyer. DevisNet tient tout cela, du premier brouillon au contrat signé."] },
+            { "h": "Ce que j'ai construit", "ul": [
+                "Une bibliothèque d'opérations et de groupes d'opérations, génériques ou propres à un client, avec import et export Excel.",
+                "Des contrats versionnés avec historique, états, annexes, et une arborescence lot › site › local construite à partir de gabarits.",
+                "Un éditeur riche du CCTP de chaque site, avec photos et glisser-déposer, exporté en PDF.",
+                "Un portail client séparé où les clients lisent leurs contrats, les signent et en discutent dans un chat.",
+                "Un stockage des documents dans Nextcloud, isolé par client, avec un compte personnel pour chaque utilisateur."
+            ] },
+            { "h": "Comment il est construit", "p": ["Blazor Server sous .NET 9, Entity Framework Core sur MariaDB, ASP.NET Identity. L'outil interne et le portail client sont deux applications qui partagent une bibliothèque, chacune avec sa base. Les rapports PDF viennent de JasperReports et de vues SQL. Les tests sont écrits avec xUnit et NSubstitute."] },
+            { "h": "Sécurité et production", "ul": [
+                "Double authentification obligatoire, reconnexion tous les 30 jours, permissions fines, et chaque modification inscrite dans un journal d'audit.",
+                "Des tests d'autorisation passent avant chaque déploiement. Le script de déploiement lance les tests et sait revenir en arrière.",
+                "L'application tourne sur un serveur Linux sous systemd, avec un runbook et un protocole de mise en production écrit."
+            ] },
+            { "h": "Ce qui a résisté", "p": [
+                "Le plus dur n'était pas une fonctionnalité : c'était de servir deux types d'utilisateurs à la fois. Les chargés d'affaires travaillent dans l'outil ; les clients et les candidats viennent de l'extérieur. Chaque nouvelle demande devait être placée du bon côté, et chaque porte vers l'extérieur devait être pensée avant d'être ouverte.",
+                "J'ai donc séparé deux applications avec des bases distinctes, qui ne partagent qu'une bibliothèque, et mis la sécurité en premier : double authentification, permissions par action, journal d'audit, tests d'autorisation avant chaque version. La sécurité n'est pas mon domaine de départ ; c'est justement pour ça que je l'ai traitée comme une question de conception, pas comme une finition.",
+                "Côté technique, Blazor Server m'a appris une leçon à la dure : un contexte de base partagé par toute une connexion plante dès que deux opérations se chevauchent. Je suis passé à un contexte par opération."
+            ] }
+        ]
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "en": {
+        "lede": "A collection manager for Magic: The Gathering cards. Scan a card, and it is in your collection.",
+        "say": "Thousands of small paper souls, each one named and counted.",
+        "facts": [["Context", "Personal project"], ["Role", "Everything, alone"]],
+        "sections": [
+            { "h": "Why", "p": ["I play Magic. A collection quickly runs into thousands of cards, and listing them by hand, to trade them or build a deck, is slow and full of mistakes. Other collectors told me the same. Card Center turns that inventory into a scan."] },
+            { "h": "What it will be", "p": ["A free mobile app to scan cards, and a web dashboard to manage the collection. Today the API and the website work; the scanner is in progress; the mobile app is planned and not started."] },
+            { "h": "How it is built", "ul": [
+                "Scanner in C++ with OpenCV: edge detection and perspective correction, then Tesseract reads the card name. Card data comes from Scryfall.",
+                "API in ASP.NET Core over PostgreSQL.",
+                "Website in React and TypeScript with Vite. It replaced the Blazor dashboard I had first planned.",
+                "Four GitHub repositories in Gitflow, full CI/CD with GitHub Actions, decisions recorded as ADRs.",
+                "Deployed in containers on my Synology NAS."
+            ] },
+            { "h": "Where it stands", "p": ["In October 2026 the API reached v0.3.0 and the website v0.2.0. Next: finish the scanner, then the mobile app in Flutter."] }
+        ]
+    },
+    "fr": {
+        "lede": "Un gestionnaire de collection de cartes Magic: The Gathering. On scanne une carte, elle est dans la collection.",
+        "say": "Des milliers de petites âmes de papier, chacune nommée et comptée.",
+        "facts": [["Contexte", "Projet personnel"], ["Rôle", "Tout, seul"]],
+        "sections": [
+            { "h": "Pourquoi", "p": ["Je joue à Magic. Une collection atteint vite des milliers de cartes, et les lister à la main, pour les échanger ou construire un deck, est long et plein d'erreurs. D'autres collectionneurs m'ont dit la même chose. Card Center remplace cet inventaire par un scan."] },
+            { "h": "Ce qu'il sera", "p": ["Une application mobile gratuite pour scanner, et un tableau de bord web pour gérer la collection. Aujourd'hui l'API et le site fonctionnent ; le scanner est en cours ; l'application mobile est prévue, pas commencée."] },
+            { "h": "Comment il est construit", "ul": [
+                "Scanner en C++ avec OpenCV : détection des bords et correction de perspective, puis Tesseract lit le nom de la carte. Les données des cartes viennent de Scryfall.",
+                "API en ASP.NET Core sur PostgreSQL.",
+                "Site en React et TypeScript avec Vite. Il a remplacé le tableau de bord Blazor prévu au départ.",
+                "Quatre dépôts GitHub en Gitflow, CI/CD complète avec GitHub Actions, décisions consignées en ADR.",
+                "Déployé en conteneurs sur mon NAS Synology."
+            ] },
+            { "h": "Où il en est", "p": ["En octobre 2026, l'API est passée en v0.3.0 et le site en v0.2.0. Ensuite : finir le scanner, puis l'application mobile en Flutter."] }
+        ]
+    }
+}

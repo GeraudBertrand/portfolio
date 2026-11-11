@@ -1,0 +1,48 @@
+{
+    "year": "2022 – 2023",
+    "team": [
+        { "name": "Géraud Bertrand", "en": "game design", "fr": "game design", "me": true },
+        { "name": "Mélanie Velasco", "en": "graphic art", "fr": "graphisme" },
+        { "name": "Adrien Chateau", "en": "crafting and mediation", "fr": "fabrication et médiation" }
+    ],
+    "figures": [
+        { "src": "/assets/img/ryleh/setup.webp", "w": 800, "h": 533, "size": "moyenne", "en": "The physical prototype, set up on the engraved board.", "fr": "Le prototype physique, installé sur le plateau gravé." },
+        { "src": "/assets/img/ryleh/cartes.webp", "w": 800, "h": 533, "en": "The full deck.", "fr": "Le deck complet." },
+        { "src": "/assets/img/ryleh/shoggoth.webp", "w": 372, "h": 520, "en": "Spawn card: Shoggoth.", "fr": "Carte Rejeton : Shoggoth." },
+        { "src": "/assets/img/ryleh/abomination.webp", "w": 372, "h": 520, "en": "Spawn card: the Abomination.", "fr": "Carte Rejeton : l'Abomination." },
+        { "src": "/assets/img/ryleh/ancien_nosfer.webp", "w": 372, "h": 520, "en": "Great Old One card: Nosfer.", "fr": "Carte Ancien : Nosfer." },
+        { "src": "/assets/img/ryleh/tonic.webp", "w": 372, "h": 520, "en": "Action card: Tonic III.", "fr": "Carte Action : Tonic III." },
+        { "src": "/assets/img/ryleh/poison.webp", "w": 372, "h": 520, "en": "Action card: Poison I.", "fr": "Carte Action : Poison I." },
+        { "src": "/assets/img/ryleh/dos_rejeton.webp", "w": 744, "h": 1039, "en": "Back of a spawn card.", "fr": "Dos d'une carte Rejeton." }
+    ],
+    "en": {
+        "lede": "An asymmetric Lovecraftian board game. A team of investigators cooperates to seal portals; one player is the Great Old One and plays to break their minds.",
+        "say": "Three investigators, one Old One, and a deck balanced by hand, one card at a time.",
+        "facts": [["Context", "University project, professional bachelor's in game and level design"], ["Role", "Game designer"]],
+        "sections": [
+            { "h": "The game", "p": ["Two sides with opposite goals. The investigators explore occult places and seal interdimensional portals, together. The Great Old One plays alone, with hidden cards, and wins when the humans lose their sanity."] },
+            { "h": "What I designed", "ul": [
+                "Sanity as the central resource: every risky action wears it down, bringing the player closer to defeat, or to forbidden powers.",
+                "Total asymmetry: hidden hand for the Old One, open cooperation for the investigators.",
+                "A board that changes as the Old One's horde opens portals.",
+                "The numbers on every Spawn and Action card, balanced in a spreadsheet so the tension never drops."
+            ] },
+            { "h": "The rest of the company", "p": ["Every visual is the work of Mélanie Velasco; Adrien Chateau built the physical prototype. The rules and the balancing sheet are linked at the top of the page."] }
+        ]
+    },
+    "fr": {
+        "lede": "Un jeu de plateau lovecraftien asymétrique. Une équipe d'investigateurs coopère pour sceller des portails ; un joueur incarne le Grand Ancien et joue pour leur briser l'esprit.",
+        "say": "Trois investigateurs, un Ancien, et un deck équilibré à la main, carte par carte.",
+        "facts": [["Contexte", "Projet universitaire, licence professionnelle game et level design"], ["Rôle", "Game designer"]],
+        "sections": [
+            { "h": "Le jeu", "p": ["Deux camps aux objectifs opposés. Les investigateurs explorent des lieux occultes et scellent des portails interdimensionnels, ensemble. Le Grand Ancien joue seul, avec des cartes cachées, et gagne quand les humains perdent la raison."] },
+            { "h": "Ce que j'ai conçu", "ul": [
+                "La santé mentale comme ressource centrale : chaque action risquée l'use, et rapproche le joueur de la défaite, ou de pouvoirs interdits.",
+                "Une asymétrie totale : main cachée pour l'Ancien, coopération à découvert pour les investigateurs.",
+                "Un plateau qui change à mesure que la horde de l'Ancien ouvre des portails.",
+                "Les valeurs de chaque carte Rejeton et Action, équilibrées dans un tableur pour que la tension ne retombe jamais."
+            ] },
+            { "h": "Le reste de la compagnie", "p": ["Tous les visuels sont l'œuvre de Mélanie Velasco ; Adrien Chateau a fabriqué le prototype physique. Les règles et le tableau d'équilibrage sont en lien plus haut."] }
+        ]
+    }
+}

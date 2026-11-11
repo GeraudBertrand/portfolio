@@ -1,0 +1,53 @@
+{
+    "year": "2026 – 2027",
+    "team": [
+        { "name": "Géraud Bertrand", "en": "software: signal, model, control", "fr": "logiciel : signal, modèle, commande", "me": true },
+        { "name": "Raphaël Espinosa", "en": "robotics and hardware", "fr": "robotique et matériel" }
+    ],
+    "en": {
+        "lede": "A robot arm driven by my muscles. Sensors on my forearm read the electrical activity of the muscles (EMG), a model decodes the intent, and the gripper opens and closes with my grip. ESILV engineering project, due in April 2027.",
+        "say": "The arm is dead metal. It moves when he clenches his fist.",
+        "facts": [["Context", "ESILV engineering project (PI²)"], ["Role", "All the software"], ["Signal", "Surface EMG, 4 channels"]],
+        "sections": [
+            { "h": "The idea", "p": ["The principle of a myoelectric prosthesis. When a muscle contracts, it gives off a small electrical signal that sensors on the skin can read. A model turns that signal into an intention, open, close, how hard, and the gripper of a robot arm follows. In a second phase, motion sensors on the arm and forearm drive the shoulder and the elbow."] },
+            { "h": "Why this one", "p": ["It is the field I want to work in: neurotechnology, signals from the body turned into control. Prostheses, exoskeletons, human-machine interfaces. This project is my first real step there."] },
+            { "h": "Who does what", "p": ["We are two. Raphaël takes the robotics and the hardware: the gripper, the mechanics, turning commands into motor movements. I own the whole software chain: acquisition, filtering, decoding, real-time command, safety, and a dashboard that replays recorded sessions."] },
+            { "h": "How it is built", "ul": [
+                "A wireless band made by the team: four MyoWare 2.0 EMG sensors on an ESP32-S3, streaming over Wi-Fi to a small PC under Ubuntu.",
+                "That PC runs the ONNX model and a ROS node that drives an AgileX PiPER arm over its CAN bus.",
+                "A simple baseline first, LDA or SVM on hand-made features. Deep learning only if it does better.",
+                "Speed limits and a mandatory emergency stop. A short calibration at each session, because EMG drifts from day to day."
+            ] },
+            { "h": "Calendar", "ul": [
+                "October 2026: scoping done, sensors and model chosen together.",
+                "End of November: stable band, clean signal.",
+                "End of January: gripper and first model.",
+                "End of February: real-time control.",
+                "March: tests on the real arm. Mid-April 2027: defence."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "Un bras robot piloté par mes muscles. Des capteurs sur mon avant-bras lisent l'activité électrique des muscles (EMG), un modèle décode l'intention, et la pince s'ouvre et se ferme avec ma main. Projet d'ingénieur à l'ESILV, rendu en avril 2027.",
+        "say": "Le bras est du métal mort. Il bouge quand il serre le poing.",
+        "facts": [["Contexte", "Projet d'ingénieur ESILV (PI²)"], ["Rôle", "Tout le logiciel"], ["Signal", "EMG de surface, 4 canaux"]],
+        "sections": [
+            { "h": "L'idée", "p": ["Le principe d'une prothèse myoélectrique. Quand un muscle se contracte, il émet un petit signal électrique que des capteurs posés sur la peau peuvent lire. Un modèle transforme ce signal en intention, ouvrir, fermer, avec quelle force, et la pince d'un bras robot suit. Dans une deuxième phase, des capteurs de mouvement sur le bras et l'avant-bras pilotent l'épaule et le coude."] },
+            { "h": "Pourquoi celui-là", "p": ["C'est le domaine où je veux travailler : les neurotechnologies, les signaux du corps transformés en commande. Prothèses, exosquelettes, interfaces homme-machine. Ce projet est mon premier vrai pas dans cette direction."] },
+            { "h": "Qui fait quoi", "p": ["Nous sommes deux. Raphaël prend la robotique et le matériel : la pince, la mécanique, la traduction des commandes en mouvements des moteurs. Je porte toute la chaîne logicielle : acquisition, filtrage, décodage, commande temps réel, sécurité, et un tableau de bord qui rejoue les sessions enregistrées."] },
+            { "h": "Comment il est construit", "ul": [
+                "Un bracelet sans fil fait par l'équipe : quatre capteurs EMG MyoWare 2.0 sur un ESP32-S3, qui envoient en Wi-Fi vers un petit PC sous Ubuntu.",
+                "Ce PC fait tourner le modèle ONNX et un nœud ROS qui pilote un bras AgileX PiPER par son bus CAN.",
+                "D'abord une base simple, LDA ou SVM sur des caractéristiques calculées à la main. Le deep learning seulement s'il fait mieux.",
+                "Limites de vitesse et arrêt d'urgence obligatoire. Une courte calibration à chaque session, car l'EMG varie d'un jour à l'autre."
+            ] },
+            { "h": "Calendrier", "ul": [
+                "Octobre 2026 : cadrage terminé, capteurs et modèle choisis ensemble.",
+                "Fin novembre : bracelet stable, signal propre.",
+                "Fin janvier : pince et premier modèle.",
+                "Fin février : commande en temps réel.",
+                "Mars : essais sur le vrai bras. Mi-avril 2027 : soutenance."
+            ] }
+        ]
+    }
+}

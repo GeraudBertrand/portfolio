@@ -1,0 +1,55 @@
+{
+    "year": "2026",
+    "team": [
+        { "name": "Géraud Bertrand", "en": "co-author", "fr": "coauteur", "me": true },
+        { "name": "Mouad Zouadi", "en": "co-author", "fr": "coauteur" }
+    ],
+    "en": {
+        "lede": "A C++ AI for Ultimate Tic-Tac-Toe, written as a pair to beat our teacher's engine. Best result: 72 wins, 17 losses and 11 draws over 100 games against MEDIUM_2.",
+        "say": "They asked the board what comes next, eleven moves deep.",
+        "facts": [["Context", "ESILV course project"], ["Team", "A pair, with Mouad Zouadi"], ["Result", "72 % wins over 100 games"]],
+        "sections": [
+            { "h": "Where we started", "p": ["It was the first time we wrote a program that decides on its own. We came in knowing very little game theory or search algorithms, and learned them while building. Seen from there, 72 % against the medium engine is a result I am glad of."] },
+            { "h": "The game", "p": ["Nine small grids inside a big one. Where you play inside a small grid sends your opponent to the matching small grid. Win three small grids in a row to win the game. Every move is two decisions at once: the square you take, and where you send the other player."] },
+            { "h": "The engine", "ul": [
+                "Minimax with alpha-beta pruning and iterative deepening.",
+                "A transposition table with Zobrist hashing.",
+                "Move ordering with killer moves and a history table.",
+                "A positional evaluation, and an opening book that fills itself from tournament games.",
+                "About 1,600 lines of C++, plugged into the teacher's engine through a fixed interface."
+            ] },
+            { "h": "How it got to 72 %", "p": ["The first version won between 0 and 20 % against MEDIUM_2, at about 350 ms per move. Going to depth 14 with a 10-second budget and adding the opening book brought it to 72 % over 100 games, with an average depth of 11.3 and 319 moves served by the book."] },
+            { "h": "What I learned", "ul": [
+                "Samples of 10 games are noise. Only 100-game runs told us anything.",
+                "Debug and Release builds play like two different engines; always measure with -O3.",
+                "Mate scores stored in the table must be corrected by distance, or the engine believes nonsense.",
+                "An opening book goes wrong as soon as the evaluation changes.",
+                "Not done: quiescence search, multi-threading, Monte Carlo tree search, which is what wins at this game."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "Une IA en C++ pour l'Ultimate Tic-Tac-Toe, écrite en binôme pour battre le moteur de notre professeur. Meilleur résultat : 72 victoires, 17 défaites et 11 nuls sur 100 parties contre MEDIUM_2.",
+        "say": "Ils ont demandé au plateau la suite, onze coups plus loin.",
+        "facts": [["Contexte", "Projet de cours, ESILV"], ["Équipe", "En binôme, avec Mouad Zouadi"], ["Résultat", "72 % de victoires sur 100 parties"]],
+        "sections": [
+            { "h": "D'où on partait", "p": ["C'était la première fois que nous écrivions un programme qui décide seul. Nous arrivions avec très peu de connaissances en théorie des jeux et en algorithmes de recherche, apprises en construisant. Vu de là, 72 % contre le moteur moyen est un résultat dont je suis content."] },
+            { "h": "Le jeu", "p": ["Neuf petites grilles dans une grande. L'endroit où l'on joue dans une petite grille envoie l'adversaire dans la petite grille correspondante. Trois petites grilles alignées gagnent la partie. Chaque coup est deux décisions à la fois : la case qu'on prend, et l'endroit où l'on envoie l'autre."] },
+            { "h": "Le moteur", "ul": [
+                "Minimax avec élagage alpha-bêta et approfondissement itératif.",
+                "Une table de transposition avec hachage de Zobrist.",
+                "Un tri des coups avec coups tueurs et table d'historique.",
+                "Une évaluation positionnelle, et un livre d'ouvertures qui se remplit tout seul à partir des parties de tournoi.",
+                "Environ 1 600 lignes de C++, branchées sur le moteur du professeur par une interface imposée."
+            ] },
+            { "h": "Comment il est arrivé à 72 %", "p": ["La première version gagnait entre 0 et 20 % contre MEDIUM_2, à environ 350 ms par coup. Passer à une profondeur de 14 avec 10 secondes de réflexion et ajouter le livre d'ouvertures l'a mené à 72 % sur 100 parties, avec une profondeur moyenne de 11,3 et 319 coups tirés du livre."] },
+            { "h": "Ce que j'en retiens", "ul": [
+                "Des échantillons de 10 parties, c'est du bruit. Seules les séries de 100 nous ont appris quelque chose.",
+                "Debug et Release jouent comme deux moteurs différents ; toujours mesurer en -O3.",
+                "Les scores de mat stockés dans la table doivent être corrigés par la distance, sinon le moteur croit n'importe quoi.",
+                "Un livre d'ouvertures devient faux dès que l'évaluation change.",
+                "Pas fait : la recherche de quiescence, le multithread, la recherche arborescente Monte-Carlo, qui est ce qui gagne à ce jeu."
+            ] }
+        ]
+    }
+}

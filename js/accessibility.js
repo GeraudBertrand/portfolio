@@ -71,7 +71,7 @@ function loadVoices() {
     const savedVoiceURI = localStorage.getItem(ACCESS_KEYS.VOICE);
 
     if (filteredVoices.length === 0) {
-        menu.innerHTML = `<div class="p-4 text-[10px] text-slate-500 italic">Aucune voix détectée</div>`;
+        menu.innerHTML = `<div class="dropdown-item">${currentLang === 'fr' ? 'Aucune voix détectée' : 'No voice found'}</div>`;
         return;
     }
 
@@ -84,11 +84,9 @@ function loadVoices() {
             <div role="option" 
                  aria-selected="${isSelected}"
                  tabindex="0"
-                 class="dropdown-item flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all hover:bg-violet-500/20 text-[10px] font-bold ${isSelected ? 'text-violet-400 bg-violet-500/10' : 'text-slate-300'}"
+                 class="dropdown-item"
                  onclick="setVoice('${v.voiceURI}', '${v.name}')"
-                 onkeydown="handleOptionKey(event, '${v.voiceURI}', '${v.name}')">
-                <div class="w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-violet-400' : 'bg-slate-700'}"></div>
-                ${v.name}
+                 onkeydown="handleOptionKey(event, '${v.voiceURI}', '${v.name}')">${v.name}
             </div>
         `;
     }).join('');
@@ -177,7 +175,7 @@ window.toggleSound = function() {
  * 4. Synthèse Vocale (Text-to-Speech)
  */
 function setupAudioNarrator() {
-    const elements = 'button, a, h1, h2, h3, .inv-slot, img, [role="option"]';
+    const elements = 'button, a, h1, h2, h3, .registre li, img, [role="option"]';
     document.addEventListener('mouseover', (e) => {
         if (localStorage.getItem(ACCESS_KEYS.SOUND) !== 'true') return;
         const target = e.target.closest(elements);
@@ -201,84 +199,42 @@ function announceText(text) {
     window.speechSynthesis.speak(msg);
 }
 /**
- * 5. Interface Modal
+ * 5. Fenêtre d'accessibilité (styles .modale* dans grimoire.css, état actif par aria-pressed)
  */
+const ACCESS_TEXT = {
+    en: { title: 'Accessibility', close: 'Close', scale: 'Text size', audio: 'Narrator', narrator: 'Read aloud what the pointer touches',
+          voice: 'Choose a voice', vision: 'Colour filters', none: 'Standard', protanopia: 'Protanopia', deuteranopia: 'Deuteranopia', tritanopia: 'Tritanopia' },
+    fr: { title: 'Accessibilité', close: 'Fermer', scale: 'Taille du texte', audio: 'Narrateur', narrator: 'Lire à voix haute ce que touche le pointeur',
+          voice: 'Choisir une voix', vision: 'Filtres de couleur', none: 'Standard', protanopia: 'Protanopie', deuteranopia: 'Deutéranopie', tritanopia: 'Tritanopie' }
+};
+
 function createAccessModal() {
     if (document.getElementById('access-modal')) return;
-    const modalHtml = `
-        <div id="access-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-            <div class="glass p-8 rounded-3xl border-2 border-violet-500/30 max-w-md w-full m-6 shadow-2xl scale-95 transition-transform duration-300" id="access-modal-content">
-                <div class="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
-                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
-                        <i data-lucide="accessibility" class="text-violet-400"></i>
-                        <span>Paramètres Inclusifs</span>
-                    </h3>
-                    <button onclick="window.toggleAccessModal()" class="text-slate-400 hover:text-white transition-colors p-2">
-                        <i data-lucide="x" size="20"></i>
-                    </button>
-                </div>
+    const t = ACCESS_TEXT[window.currentLang === 'fr' ? 'fr' : 'en'];
+    const vision = ['none', 'protanopia', 'deuteranopia', 'tritanopia']
+        .map(m => `<button type="button" class="access-btn" data-mode="${m}" onclick="setVisionMode('${m}')">${t[m]}</button>`).join('');
+    const echelle = [1, 1.2, 1.4]
+        .map(s => `<button type="button" class="scale-btn" data-scale="${s}" onclick="setTextScale(${s})">${Math.round(s * 100)} %</button>`).join('');
 
-                <div class="space-y-6 min-h-[60vh] max-h-[75vh] overflow-y-auto pr-2 custom-scrollbar">
-                    <!-- Échelle -->
-                    <div>
-                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 block">Échelle du site</label>
-                        <div class="grid grid-cols-3 gap-2 bg-slate-900/50 p-1.5 rounded-xl border border-white/5">
-                            <button onclick="setTextScale(1)" class="py-2 rounded-lg text-[10px] font-black scale-btn" data-scale="1">100%</button>
-                            <button onclick="setTextScale(1.2)" class="py-2 rounded-lg text-[10px] font-black scale-btn" data-scale="1.2">120%</button>
-                            <button onclick="setTextScale(1.4)" class="py-2 rounded-lg text-[10px] font-black scale-btn" data-scale="1.4">140%</button>
-                        </div>
+    document.body.insertAdjacentHTML('beforeend', `
+        <div id="access-modal" class="modale hidden" onclick="if (event.target === this) window.toggleAccessModal()">
+            <div class="modale-boite" role="dialog" aria-modal="true" aria-labelledby="access-titre">
+                <header>
+                    <h3 id="access-titre" class="gothique">${t.title}</h3>
+                    <button type="button" class="modale-fermer" onclick="window.toggleAccessModal()">${t.close}</button>
+                </header>
+                <fieldset><legend>${t.scale}</legend><div class="modale-grille" style="--col:3">${echelle}</div></fieldset>
+                <fieldset>
+                    <legend>${t.audio}</legend>
+                    <button type="button" id="sound-toggle" class="modale-ligne" onclick="window.toggleSound()"><span>${t.narrator}</span><i id="sound-status-dot" class="temoin" aria-hidden="true"></i></button>
+                    <div class="custom-dropdown">
+                        <button type="button" id="voice-dropdown-trigger" class="modale-ligne dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" onclick="toggleVoiceDropdown()"><span id="selected-voice-name">${t.voice}</span><span aria-hidden="true">▾</span></button>
+                        <div id="voice-dropdown-menu" role="listbox" class="hidden"></div>
                     </div>
-
-                    <!-- Audio & Custom Dropdown -->
-                    <div>
-                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 block">Audio & Synthèse</label>
-                        <div class="space-y-3">
-                            <button onclick="window.toggleSound()" class="w-full flex items-center justify-between p-3.5 bg-slate-900/40 rounded-xl border border-white/5 hover:bg-violet-500/10 transition-all group">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="volume-2" class="text-slate-400 group-hover:text-violet-400" size="18"></i>
-                                    <span class="text-xs font-bold text-slate-200">Mode Narrateur</span>
-                                </div>
-                                <div id="sound-status-dot" class="w-2.5 h-2.5 rounded-full bg-slate-600 shadow-sm"></div>
-                            </button>
-                            
-                            <!-- Custom Select (Dropdown personnalisé) -->
-                            <div class="custom-dropdown relative">
-                                <button id="voice-dropdown-trigger" 
-                                        aria-haspopup="listbox" 
-                                        aria-expanded="false"
-                                        onclick="toggleVoiceDropdown()"
-                                        class="w-full flex items-center justify-between p-3.5 bg-slate-900/60 rounded-xl border border-white/5 hover:border-violet-500/50 transition-all group">
-                                    <div class="flex items-center gap-3">
-                                        <i data-lucide="mic" class="text-slate-500 group-hover:text-violet-400" size="16"></i>
-                                        <span id="selected-voice-name" class="text-[10px] font-bold text-slate-300 uppercase tracking-wider">Choisir une voix</span>
-                                    </div>
-                                    <i data-lucide="chevron-down" class="text-slate-600" size="16"></i>
-                                </button>
-                                
-                                <div id="voice-dropdown-menu" 
-                                     role="listbox"
-                                     class="hidden absolute top-full left-0 w-full mt-2 glass rounded-2xl border border-violet-500/30 p-2 z-50 max-h-48 overflow-y-auto shadow-2xl">
-                                    <!-- Populated by loadVoices() -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vision -->
-                    <div>
-                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 block">Filtres de Vision</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="setVisionMode('none')" class="access-btn text-left p-3 rounded-xl border border-white/5 text-[10px] font-bold uppercase" data-mode="none">Standard</button>
-                            <button onclick="setVisionMode('protanopia')" class="access-btn text-left p-3 rounded-xl border border-white/5 text-[10px] font-bold uppercase" data-mode="protanopia">Protanopie</button>
-                            <button onclick="setVisionMode('deuteranopia')" class="access-btn text-left p-3 rounded-xl border border-white/5 text-[10px] font-bold uppercase" data-mode="deuteranopia">Deutéranopie</button>
-                            <button onclick="setVisionMode('tritanopia')" class="access-btn text-left p-3 rounded-xl border border-white/5 text-[10px] font-bold uppercase" data-mode="tritanopia">Tritanopie</button>
-                        </div>
-                    </div>
-                </div>
+                </fieldset>
+                <fieldset><legend>${t.vision}</legend><div class="modale-grille">${vision}</div></fieldset>
             </div>
-        </div>`;
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
-    if (window.lucide) window.lucide.createIcons();
+        </div>`);
     loadVoices();
     updateAccessUI();
 }
@@ -286,38 +242,39 @@ function createAccessModal() {
 window.toggleAccessModal = function() {
     const modal = document.getElementById('access-modal');
     if (!modal) return;
-    const isHidden = modal.classList.contains('hidden');
-    if (isHidden) {
-        modal.classList.remove('hidden');
-        setTimeout(() => modal.classList.add('opacity-100'), 10);
-    } else {
-        modal.classList.remove('opacity-100');
-        setTimeout(() => modal.classList.add('hidden'), 300);
+    const ouvrir = modal.classList.contains('hidden');
+    modal.classList.toggle('hidden', !ouvrir);
+    if (ouvrir) {
+        window.lastFocusBeforeModal = document.activeElement;
+        modal.querySelector('.modale-fermer').focus();
+    } else if (window.lastFocusBeforeModal) {
+        window.lastFocusBeforeModal.focus();
     }
 };
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('access-modal');
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden') && !e.target.closest?.('[role="option"]')) window.toggleAccessModal();
+});
+
+// La fenêtre est écrite dans la langue courante : on la refait à la bascule, ouverte si elle l'était.
+window.addEventListener('languageChanged', () => {
+    const modal = document.getElementById('access-modal');
+    const ouverte = modal && !modal.classList.contains('hidden');
+    if (modal) modal.remove();
+    createAccessModal();
+    if (ouverte) window.toggleAccessModal();
+});
 
 function updateAccessUI() {
     const mode = localStorage.getItem(ACCESS_KEYS.VISION) || 'none';
     const scale = localStorage.getItem(ACCESS_KEYS.SCALE) || 1;
     const sound = localStorage.getItem(ACCESS_KEYS.SOUND) === 'true';
 
-    // Update vision buttons
-    document.querySelectorAll('.access-btn').forEach(btn => {
-        btn.classList.toggle('border-violet-500', btn.dataset.mode === mode);
-        btn.classList.toggle('bg-violet-500/10', btn.dataset.mode === mode);
-    });
-
-    // Update scale buttons
-    document.querySelectorAll('.scale-btn').forEach(btn => {
-        btn.classList.toggle('bg-violet-600', btn.dataset.scale == scale);
-        btn.classList.toggle('text-white', btn.dataset.scale == scale);
-    });
-
-    // Update sound toggle
+    document.querySelectorAll('.access-btn').forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.mode === mode));
+    document.querySelectorAll('.scale-btn').forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.scale == scale));
+    const toggle = document.getElementById('sound-toggle');
+    if (toggle) toggle.setAttribute('aria-pressed', sound);
     const dot = document.getElementById('sound-status-dot');
-    if (dot) {
-        dot.classList.toggle('bg-green-500', sound);
-        dot.classList.toggle('shadow-green-500/50', sound);
-        dot.classList.toggle('bg-slate-600', !sound);
-    }
+    if (dot) dot.classList.toggle('actif', sound);
 }

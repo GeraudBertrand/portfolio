@@ -1,0 +1,328 @@
+/* PORTFOLIO GÉRAUD BERTRAND — feuille de style « Grimoire »
+ * Encre épaisse, sceaux et parchemin. Violet + os vont ensemble, l'accent est le complémentaire du violet.
+ * Tailles en rem : le réglage d'échelle de la fenêtre d'accessibilité agit sur tout le site.
+ */
+
+@font-face { font-family:"Pirata One"; src:url("/assets/fonts/pirata-one-normal-latin.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:"Vollkorn"; src:url("/assets/fonts/vollkorn-normal-latin.woff2") format("woff2"); font-weight:400 900; font-style:normal; font-display:swap; }
+@font-face { font-family:"Vollkorn"; src:url("/assets/fonts/vollkorn-italic-latin.woff2") format("woff2"); font-weight:400 900; font-style:italic; font-display:swap; }
+
+:root {
+    --fond:#1b131f; --noir:#0e0910; --violet:#86598c; --prune:#3d2744; --os:#e7dcc4; --cendre:#a999ab;
+    --accent:#d9b43a; /* soufre, choisi le 2026-11-11 */
+    --text-multiplier:1;
+}
+
+/* --- base --- */
+*, *::before, *::after { box-sizing:border-box; }
+html { font-size:calc(100% * var(--text-multiplier)); scroll-behavior:smooth; }
+body { margin:0; background:var(--fond); color:var(--os); font-family:"Vollkorn", Georgia, serif; font-size:1.125rem; line-height:1.5; overflow-x:clip; }
+a { color:inherit; }
+.hidden { display:none !important; }
+:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.gothique { font-family:"Pirata One", "Vollkorn", serif; font-weight:400; }
+.barres { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; }
+.barres li + li::before { content:"|"; margin:0 .8rem; color:var(--violet); }
+.page { max-width:90rem; margin:0 auto; padding:0 clamp(1rem,5vw,4.5rem) 5rem; }
+
+/* filtres de vision (accessibility.js pose la classe sur body). Sur les enfants, pas sur body :
+ * un filtre sur body deviendrait le repère de la fenêtre fixe et l'enverrait hors écran. */
+body.protanopia > :not(#access-modal) { filter:url('#protanopia-filter'); }
+body.deuteranopia > :not(#access-modal) { filter:url('#deuteranopia-filter'); }
+body.tritanopia > :not(#access-modal) { filter:url('#tritanopia-filter'); }
+body.grayscale > :not(#access-modal) { filter:grayscale(100%); }
+
+/* --- navigation --- */
+.nav { max-width:90rem; margin:0 auto; padding:1.6rem clamp(1rem,5vw,4.5rem) 0; display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.6rem 2rem; position:relative; z-index:5; }
+.nav a, .nav button { text-decoration:none; font:inherit; font-variant-caps:small-caps; letter-spacing:.06em; font-size:1.25rem; color:var(--os); background:none; border:0; padding:.2rem 0; cursor:pointer; }
+.nav a:hover, .nav button:hover { color:var(--accent); }
+.nav .nav-nom { font-family:"Pirata One", serif; font-variant-caps:normal; letter-spacing:0; font-size:1.7rem; }
+.nav-droite { display:flex; flex-wrap:wrap; gap:.4rem 0; }
+
+/* --- formes encrées : le filtre est sur une enveloppe, jamais sur du texte --- */
+.plaque { position:absolute; inset:0; z-index:-1; filter:url(#encre); }
+.plaque i { position:absolute; inset:0; background:var(--bg); }
+.plaque i.ombre { background:var(--noir); transform:translate(.6rem,.6rem); }
+
+/* --- liens à suivre : un fanion. clé = page du site, arche = site externe, feuillet = document, lettre = courriel --- */
+.liens { display:flex; flex-wrap:wrap; gap:.5rem .6rem; margin-top:.6rem; }
+.lien { display:inline-flex; align-items:center; gap:.5rem; padding:.2rem 1.5rem .25rem .6rem; background:var(--accent); color:var(--noir); font-weight:700; font-size:1rem; font-variant-caps:small-caps; letter-spacing:.05em; text-decoration:none; clip-path:polygon(0 0,calc(100% - .8rem) 0,100% 50%,calc(100% - .8rem) 100%,0 100%); }
+.lien svg { width:1.05rem; height:1.05rem; flex:none; fill:none; stroke:currentColor; stroke-width:2.4; }
+.lien:hover, .lien:focus-visible { background:var(--os); color:var(--noir); text-decoration:underline; outline:none; }
+
+/* --- ouverture --- */
+.ouverture { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,25rem) minmax(0,1fr); padding-top:1rem; }
+.masse { position:absolute; left:-7rem; top:1rem; width:min(50rem,62vw); height:34rem; z-index:-1; filter:url(#encre); }
+.masse i { position:absolute; inset:0; background:var(--noir); clip-path:polygon(6% 6%,86% 0,100% 44%,88% 94%,24% 100%,0 60%); }
+.sceau { grid-column:1; grid-row:1 / span 2; width:100%; height:auto; margin-top:3.2rem; transform:rotate(-5deg); filter:url(#encre-fin); }
+.nom { grid-column:2; grid-row:1; margin:0 0 0 -3.4rem; font-size:clamp(4.2rem,14.2vw,12.75rem); line-height:.78; position:relative; }
+.nom span { display:block; margin-left:.5em; }
+.suite { grid-column:2; grid-row:2; display:flex; justify-content:space-between; align-items:flex-start; gap:2rem; margin:1.6rem 0 0 4.2rem; }
+.metier { margin:0 0 1rem; max-width:24rem; font-size:1.375rem; line-height:1.45; }
+.suite .lien { font-size:1.125rem; }
+.chronique { position:relative; isolation:isolate; --bg:var(--prune); flex:0 1 24.5rem; margin:4.5rem 0 0; padding:1.6rem 1.75rem 1.4rem; transform:rotate(1.4deg); font-style:italic; font-size:1.375rem; line-height:1.4; }
+.chronique cite { display:block; margin-top:.6rem; font-style:normal; font-variant-caps:small-caps; letter-spacing:.06em; font-size:1.06rem; color:var(--accent); }
+.tampon { grid-column:1; grid-row:3; justify-self:start; margin:.4rem 0 0 3.2rem; max-width:22rem; transform:rotate(-7deg); border:.25rem solid var(--accent); outline:.1rem solid var(--accent); outline-offset:.25rem; color:var(--accent); padding:.5rem 1.1rem .6rem; font-size:1.875rem; line-height:1.05; filter:url(#encre-fin); }
+.faits { grid-column:1 / -1; margin-top:3rem; border-top:.3rem solid var(--os); padding-top:.9rem; font-size:1.19rem; }
+
+/* --- titres de section --- */
+.titre { margin:6rem 0 0; font-size:clamp(3.2rem,9vw,5.75rem); line-height:.9; scroll-margin-top:1rem; }
+.intro { display:grid; grid-template-columns:5fr 7fr; gap:1rem 3rem; align-items:end; margin:.9rem 0 4.4rem; }
+.intro p { margin:0; }
+.legende { font-size:1rem; color:var(--cendre); }
+.legende li { display:flex; align-items:center; }
+
+/* marque d'état : un losange, rempli selon la vie du projet */
+.etat { flex:none; display:inline-block; width:.75rem; height:.75rem; margin:0 .75rem 0 .2rem; transform:rotate(45deg); border:.125rem solid currentColor; }
+.vivant { background:var(--accent); }
+.rituel { background:linear-gradient(90deg,var(--accent) 50%,transparent 50%); }
+.repos { background:currentColor; opacity:.55; }
+
+/* --- les écoles --- */
+.ecoles { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:4rem 2.5rem; align-items:start; }
+.ecole { position:relative; isolation:isolate; padding:2.1rem 2.25rem 2rem; }
+.parchemin { --bg:var(--os); color:#1b131f; }
+.parchemin .sous, .parchemin .registre small { color:#5b4a60; }
+.parchemin .dit, .parchemin .chiffre { color:#4a2f52; }
+.encre { --bg:var(--noir); }
+.prune { --bg:var(--prune); }
+.ecole header { display:grid; grid-template-columns:3.4rem 1fr; gap:1rem; align-items:center; }
+.ecole header svg { width:3.4rem; height:3.4rem; }
+.ecole header svg, .cire svg { fill:none; stroke:currentColor; stroke-width:2.2; }
+.ecole h3 { margin:0; font-size:clamp(2.6rem,6vw,3.875rem); line-height:.9; }
+.sous { font-variant-caps:small-caps; letter-spacing:.06em; font-size:1.125rem; color:var(--cendre); }
+.dit { margin:1rem 0 1.1rem; font-style:italic; font-size:1.25rem; line-height:1.35; max-width:30em; }
+.dit.court { max-width:15em; }
+.registre { list-style:none; margin:0; padding:0; }
+.registre li { display:grid; grid-template-columns:1.9rem minmax(0,1fr); padding:.7rem 0; border-top:1px solid color-mix(in srgb, currentColor 28%, transparent); }
+.registre .etat { margin-top:.5rem; }
+.registre b { font-size:1.31rem; font-weight:700; margin-right:.5rem; }
+.registre small { display:block; font-size:.94rem; color:var(--cendre); font-variant-caps:small-caps; letter-spacing:.04em; }
+.deux { columns:2; column-gap:2.5rem; }
+.deux li { break-inside:avoid; }
+.chiffre { float:right; margin:-.25rem 0 0 1.1rem; font-size:3.6rem; line-height:.9; color:var(--accent); }
+
+/* l'école en vedette (Galvanisme) : toute la largeur, texte + schéma de la chaîne du signal */
+.vedette { grid-column:1 / -1; display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:1.5rem 3.5rem; align-items:center; padding:2.6rem 2.8rem 2.4rem; transform:rotate(-.3deg); }
+.vedette h3 { font-size:clamp(3rem,7vw,4.75rem); }
+.vedette .registre b { font-size:1.6rem; }
+.cap { margin:0 0 1.1rem; max-width:30em; font-weight:700; font-size:1.25rem; line-height:1.35; }
+.schema { margin:0; color:#1b131f; }
+.schema svg { display:block; width:100%; height:auto; }
+.schema g[fill="none"] { filter:url(#encre-fin); }
+.schema text { font-family:"Vollkorn", Georgia, serif; font-variant-caps:small-caps; letter-spacing:.04em; font-size:18px; }
+
+/* sceau de pureté : disque de cire et deux bandes de parchemin */
+.scel { position:absolute; width:5.4rem; z-index:2; }
+.cire { position:relative; z-index:1; display:grid; place-items:center; width:5.4rem; height:5.4rem; border-radius:50%; background:var(--accent); border:.19rem solid var(--noir); color:var(--noir); filter:url(#encre-fin); }
+.cire svg { width:2.75rem; height:2.75rem; }
+/* la bande : parchemin vieilli, bords un peu irréguliers, queue d'aronde ; dessinée en SVG pour que le contour suive la pointe */
+.ruban { position:absolute; top:3.75rem; width:2rem; height:8rem; padding-top:2.1rem; color:#1b131f; writing-mode:vertical-rl; font-size:.81rem; line-height:2rem; white-space:nowrap;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 130' preserveAspectRatio='none'%3E%3Cpath d='M2 1H28L27.3 44L28.3 87L28 129L15 114L2 129L2.8 89L1.6 45Z' fill='%23d6c7a3' stroke='%230e0910' stroke-width='2.2' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M2 14H28' stroke='%230e0910' stroke-opacity='.35' stroke-width='5' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M6 22V104M24 22V104' stroke='%230e0910' stroke-opacity='.2' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; }
+.ruban.g { left:.5rem; transform:rotate(9deg); }
+.ruban.d { left:3rem; transform:rotate(-7deg); height:6.75rem; }
+
+.a1 { grid-column:1 / 8; transform:rotate(-.4deg); }
+.a2 { grid-column:8 / 13; margin-top:4.4rem; transform:rotate(.7deg); }
+.b1 { grid-column:1 / 6; margin-top:1.9rem; transform:rotate(.5deg); }
+.b2 { grid-column:6 / 13; transform:rotate(-.5deg); }
+.c1 { grid-column:1 / 7; transform:rotate(.4deg); }
+.c2 { grid-column:7 / 13; margin-top:2.75rem; transform:rotate(-.6deg); }
+
+/* --- la chronique (parcours) --- */
+.parcours { display:grid; grid-template-columns:7fr 5fr; gap:3rem 4rem; }
+.parcours h3 { margin:0 0 .6rem; font-variant-caps:small-caps; letter-spacing:.06em; font-size:1.25rem; font-weight:400; color:var(--cendre); }
+.annales { list-style:none; margin:0; padding:0; }
+.annales li { display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:1rem; padding:.9rem 0; border-top:1px solid color-mix(in srgb, var(--os) 28%, transparent); }
+.annales .dates { font-family:"Pirata One", serif; font-size:1.75rem; line-height:1.1; color:var(--accent); }
+.annales b { display:block; font-size:1.25rem; }
+.annales span { color:var(--cendre); }
+
+/* --- pied de page / contact --- */
+.pied { max-width:90rem; margin:5rem auto 0; padding:0 clamp(1rem,5vw,4.5rem) 3rem; }
+.pied-haut { border-top:.3rem solid var(--os); padding-top:2.5rem; display:grid; grid-template-columns:5fr 7fr; gap:1.5rem 3rem; align-items:end; }
+.pied h2 { margin:0; font-size:clamp(3.2rem,9vw,5.75rem); line-height:.9; }
+.pied .dit { margin:.6rem 0 0; }
+.pied .liens { margin:0 0 .6rem; }
+.pied .lien { font-size:1.19rem; }
+.pied small { display:block; margin-top:3rem; color:var(--cendre); font-size:.94rem; }
+
+/* --- fenêtre d'accessibilité (générée par accessibility.js). Tailles en px : elle doit rester utilisable à 140 %. --- */
+.modale { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:24px; background:rgba(14,9,16,.86); }
+.modale-boite { width:100%; max-width:30rem; max-height:90vh; overflow-y:auto; background:var(--prune); color:var(--os); border:4px solid var(--os); padding:24px 28px 28px; font-family:"Vollkorn", Georgia, serif; font-size:16px; line-height:1.4; }
+.modale-boite header { display:flex; justify-content:space-between; align-items:baseline; gap:16px; border-bottom:2px solid var(--os); padding-bottom:10px; margin-bottom:6px; }
+.modale-boite h3 { margin:0; font-size:38px; line-height:1; }
+.modale-boite fieldset { border:0; margin:18px 0 0; padding:0; }
+.modale-boite legend { padding:0; margin-bottom:8px; font-variant-caps:small-caps; letter-spacing:.06em; font-size:17px; color:var(--cendre); }
+.modale-boite button { font:inherit; color:var(--os); background:var(--noir); border:2px solid transparent; padding:9px 12px; cursor:pointer; text-align:left; }
+.modale-boite button:hover { border-color:var(--cendre); }
+.modale-boite button[aria-pressed="true"] { background:var(--accent); color:var(--noir); font-weight:700; }
+.modale-boite .modale-fermer { background:none; text-decoration:underline; padding:4px; }
+.modale-grille { display:grid; grid-template-columns:repeat(var(--col,2),1fr); gap:8px; }
+.modale-ligne { width:100%; display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px; }
+.temoin { flex:none; width:12px; height:12px; transform:rotate(45deg); border:2px solid currentColor; }
+.temoin.actif { background:var(--accent); border-color:var(--accent); }
+.custom-dropdown { position:relative; }
+#voice-dropdown-menu { position:absolute; left:0; right:0; top:calc(100% - 4px); z-index:2; max-height:200px; overflow-y:auto; background:var(--noir); border:2px solid var(--os); }
+.dropdown-item { padding:8px 12px; cursor:pointer; }
+.dropdown-item:hover, .dropdown-item:focus-visible { background:var(--prune); }
+.dropdown-item[aria-selected="true"] { color:var(--accent); font-weight:700; }
+
+/* --- page projet (rendue par projet.js) --- */
+.fiche-tete { position:relative; isolation:isolate; padding:1.5rem 0 2.6rem; }
+.fiche-tete .masse { left:-6rem; top:0; width:min(58rem,85vw); height:100%; }
+.retour { display:inline-block; margin-bottom:1.8rem; text-decoration:none; font-variant-caps:small-caps; letter-spacing:.06em; color:var(--cendre); }
+.retour:hover, .retour:focus-visible { color:var(--accent); }
+.fiche-ecole { display:flex; align-items:center; gap:.8rem; margin:0; font-variant-caps:small-caps; letter-spacing:.06em; font-size:1.19rem; color:var(--cendre); }
+.fiche-ecole svg { width:2.2rem; height:2.2rem; flex:none; fill:none; stroke:var(--accent); stroke-width:2.2; }
+.fiche-titre { margin:.3rem 0 0; font-size:clamp(3.4rem,10vw,8.5rem); line-height:.85; overflow-wrap:anywhere; }
+.fiche-lede { max-width:36rem; margin:1.2rem 0 0; font-size:1.375rem; line-height:1.45; }
+.fiche-tete .liens { margin-top:1.4rem; }
+.fiche-tete .lien { font-size:1.125rem; }
+
+.fiche-corps { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,4fr); gap:3rem 4.5rem; align-items:start; margin-top:3.5rem; }
+.fiche-texte h2 { margin:2.8rem 0 .5rem; font-size:clamp(2.2rem,5vw,3rem); line-height:.95; }
+.fiche-texte h2:first-child { margin-top:0; }
+.fiche-texte p, .fiche-texte ul { max-width:40em; margin:0 0 .9rem; }
+.fiche-texte ul { list-style:none; padding:0; }
+.fiche-texte li { position:relative; margin:.4rem 0; padding-left:1.6rem; }
+.fiche-texte li::before { content:""; position:absolute; left:.2rem; top:.62em; width:.5rem; height:.5rem; transform:rotate(45deg); background:var(--accent); }
+
+.fiche-cote { display:grid; gap:3rem; }
+.carte { position:relative; isolation:isolate; padding:1.8rem 1.9rem 1.5rem; }
+.carte.parchemin { transform:rotate(.6deg); }
+.carte.prune { transform:rotate(-.5deg); }
+.carte h3 { margin:0 0 .9rem; font-size:2.4rem; line-height:.9; }
+.carte dl { margin:0; }
+.carte dt { font-variant-caps:small-caps; letter-spacing:.06em; font-size:1rem; color:#5b4a60; }
+.carte dd { margin:0 0 .75rem; }
+.fiche-etat { display:inline-flex; align-items:center; }
+.equipe { list-style:none; margin:0; padding:0; }
+.equipe li { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:.45rem 0; border-top:1px solid color-mix(in srgb, currentColor 28%, transparent); }
+.equipe span { font-size:1rem; color:var(--cendre); text-align:right; }
+.equipe .moi b { color:var(--accent); }
+.fiche-cote .chronique { margin:0; flex:none; }
+
+.planches { display:grid; grid-template-columns:repeat(auto-fill,minmax(15rem,1fr)); gap:2.5rem 2rem; align-items:start; margin-top:4.5rem; }
+.planche { margin:0; transform:rotate(-.5deg); }
+.planche:nth-child(even) { transform:rotate(.6deg); }
+.planche.large { grid-column:1 / -1; }
+.planche.moyenne { grid-column:span 2; }
+.planche img { display:block; width:100%; height:auto; border:.25rem solid var(--os); background:var(--noir); }
+.planche figcaption { margin-top:.5rem; font-style:italic; font-size:1rem; color:var(--cendre); }
+
+.fiche-suite { display:flex; justify-content:space-between; gap:2rem; margin-top:5rem; padding-top:1.2rem; border-top:.3rem solid var(--os); }
+.fiche-suite a { text-decoration:none; }
+.fiche-suite a:last-child { text-align:right; }
+.fiche-suite small { display:block; font-variant-caps:small-caps; letter-spacing:.06em; font-size:1rem; color:var(--cendre); }
+.fiche-suite b { font-family:"Pirata One", serif; font-weight:400; font-size:clamp(1.6rem,4vw,2.4rem); line-height:1; }
+.fiche-suite a:hover b, .fiche-suite a:focus-visible b { color:var(--accent); }
+
+/* --- petits écrans --- */
+@media (max-width:62rem) {
+    .fiche-corps, .vedette { grid-template-columns:minmax(0,1fr); }
+    /* sceaux : sur mobile, les rubans couvriraient le titre ; le disque seul reste, au-dessus de la carte */
+    .scel { top:-3.6rem !important; right:1rem !important; }
+    .ruban { display:none; }
+    .fiche-tete .masse { left:-3rem; width:120%; height:100%; }
+    .planche.moyenne { grid-column:auto; }
+    .nav-droite { gap:.1rem 1.2rem; }
+    .nav-droite li + li::before { content:none; }
+    .ouverture { grid-template-columns:minmax(0,1fr); }
+    .masse { left:-3rem; width:120%; height:26rem; }
+    .sceau, .nom, .suite, .tampon { grid-column:1; grid-row:auto; }
+    .sceau { width:min(15rem,60vw); margin-top:1rem; }
+    .nom { margin:1rem 0 0; }
+    .suite { flex-direction:column; margin:1.4rem 0 0; }
+    .chronique { margin:1rem 0 0; flex:none; }
+    .tampon { margin:2rem 0 0 .5rem; font-size:1.5rem; }
+    .intro, .parcours, .pied-haut { grid-template-columns:minmax(0,1fr); }
+    .ecoles { gap:3.4rem 0; }
+    .ecoles .ecole { grid-column:1 / -1; margin-top:0; padding:1.8rem 1.25rem 1.6rem; }
+    .deux { columns:1; }
+    .annales li { grid-template-columns:minmax(0,1fr); gap:0; }
+    .chiffre { font-size:2.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+
+/* --- animations : tout est sous html.anime, posé par anime.js seulement si le mouvement n'est pas réduit.
+ * Une fois par élément (à l'arrivée à l'écran), sauf le trait qui frémit (emblème, et cartes au survol). --- */
+:root { --sortie:cubic-bezier(.23,1,.32,1); --glisse:cubic-bezier(.77,0,.175,1); --tache:cubic-bezier(.45,.35,.2,1); }
+
+/* encre qui s'étale : la découpe grandit sous le filtre d'encre, donc son bord tremble comme une tache */
+html.anime :is(.ecole,.carte,.chronique) .plaque i { clip-path:circle(150% at 18% 12%); transition:clip-path 1.7s var(--tache); }
+html.anime :is(.ecole,.carte,.chronique) .plaque i.ombre { transition-delay:.15s; }
+html.anime :is(.ecole,.carte,.chronique):not(.vu) .plaque i { clip-path:circle(0 at 18% 12%); }
+html.anime :is(.ecole,.carte,.chronique) > :not(.plaque,.scel) { transition:opacity .8s ease .55s; }
+html.anime :is(.ecole,.carte,.chronique):not(.vu) > :not(.plaque,.scel) { opacity:0; }
+
+/* sceau tamponné : la cire tombe, s'enfonce, tient un instant, ressort ; la cire bave autour et une onde part du choc */
+.scel::before { content:""; position:absolute; z-index:1; left:-.5rem; top:-.45rem; width:6.4rem; height:6.3rem; background:#a8862a; border-radius:53% 47% 56% 44% / 46% 55% 45% 54%; filter:url(#encre); }
+.scel::after { content:""; position:absolute; left:-.4rem; top:-.4rem; width:6.2rem; height:6.2rem; border-radius:50%; border:.2rem solid var(--accent); opacity:0; pointer-events:none; }
+@keyframes tampon {
+    0%  { opacity:0; scale:2.1; rotate:-14deg; animation-timing-function:cubic-bezier(.55,0,.9,.45); }
+    42% { opacity:1; scale:.82; rotate:0deg; animation-timing-function:linear; }
+    60% { scale:.84; animation-timing-function:cubic-bezier(.3,1.6,.5,1); }
+    100% { opacity:1; scale:1; rotate:0deg; }
+}
+@keyframes bave { from { opacity:0; scale:.55; } to { opacity:1; scale:1; } }
+@keyframes onde { from { opacity:.9; scale:.85; } to { opacity:0; scale:1.9; } }
+@keyframes deroule { from { clip-path:inset(0 0 100% 0); } to { clip-path:inset(0); } }
+html.anime .ecole:not(.vu) .cire { opacity:0; }
+html.anime .ecole:not(.vu) .scel::before { opacity:0; }
+html.anime .ecole:not(.vu) .ruban { clip-path:inset(0 0 100% 0); }
+html.anime .ecole.vu .cire { animation:tampon .85s .7s both; }
+html.anime .ecole.vu .scel::before { animation:bave .3s var(--sortie) 1.06s both; }
+html.anime .ecole.vu .scel::after { animation:onde .8s var(--sortie) 1.06s both; }
+html.anime .ecole.vu .ruban { animation:deroule .6s var(--sortie) 1.35s both; }
+html.anime .ecole.vu .ruban.d { animation-delay:1.5s; }
+html.anime:not(.calme) .tampon { animation:tampon .85s .7s both; }
+html.anime.porte .tampon { animation-delay:3s; }
+
+/* signes qui se tracent : le trait (hérité dans <use>) avance le long du signe */
+@keyframes trace { from { stroke-dashoffset:80; } to { stroke-dashoffset:0; } }
+html.anime :is(.ecole header, .fiche-ecole, .lien) svg { stroke-dasharray:80; }
+html.anime .ecole:not(.vu) header svg { stroke-dashoffset:80; }
+html.anime .ecole.vu header svg { animation:trace 1.3s var(--glisse) .5s both; }
+html.anime:not(.calme) .fiche-ecole svg { animation:trace 1.3s var(--glisse) .3s both; }
+@media (hover:hover) and (pointer:fine) {
+    html.anime :is(.registre li:hover .lien, .lien:hover, .lien:focus-visible) svg { animation:trace .5s var(--glisse); }
+    /* trait qui frémit sur la carte qu'on survole */
+    html.anime :is(.ecole,.carte):hover .plaque { filter:url(#encre-vif); }
+}
+
+/* l'encre de l'ouverture s'étale au chargement ; l'emblème frémit doucement */
+@keyframes masse { from { clip-path:polygon(30% 34%,40% 30%,46% 42%,42% 52%,32% 54%,26% 44%); } }
+html.anime:not(.calme) .masse i { animation:masse 1.4s var(--tache) both; }
+html.anime.porte .masse i { animation-delay:2.3s; }
+html.anime .sceau { filter:url(#encre-fin-vif); }
+
+/* entrée sur le site (une fois par visite) : un glyphe se trace, la serrure tourne, les deux battants s'ouvrent */
+html.seuil::before { content:""; position:fixed; inset:0; z-index:200; background:var(--noir); }
+.porte-glyphe { --g:min(24rem,72vw); position:fixed; inset:0; z-index:201; display:flex; cursor:pointer; }
+.battant { position:relative; flex:1; overflow:hidden; background:var(--noir); animation:.75s var(--glisse) 2.05s both ouvre-g; }
+.battant.d { animation-name:ouvre-d; }
+.battant svg { position:absolute; top:50%; width:var(--g); height:var(--g); translate:0 -50%; color:var(--os); overflow:visible; }
+.battant.g svg { right:calc(var(--g) / -2); }
+.battant.d svg { left:calc(var(--g) / -2); }
+.porte-glyphe .traits { fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; animation:dore .35s ease 1.7s both; }
+.porte-glyphe .t { stroke-dasharray:1; stroke-dashoffset:1; animation:dessine .9s var(--glisse) both; }
+.porte-glyphe .t1 { animation-delay:.05s; } .porte-glyphe .t2 { animation-delay:.2s; } .porte-glyphe .t3 { animation-delay:.4s; }
+.porte-glyphe .t4 { animation-delay:.6s; } .porte-glyphe .t5 { animation-delay:.75s; }
+.porte-glyphe use { stroke-width:2.2; stroke-dasharray:80; stroke-dashoffset:80; animation:trace .6s var(--glisse) both; animation-delay:calc(.85s + var(--i) * .07s); }
+.porte-glyphe .serrure { fill:var(--accent); animation:serrure 1s var(--sortie) 1.05s both; }
+@keyframes dessine { to { stroke-dashoffset:0; } }
+@keyframes dore { to { color:var(--accent); } }
+@keyframes serrure { 0% { opacity:0; scale:.5; } 35% { opacity:1; scale:1; rotate:0deg; animation-timing-function:cubic-bezier(.77,0,.175,1); } 60% { rotate:0deg; animation-timing-function:cubic-bezier(.6,0,.3,1.4); } 100% { opacity:1; scale:1; rotate:90deg; } }
+@keyframes ouvre-g { to { translate:-100% 0; } }
+@keyframes ouvre-d { to { translate:100% 0; } }
+
+/* entre les pages : l'ancienne s'éteint dans le noir, la nouvelle remonte */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition { navigation:auto; }
+    ::view-transition-old(root) { animation:.22s ease-out both page-sort; }
+    ::view-transition-new(root) { animation:.4s var(--sortie) .05s both page-entre; }
+}
+@keyframes page-sort { to { opacity:0; } }
+@keyframes page-entre { from { opacity:0; translate:0 .8rem; } }

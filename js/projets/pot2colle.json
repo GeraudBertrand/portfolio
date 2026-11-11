@@ -1,0 +1,56 @@
+{
+    "year": "2022",
+    "team": [
+        { "name": "Géraud Bertrand", "en": "full-stack development", "fr": "développement full-stack", "me": true },
+        { "name": "Aline Hy", "en": "project lead, front end", "fr": "cheffe de projet, front-end" },
+        { "name": "Lucyle Mestrot", "en": "back end", "fr": "back-end" },
+        { "name": "Sarah Adjabi", "en": "web design", "fr": "infographie web" },
+        { "name": "Ruama Azevedo", "en": "web design", "fr": "infographie web" },
+        { "name": "Sixtine Bouillard", "en": "web design", "fr": "infographie web" },
+        { "name": "Maman Soda Diagne", "en": "web design", "fr": "infographie web" },
+        { "name": "Emilie Guy", "en": "web design", "fr": "infographie web" },
+        { "name": "Anthéa Jessner Sourcis", "en": "web design", "fr": "infographie web" },
+        { "name": "Ewen Molle", "en": "web design", "fr": "infographie web" },
+        { "name": "Paloma Tho", "en": "web design", "fr": "infographie web" },
+        { "name": "Sandrine Bidan", "en": "communication", "fr": "communication" },
+        { "name": "Anis Id saayoud", "en": "communication", "fr": "communication" }
+    ],
+    "en": {
+        "lede": "An audit of an existing website for a teacher, then the fixes: structure, performance, security. A seminar project in a large mixed team.",
+        "say": "An old site, examined, cut open and stitched back together.",
+        "facts": [["Context", "University seminar, professional bachelor's in web and mobile development"], ["Role", "Full-stack developer"]],
+        "sections": [
+            { "h": "The request", "p": ["A teacher wanted his website to work better. We had to find what was wrong, explain it to someone who is not a developer, recommend changes, and make them."] },
+            { "h": "What we changed", "ul": [
+                "Duplicated code reorganised into a Model-View-Controller structure.",
+                "A new MySQL schema for user accounts.",
+                "Lazy loading, and images moved to SVG and WebP.",
+                "Role-based authentication: teacher, parent, student."
+            ] },
+            { "h": "What I learned", "ul": [
+                "Explaining technical debt and MVC to a client who does not need the words, only the consequences.",
+                "Children's data on a school site: GDPR is not a footnote.",
+                "Coordinating code through Git with thirteen people, most of whom were not developers."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "L'audit d'un site existant pour un enseignant, puis les corrections : structure, performances, sécurité. Un projet de séminaire dans une grande équipe mêlée.",
+        "say": "Un vieux site, examiné, ouvert et recousu.",
+        "facts": [["Contexte", "Séminaire universitaire, licence professionnelle développement web et mobile"], ["Rôle", "Développeur full-stack"]],
+        "sections": [
+            { "h": "La demande", "p": ["Un enseignant voulait que son site marche mieux. Il fallait trouver ce qui n'allait pas, l'expliquer à quelqu'un qui n'est pas développeur, recommander des changements, et les faire."] },
+            { "h": "Ce que nous avons changé", "ul": [
+                "Du code dupliqué réorganisé en architecture Modèle-Vue-Contrôleur.",
+                "Un nouveau schéma MySQL pour les comptes utilisateurs.",
+                "Chargement différé, et images passées en SVG et WebP.",
+                "Une authentification par rôles : enseignant, parent, élève."
+            ] },
+            { "h": "Ce que j'en retiens", "ul": [
+                "Expliquer la dette technique et le MVC à un client qui n'a pas besoin des mots, seulement des conséquences.",
+                "Des données d'enfants sur un site scolaire : le RGPD n'est pas une note de bas de page.",
+                "Coordonner le code avec Git à treize, dont la plupart n'étaient pas développeurs."
+            ] }
+        ]
+    }
+}

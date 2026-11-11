@@ -1,0 +1,51 @@
+{
+    "year": "2023",
+    "team": [
+        { "name": "Géraud Bertrand", "en": "3D art", "fr": "art 3D", "me": true },
+        { "name": "Allan David", "en": "development", "fr": "développement" },
+        { "name": "Hugo Lefebvre", "en": "game design", "fr": "game design" },
+        { "name": "Kieran Mignon", "en": "narrative and sound", "fr": "narration et son" },
+        { "name": "Elwan Saillant", "en": "level design", "fr": "level design" }
+    ],
+    "figures": [
+        { "src": "/assets/img/projects/lumiscape.webp", "w": 5875, "h": 2710, "size": "large", "en": "The game's logo.", "fr": "Le logo du jeu." }
+    ],
+    "en": {
+        "lede": "An asymmetric cooperative puzzle game in Unreal Engine. Two electric creatures must work together to escape an abandoned toy factory.",
+        "say": "Two small sparks in a dead factory, and neither can leave alone.",
+        "facts": [["Context", "Final-year project, professional bachelor's in video game careers"], ["Role", "3D artist"]],
+        "sections": [
+            { "h": "The game", "p": ["Two players, two Lumiciels: creatures made of electricity, each with different powers. They move energy and light through the factory to solve puzzles that neither can solve alone."] },
+            { "h": "What I made", "ul": [
+                "Modular 3D assets for the industrial set, built to be reused and kept within a polygon budget.",
+                "PBR textures in Substance Painter, to give the place the look of old, worn toys.",
+                "Integration of the whole set in Unreal Engine, from Blender to the running game."
+            ] },
+            { "h": "What I learned", "ul": [
+                "The full art pipeline, from modelling to real-time integration.",
+                "Asymmetric co-op frustrates quickly: each player has to need the other, not wait for the other.",
+                "Polygon and texture budgets are decided early, or paid for late.",
+                "Keeping one visual direction across five people."
+            ] }
+        ]
+    },
+    "fr": {
+        "lede": "Un jeu de réflexion coopératif asymétrique sous Unreal Engine. Deux créatures électriques doivent s'entraider pour s'échapper d'une usine de jouets abandonnée.",
+        "say": "Deux petites étincelles dans une usine morte, et aucune ne peut sortir seule.",
+        "facts": [["Contexte", "Projet de fin d'études, licence professionnelle métiers du jeu vidéo"], ["Rôle", "Artiste 3D"]],
+        "sections": [
+            { "h": "Le jeu", "p": ["Deux joueurs, deux Lumiciels : des créatures faites d'électricité, chacune avec ses pouvoirs. Ils font circuler l'énergie et la lumière dans l'usine pour résoudre des énigmes qu'aucun ne peut résoudre seul."] },
+            { "h": "Ce que j'ai fait", "ul": [
+                "Des assets 3D modulaires pour le décor industriel, pensés pour être réutilisés et tenir dans un budget de polygones.",
+                "Des textures PBR dans Substance Painter, pour donner au lieu l'air de vieux jouets usés.",
+                "L'intégration de tout le décor dans Unreal Engine, de Blender jusqu'au jeu qui tourne."
+            ] },
+            { "h": "Ce que j'en retiens", "ul": [
+                "Toute la chaîne graphique, du modelage à l'intégration temps réel.",
+                "La coopération asymétrique frustre vite : chaque joueur doit avoir besoin de l'autre, pas l'attendre.",
+                "Les budgets de polygones et de textures se décident tôt, ou se paient tard.",
+                "Tenir une seule direction visuelle à cinq."
+            ] }
+        ]
+    }
+}
