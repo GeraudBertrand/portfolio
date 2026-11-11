@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTTT | Géraud Bertrand</title>
+    <meta name="description" content="Minimax alpha-beta AI for Ultimate Tic-Tac-Toe, written as a pair. Wins over 100 games against the MEDIUM_2 engine.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/uttt/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/uttt/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/uttt/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/uttt/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="UTTT | Géraud Bertrand">
+    <meta property="og:description" content="Minimax alpha-beta AI for Ultimate Tic-Tac-Toe, written as a pair. Wins over 100 games against the MEDIUM_2 engine.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/uttt/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"UTTT","description":"A C++ AI for Ultimate Tic-Tac-Toe, written as a pair to beat our teacher's engine. Best result: 72 wins, 17 losses and 11 draws over 100 games against MEDIUM_2.","url":"https://portfolio.gerios.fr/uttt/","inLanguage":"en","keywords":"C++","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="uttt">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/#ecoles">Schools</a></li>
+        <li><a href="/#parcours">Path</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibility</button></li>
+        <li><a id="lang-indicator" href="/fr/uttt/" lang="fr" hreflang="fr">Français</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/#ecoles">← The six schools</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#mercure"/></svg><span>Divination · data and game AI</span></p><h1 class="fiche-titre gothique">UTTT</h1><p class="fiche-lede">A C++ AI for Ultimate Tic-Tac-Toe, written as a pair to beat our teacher's engine. Best result: 72 wins, 17 losses and 11 draws over 100 games against MEDIUM_2.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Where we started</h2><p>It was the first time we wrote a program that decides on its own. We came in knowing very little game theory or search algorithms, and learned them while building. Seen from there, 72 % against the medium engine is a result I am glad of.</p><h2 class="gothique">The game</h2><p>Nine small grids inside a big one. Where you play inside a small grid sends your opponent to the matching small grid. Win three small grids in a row to win the game. Every move is two decisions at once: the square you take, and where you send the other player.</p><h2 class="gothique">The engine</h2><ul><li>Minimax with alpha-beta pruning and iterative deepening.</li><li>A transposition table with Zobrist hashing.</li><li>Move ordering with killer moves and a history table.</li><li>A positional evaluation, and an opening book that fills itself from tournament games.</li><li>About 1,600 lines of C++, plugged into the teacher's engine through a fixed interface.</li></ul><h2 class="gothique">How it got to 72 %</h2><p>The first version won between 0 and 20 % against MEDIUM_2, at about 350 ms per move. Going to depth 14 with a 10-second budget and adding the opening book brought it to 72 % over 100 games, with an average depth of 11.3 and 319 moves served by the book.</p><h2 class="gothique">What I learned</h2><ul><li>Samples of 10 games are noise. Only 100-game runs told us anything.</li><li>Debug and Release builds play like two different engines; always measure with -O3.</li><li>Mate scores stored in the table must be corrected by distance, or the engine believes nonsense.</li><li>An opening book goes wrong as soon as the evaluation changes.</li><li>Not done: quiescence search, multi-threading, Monte Carlo tree search, which is what wins at this game.</li></ul></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The entry</h3><dl><dt>State</dt><dd><span class="fiche-etat"><i class="etat repos" aria-hidden="true"></i>at rest: finished</span></dd><dt>Period</dt><dd>2026</dd><dt>Context</dt><dd>ESILV course project</dd><dt>Team</dt><dd>A pair, with Mouad Zouadi</dd><dt>Result</dt><dd>72 % wins over 100 games</dd><dt>Stack</dt><dd>C++</dd></dl></section><section class="carte prune"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The company</h3><ul class="equipe"><li class="moi"><b>Géraud Bertrand</b><span>co-author</span></li><li><b>Mouad Zouadi</b><span>co-author</span></li></ul></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>They asked the board what comes next, eleven moves deep.</span><cite>The Chronicler</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Previous entry / Next entry"><a href="/bobathon/"><small>← Previous entry</small><b>Bobathon</b></a><a href="/creastate/"><small>Next entry →</small><b>CreaState</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Send word</h2>
+            <p class="dit">An internship, a question about a project, anything else: write to me.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Write an email</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

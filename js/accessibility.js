@@ -10,6 +10,8 @@ const ACCESS_KEYS = {
     VOICE: 'geraud_portfolio_selected_voice'
 };
 
+window.currentLang = document.documentElement.lang; // la langue est celle de la page (/ en anglais, /fr/ en français)
+
 let availableVoices = [];
 
 /**
@@ -25,10 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Chargement initial et écouteur pour les navigateurs lents (Chrome/Edge)
         loadVoices();
         window.speechSynthesis.onvoiceschanged = loadVoices;
-
-        window.addEventListener('languageChanged', (e) => {
-            loadVoices(); // Recharger les voix pour correspondre à la nouvelle langue
-        });
     }
 
     // Fermeture des menus au clic extérieur
@@ -255,15 +253,6 @@ window.toggleAccessModal = function() {
 document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('access-modal');
     if (e.key === 'Escape' && modal && !modal.classList.contains('hidden') && !e.target.closest?.('[role="option"]')) window.toggleAccessModal();
-});
-
-// La fenêtre est écrite dans la langue courante : on la refait à la bascule, ouverte si elle l'était.
-window.addEventListener('languageChanged', () => {
-    const modal = document.getElementById('access-modal');
-    const ouverte = modal && !modal.classList.contains('hidden');
-    if (modal) modal.remove();
-    createAccessModal();
-    if (ouverte) window.toggleAccessModal();
 });
 
 function updateAccessUI() {

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Center | Géraud Bertrand</title>
+    <meta name="description" content="Gestionnaire de collection de cartes à collectionner, avec scanner. L'interface React fonctionne, la détection est en cours.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/cardcenter/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/cardcenter/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/cardcenter/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/cardcenter/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Card Center | Géraud Bertrand">
+    <meta property="og:description" content="Gestionnaire de collection de cartes à collectionner, avec scanner. L'interface React fonctionne, la détection est en cours.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/cardcenter/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Card Center","description":"Un gestionnaire de collection de cartes Magic: The Gathering. On scanne une carte, elle est dans la collection.","url":"https://portfolio.gerios.fr/fr/cardcenter/","inLanguage":"fr","keywords":"ASP.NET Core, React, C++ / OpenCV, FAISS","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="cardcenter">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/cardcenter/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#terre"/></svg><span>Artifice · applications et outils</span></p><h1 class="fiche-titre gothique">Card Center</h1><p class="fiche-lede">Un gestionnaire de collection de cartes Magic: The Gathering. On scanne une carte, elle est dans la collection.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Pourquoi</h2><p>Je joue à Magic. Une collection atteint vite des milliers de cartes, et les lister à la main, pour les échanger ou construire un deck, est long et plein d'erreurs. D'autres collectionneurs m'ont dit la même chose. Card Center remplace cet inventaire par un scan.</p><h2 class="gothique">Ce qu'il sera</h2><p>Une application mobile gratuite pour scanner, et un tableau de bord web pour gérer la collection. Aujourd'hui l'API et le site fonctionnent ; le scanner est en cours ; l'application mobile est prévue, pas commencée.</p><h2 class="gothique">Comment il est construit</h2><ul><li>Scanner en C++ avec OpenCV : détection des bords et correction de perspective, puis Tesseract lit le nom de la carte. Les données des cartes viennent de Scryfall.</li><li>API en ASP.NET Core sur PostgreSQL.</li><li>Site en React et TypeScript avec Vite. Il a remplacé le tableau de bord Blazor prévu au départ.</li><li>Quatre dépôts GitHub en Gitflow, CI/CD complète avec GitHub Actions, décisions consignées en ADR.</li><li>Déployé en conteneurs sur mon NAS Synology.</li></ul><h2 class="gothique">Où il en est</h2><p>En octobre 2026, l'API est passée en v0.3.0 et le site en v0.2.0. Ensuite : finir le scanner, puis l'application mobile en Flutter.</p></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat rituel" aria-hidden="true"></i>en rituel : en cours</span></dd><dt>Contexte</dt><dd>Projet personnel</dd><dt>Rôle</dt><dd>Tout, seul</dd><dt>Outils</dt><dd>ASP.NET Core | React | C++ / OpenCV | FAISS</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Des milliers de petites âmes de papier, chacune nommée et comptée.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/devisnet/"><small>← Entrée précédente</small><b>DevisNet</b></a><a href="/fr/riskof/"><small>Entrée suivante →</small><b>Risk of Library</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

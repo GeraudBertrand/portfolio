@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les familiers | Géraud Bertrand</title>
+    <meta name="description" content="Trois serveurs MCP construits pour mon propre usage : une mémoire commune de mes notes pour Claude et Gemini, le stock de ma cuisine, mes dépenses du mois. Des outils personnels, pas des produits.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/familiers/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/familiers/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/familiers/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/familiers/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Les familiers | Géraud Bertrand">
+    <meta property="og:description" content="Trois serveurs MCP construits pour mon propre usage : une mémoire commune de mes notes pour Claude et Gemini, le stock de ma cuisine, mes dépenses du mois. Des outils personnels, pas des produits.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/familiers/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Les familiers","description":"Trois serveurs MCP qui donnent à mes assistants IA de quoi travailler pour de vrai : mes notes, ma cuisine, mes comptes. Construits pour mon propre usage, chaque fois parce que j'en avais besoin.","url":"https://portfolio.gerios.fr/fr/familiers/","inLanguage":"fr","keywords":"C# / .NET, MCP, Docker","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="familiers">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/familiers/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#air"/></svg><span>Conjuration · familiers IA</span></p><h1 class="fiche-titre gothique">Les familiers</h1><p class="fiche-lede">Trois serveurs MCP qui donnent à mes assistants IA de quoi travailler pour de vrai : mes notes, ma cuisine, mes comptes. Construits pour mon propre usage, chaque fois parce que j'en avais besoin.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Comment j'utilise l'IA</h2><p>J'utilise l'IA surtout pour comprendre. Me faire expliquer un fonctionnement, regarder un problème sous un angle que je ne connais pas encore, emprunter des connaissances que je n'ai pas et les vérifier. Elle sait des choses que j'ignore ; je demande, je lis, je vérifie.</p><p>Je ne l'utilise pas pour réfléchir à ma place. C'est moi qui raisonne et qui décide ; l'assistant aide. Un familier, pas un remplaçant.</p><p>Ces serveurs existent pour ça : un assistant n'est utile qu'à la mesure de ce qu'il sait de mon contexte. MCP (Model Context Protocol) me permet de lui confier mes notes, ma cuisine ou mes comptes, avec des outils que j'ai écrits et des limites que j'ai choisies.</p><h2 class="gothique">Le gardien des notes</h2><p>ObsidianGraph.Mcp. Mes notes se lient déjà entre elles : au lieu de les découper en morceaux et de les fouiller à l'aveugle, le serveur laisse Claude et Gemini parcourir le graphe des liens. Cartographier un sujet, lire un résumé, puis une section, puis la note entière seulement si besoin. Moins de tokens, de meilleures réponses. Les deux assistants s'en servent comme d'une mémoire commune et écrivent eux-mêmes les notes, selon un même gabarit.</p><ul><li>Graphe en mémoire sous forme de listes d'adjacence, notes lues avec des expressions régulières générées à la compilation, réindexées quand un fichier change.</li><li>Des relations typées écrites dans la note elle-même, comme utilise:: [[lien]].</li><li>Authentification uniquement par OAuth 2.1.</li></ul><h2 class="gothique">Le gardien du garde-manger</h2><p>Cuisine.Mcp. J'envoie une photo du frigo ; le stock est mis à jour, étagère par étagère. Les idées de courses et de dîner partent de ce qui est là, de ce qui périme bientôt et de ce que je mange d'habitude, et les recettes viennent de mon propre carnet. La vue s'affiche dans la conversation, grâce à MCP Apps.</p><ul><li>.NET 10 sans aucun paquet NuGet : j'ai écrit le protocole à la main.</li><li>Un seul fichier JSON écrit de façon atomique, plus un historique en ajout seul.</li><li>Noms comparés sans accents ni ligatures ; jamais de conversion d'unité en silence.</li></ul><h2 class="gothique">Le gardien du registre</h2><p>CompteRendu.Mcp. Une fois par mois, il me dit où est parti l'argent, à partir de l'export de la banque et des tickets de supermarché lus ligne par ligne.</p><ul><li>Données en fichiers CSV, lisibles sans l'outil ; le serveur ne voit qu'un dossier et rien d'autre.</li><li>Un ticket n'est accepté que si ses lignes donnent le total ; les doublons sont repérés grâce au code du ticket.</li><li>Des tests xUnit sur de vrais tickets.</li></ul><h2 class="gothique">Ce qu'ils ont en commun</h2><p>C# et .NET, Docker sur mon NAS Synology, authentification à chaque appel. Seuls mes propres assistants peuvent les joindre. Aucun n'a vocation à devenir un produit public : ce sont des outils taillés pour les habitudes d'une seule personne, et c'est tout l'intérêt.</p></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat vivant" aria-hidden="true"></i>vivant : en service</span></dd><dt>Période</dt><dd>2026 – now</dd><dt>Contexte</dt><dd>Usage personnel, non public</dd><dt>Rôle</dt><dd>Tout, seul</dd><dt>Nombre</dt><dd>Trois serveurs, utilisés chaque jour</dd><dt>Outils</dt><dd>C# / .NET | MCP | Docker</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>De petits esprits liés à de petites corvées. Ils ne servent qu'un maître, et ils se souviennent.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/pot2colle/"><small>← Entrée précédente</small><b>Pot2Colle</b></a><a href="/fr/ryleh/"><small>Entrée suivante →</small><b>La Lisière de R'yleh</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lisière de R'yleh | Géraud Bertrand</title>
+    <meta name="description" content="Jeu de plateau lovecraftien asymétrique, de stratégie et de bluff.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/ryleh/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/ryleh/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/ryleh/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/ryleh/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="La Lisière de R'yleh | Géraud Bertrand">
+    <meta property="og:description" content="Jeu de plateau lovecraftien asymétrique, de stratégie et de bluff.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/ryleh/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"La Lisière de R'yleh","description":"Un jeu de plateau lovecraftien asymétrique. Une équipe d'investigateurs coopère pour sceller des portails ; un joueur incarne le Grand Ancien et joue pour leur briser l'esprit.","url":"https://portfolio.gerios.fr/fr/ryleh/","inLanguage":"fr","keywords":"game design, balancing","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="ryleh">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/ryleh/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#eau"/></svg><span>Illusion · jeux</span></p><h1 class="fiche-titre gothique">La Lisière de R'yleh</h1><p class="fiche-lede">Un jeu de plateau lovecraftien asymétrique. Une équipe d'investigateurs coopère pour sceller des portails ; un joueur incarne le Grand Ancien et joue pour leur briser l'esprit.</p><div class="liens"><a class="lien" href="/assets/docs/ryleh/rules.pdf"><svg aria-hidden="true"><use href="/assets/img/signes.svg#feuillet"/></svg><span>Lire les règles</span></a><a class="lien" href="/assets/docs/ryleh/tableur.pdf"><svg aria-hidden="true"><use href="/assets/img/signes.svg#feuillet"/></svg><span>Voir le tableau d'équilibrage</span></a></div></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Le jeu</h2><p>Deux camps aux objectifs opposés. Les investigateurs explorent des lieux occultes et scellent des portails interdimensionnels, ensemble. Le Grand Ancien joue seul, avec des cartes cachées, et gagne quand les humains perdent la raison.</p><h2 class="gothique">Ce que j'ai conçu</h2><ul><li>La santé mentale comme ressource centrale : chaque action risquée l'use, et rapproche le joueur de la défaite, ou de pouvoirs interdits.</li><li>Une asymétrie totale : main cachée pour l'Ancien, coopération à découvert pour les investigateurs.</li><li>Un plateau qui change à mesure que la horde de l'Ancien ouvre des portails.</li><li>Les valeurs de chaque carte Rejeton et Action, équilibrées dans un tableur pour que la tension ne retombe jamais.</li></ul><h2 class="gothique">Le reste de la compagnie</h2><p>Tous les visuels sont l'œuvre de Mélanie Velasco ; Adrien Chateau a fabriqué le prototype physique. Les règles et le tableau d'équilibrage sont en lien plus haut.</p></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat repos" aria-hidden="true"></i>au repos : terminé</span></dd><dt>Période</dt><dd>2022 – 2023</dd><dt>Contexte</dt><dd>Projet universitaire, licence professionnelle game et level design</dd><dt>Rôle</dt><dd>Game designer</dd><dt>Outils</dt><dd>game design | balancing</dd></dl></section><section class="carte prune"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La compagnie</h3><ul class="equipe"><li class="moi"><b>Géraud Bertrand</b><span>game design</span></li><li><b>Mélanie Velasco</b><span>graphisme</span></li><li><b>Adrien Chateau</b><span>fabrication et médiation</span></li></ul></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Trois investigateurs, un Ancien, et un deck équilibré à la main, carte par carte.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><div class="planches"><figure class="planche moyenne"><img src="/assets/img/ryleh/setup.webp" alt="Le prototype physique, installé sur le plateau gravé." width="800" height="533" loading="lazy"><figcaption>Le prototype physique, installé sur le plateau gravé.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/cartes.webp" alt="Le deck complet." width="800" height="533" loading="lazy"><figcaption>Le deck complet.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/shoggoth.webp" alt="Carte Rejeton : Shoggoth." width="372" height="520" loading="lazy"><figcaption>Carte Rejeton : Shoggoth.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/abomination.webp" alt="Carte Rejeton : l'Abomination." width="372" height="520" loading="lazy"><figcaption>Carte Rejeton : l'Abomination.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/ancien_nosfer.webp" alt="Carte Ancien : Nosfer." width="372" height="520" loading="lazy"><figcaption>Carte Ancien : Nosfer.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/tonic.webp" alt="Carte Action : Tonic III." width="372" height="520" loading="lazy"><figcaption>Carte Action : Tonic III.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/poison.webp" alt="Carte Action : Poison I." width="372" height="520" loading="lazy"><figcaption>Carte Action : Poison I.</figcaption></figure><figure class="planche "><img src="/assets/img/ryleh/dos_rejeton.webp" alt="Dos d'une carte Rejeton." width="744" height="1039" loading="lazy"><figcaption>Dos d'une carte Rejeton.</figcaption></figure></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/familiers/"><small>← Entrée précédente</small><b>Les familiers</b></a><a href="/fr/livingrock/"><small>Entrée suivante →</small><b>Living Rock</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

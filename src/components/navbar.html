@@ -1,4 +1,5 @@
-<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché. -->
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
 <nav class="nav" aria-label="Main">
     <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
     <ul class="barres nav-droite">
@@ -6,6 +7,6 @@
         <li><a href="/#parcours" data-i18n="nav_path">Path</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         <li><button type="button" onclick="window.toggleAccessModal()" data-i18n="nav_access_label">Accessibility</button></li>
-        <li><button type="button" onclick="window.toggleLanguage()" id="lang-indicator" lang="fr">Français</button></li>
+        <li><!-- langue --></li>
     </ul>
 </nav>

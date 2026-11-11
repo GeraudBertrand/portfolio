@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bobathon | Géraud Bertrand</title>
+    <meta name="description" content="Predicting Parkinson's progression for patients never seen in training, team of 3 among 294, with IBM's agent manager Bob. Down from 16.5 at the start.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/bobathon/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/bobathon/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/bobathon/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/bobathon/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Bobathon | Géraud Bertrand">
+    <meta property="og:description" content="Predicting Parkinson's progression for patients never seen in training, team of 3 among 294, with IBM's agent manager Bob. Down from 16.5 at the start.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/bobathon/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Bobathon","description":"A Kaggle competition inside a machine-learning course at ESILV: predict how far Parkinson's disease has progressed in patients the model has never seen. Team of three, worked through IBM's agent manager, Bob.","url":"https://portfolio.gerios.fr/bobathon/","inLanguage":"en","keywords":"scikit-learn, LightGBM, Kaggle, IBM and Probabl","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="bobathon">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/#ecoles">Schools</a></li>
+        <li><a href="/#parcours">Path</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibility</button></li>
+        <li><a id="lang-indicator" href="/fr/bobathon/" lang="fr" hreflang="fr">Français</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/#ecoles">← The six schools</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#mercure"/></svg><span>Divination · data and game AI</span></p><h1 class="fiche-titre gothique">Bobathon</h1><p class="fiche-lede">A Kaggle competition inside a machine-learning course at ESILV: predict how far Parkinson's disease has progressed in patients the model has never seen. Team of three, worked through IBM's agent manager, Bob.</p><div class="liens"><a class="lien" href="https://www.kaggle.com/competitions/bobathon-esilv/overview" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>See the competition on Kaggle</span></a></div></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">The problem</h2><p>About 44,600 clinical visits from roughly 5,600 patients. For each visit, predict the motor score of the disease measured without medication. The test patients never appear in training, so the model has to generalise to new people, not remember known ones.</p><h2 class="gothique">Working with Bob</h2><p>The course required every submission to come out of Bob, IBM's agent manager, with each result logged in Skore Hub by Probabl. Bob is not a chat assistant like Claude or ChatGPT. It runs a fixed workflow of skills: explore the data, write a design note, run the experiment, record the result in a journal. It was built with a very different idea of what the tool is for, and learning to work inside its rules was part of the exercise.</p><h2 class="gothique">Measuring honestly</h2><p>From the second experiment on, every score came from a five-fold cross-validation grouped by patient. Shuffling visits at random would have let the model see the same patient in training and validation, and given flattering numbers that Kaggle would then have refused.</p><h2 class="gothique">From 16.5 to 3.4</h2><ul><li>A constant guess: 16.5. A linear model: 10.6. Gradient boosting that keeps missing values as information: 7.8.</li><li>Per-patient features, such as averages over all their visits: 4.9. The biggest single step.</li><li>Tuning the boosting and trying an automatic tabular pipeline went nowhere. Temporal features with LightGBM: 4.7.</li><li>The turning point: each patient's score follows a smooth curve with age. Fitting that curve per patient, then correcting for time since the last dose and for who rated the visit: 3.7.</li><li>Adding each patient's own response to levodopa: 3.4 in cross-validation, 3.20 on the public leaderboard.</li></ul><h2 class="gothique">What I take from it</h2><ul><li>Looking at the data per patient taught us more than any tuning did.</li><li>A clean validation split matters more than the model; it is what made each step trustworthy.</li><li>Keeping a journal of every experiment, including the failed ones, made the path easy to retrace.</li><li>Not done: predicting the curve's coefficients directly, or putting LightGBM inside the per-patient model.</li></ul></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The entry</h3><dl><dt>State</dt><dd><span class="fiche-etat"><i class="etat repos" aria-hidden="true"></i>at rest: finished</span></dd><dt>Period</dt><dd>2026</dd><dt>Context</dt><dd>ESILV machine-learning course, internal Kaggle competition, 294 teams</dd><dt>Team</dt><dd>Three, with Mouad Zouadi and Natty Fremont</dd><dt>Result</dt><dd>RMSE 3.197 on the public leaderboard, from 16.5 at the start</dd><dt>Stack</dt><dd>scikit-learn | LightGBM | Kaggle, IBM and Probabl</dd></dl></section><section class="carte prune"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The company</h3><ul class="equipe"><li class="moi"><b>Géraud Bertrand</b><span>team member</span></li><li><b>Mouad Zouadi</b><span>team member</span></li><li><b>Natty Fremont</b><span>team member</span></li></ul></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>They read the tremor in the numbers, and wrote down every wrong guess.</span><cite>The Chronicler</cite></blockquote></aside></div><div class="planches"><figure class="planche large"><img src="/assets/img/bobathon/rmse.webp" alt="Error per experiment, from a constant guess to the final model. Lower is better." width="1000" height="410" loading="lazy"><figcaption>Error per experiment, from a constant guess to the final model. Lower is better.</figcaption></figure></div><nav class="fiche-suite" aria-label="Previous entry / Next entry"><a href="/lumiscape/"><small>← Previous entry</small><b>Lumiscape</b></a><a href="/uttt/"><small>Next entry →</small><b>UTTT</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Send word</h2>
+            <p class="dit">An internship, a question about a project, anything else: write to me.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Write an email</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

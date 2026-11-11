@@ -15,7 +15,7 @@
 
 /* --- base --- */
 *, *::before, *::after { box-sizing:border-box; }
-html { font-size:calc(100% * var(--text-multiplier)); scroll-behavior:smooth; }
+html { font-size:calc(100% * var(--text-multiplier)); scroll-behavior:smooth; overflow-x:clip; /* clip ici aussi : sur mobile, un élément agrandi pendant son animation (tampon) élargissait la page */ }
 body { margin:0; background:var(--fond); color:var(--os); font-family:"Vollkorn", Georgia, serif; font-size:1.125rem; line-height:1.5; overflow-x:clip; }
 a { color:inherit; }
 .hidden { display:none !important; }

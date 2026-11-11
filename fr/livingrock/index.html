@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Rock | Géraud Bertrand</title>
+    <meta name="description" content="Jeu de réflexion minimaliste fait en 48 heures pour l'UniJam.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/livingrock/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/livingrock/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/livingrock/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/livingrock/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Living Rock | Géraud Bertrand">
+    <meta property="og:description" content="Jeu de réflexion minimaliste fait en 48 heures pour l'UniJam.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/livingrock/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Living Rock","description":"Un jeu de réflexion physique minimaliste fait en 48 heures à l'UniJam 2023. Votre compagnon est un rocher vivant, et il s'effrite si vous vous éloignez trop.","url":"https://portfolio.gerios.fr/fr/livingrock/","inLanguage":"fr","keywords":"Unity, C#","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="livingrock">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/livingrock/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#eau"/></svg><span>Illusion · jeux</span></p><h1 class="fiche-titre gothique">Living Rock</h1><p class="fiche-lede">Un jeu de réflexion physique minimaliste fait en 48 heures à l'UniJam 2023. Votre compagnon est un rocher vivant, et il s'effrite si vous vous éloignez trop.</p><div class="liens"><a class="lien" href="https://tiosstud.itch.io/living-rock" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>Y jouer sur itch.io</span></a></div></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">La contrainte</h2><p>Le thème de la jam demandait que la distance compte. Nous l'avons pris au pied de la lettre : la distance devient une menace directe pour le compagnon du personnage.</p><h2 class="gothique">Le jeu</h2><p>On résout des énigmes physiques en déplaçant des éléments de la salle. L'élément principal est le rocher vivant : utile partout, mais s'il s'éloigne trop de vous, il se désagrège.</p><ul><li>Des plaques de pression que seul le rocher ou une caisse d'énergie peut maintenir.</li><li>Des tapis roulants à sens unique.</li><li>Des leviers qui gardent les portes ouvertes.</li></ul><h2 class="gothique">Ma part</h2><p>Avec Robin Lefebvre, j'ai conçu les niveaux. Chaque salle apprend une mécanique, la fait utiliser, puis ajoute une surprise, pour que la difficulté monte sans mur. En 48 heures, cela voulait dire décider vite et couper ce qui ne rentrait pas.</p></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat repos" aria-hidden="true"></i>au repos : terminé</span></dd><dt>Période</dt><dd>2023</dd><dt>Contexte</dt><dd>UniJam 2023, 48 heures</dd><dt>Rôle</dt><dd>Game et level design</dd><dt>Thème</dt><dd>La distance rend tout infiniment plus précieux</dd><dt>Outils</dt><dd>Unity | C#</dd></dl></section><section class="carte prune"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La compagnie</h3><ul class="equipe"><li class="moi"><b>Géraud Bertrand</b><span>game et level design</span></li><li><b>Robin Lefebvre</b><span>level et game design</span></li><li><b>Justine Guillou</b><span>graphisme</span></li><li><b>Sally Niasse</b><span>graphisme</span></li><li><b>Louka Doz</b><span>développement</span></li><li><b>Gaston Rouquette</b><span>développement</span></li><li><b>Emmanuel Dietlin</b><span>développement</span></li></ul></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Une pierre qui meurt de solitude. Ils l'ont bâtie en deux nuits.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><div class="planches"><figure class="planche "><img src="/assets/img/livingrock/illustration.webp" alt="L'illustration du jeu." width="630" height="500" loading="lazy"><figcaption>L'illustration du jeu.</figcaption></figure><figure class="planche "><img src="/assets/img/livingrock/level1.webp" alt="Un niveau conçu pour le jeu, construit autour du rocher vivant." width="547" height="337" loading="lazy"><figcaption>Un niveau conçu pour le jeu, construit autour du rocher vivant.</figcaption></figure><figure class="planche "><img src="/assets/img/livingrock/legende.webp" alt="Légende des éléments interactifs du niveau." width="380" height="574" loading="lazy"><figcaption>Légende des éléments interactifs du niveau.</figcaption></figure></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/ryleh/"><small>← Entrée précédente</small><b>La Lisière de R'yleh</b></a><a href="/fr/lumiscape/"><small>Entrée suivante →</small><b>Lumiscape</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

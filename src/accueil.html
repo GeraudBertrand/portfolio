@@ -1,0 +1,163 @@
+    <main class="page">
+
+        <!-- OUVERTURE -->
+        <section id="accueil" class="ouverture">
+            <div class="masse" aria-hidden="true"><i></i></div>
+
+            <!-- EMBLÈME PROVISOIRE : à remplacer par l'illustration du paresseux nécromancien (un <img> carré suffit) -->
+            <svg class="sceau" viewBox="0 0 240 240" role="img" aria-labelledby="sceau-titre">
+                <title id="sceau-titre" data-i18n="emblem_alt">Emblem: a skeletal sloth hanging from a branch, inside a seal with six marks.</title>
+                <circle cx="120" cy="120" r="112" fill="#0e0910" stroke="#e7dcc4" stroke-width="5"/>
+                <circle cx="120" cy="120" r="99" fill="none" stroke="#e7dcc4" stroke-width="1.5"/>
+                <!-- six losanges sur le pourtour, un par école -->
+                <path fill="var(--accent)" d="M120 7.5l7 7-7 7-7-7zM211.4 60.3l7 7-7 7-7-7zM211.4 165.7l7 7-7 7-7-7zM120 218.5l7 7-7 7-7-7zM28.6 165.7l7 7-7 7-7-7zM28.6 60.3l7 7-7 7-7-7z"/>
+                <path d="M88 152L78 78M152 152L162 78" stroke="#e7dcc4" stroke-width="16" stroke-linecap="round"/>
+                <path d="M33 76H207" stroke="#e7dcc4" stroke-width="11"/>
+                <path d="M70 72V54M78 72V51M86 72V54M154 72V54M162 72V51M170 72V54" stroke="#e7dcc4" stroke-width="4.5" stroke-linecap="round"/>
+                <ellipse cx="120" cy="160" rx="45" ry="38" fill="#e7dcc4"/>
+                <path d="M97 156h46M93 169h54M100 182h40" stroke="#0e0910" stroke-width="5"/>
+                <path d="M120 148v44" stroke="#0e0910" stroke-width="4"/>
+                <circle cx="120" cy="118" r="30" fill="#e7dcc4" stroke="#0e0910" stroke-width="4"/>
+                <ellipse cx="108" cy="116" rx="11" ry="7" transform="rotate(25 108 116)" fill="#0e0910"/>
+                <ellipse cx="132" cy="116" rx="11" ry="7" transform="rotate(-25 132 116)" fill="#0e0910"/>
+                <circle cx="109" cy="116" r="3" fill="var(--accent)"/><circle cx="131" cy="116" r="3" fill="var(--accent)"/>
+                <path d="M114 128h12l-6 7z" fill="#0e0910"/>
+                <path d="M108 139q12 7 24 0M113 139v5M120 141v5M127 139v5" fill="none" stroke="#0e0910" stroke-width="2.2"/>
+            </svg>
+
+            <h1 class="nom gothique">Géraud<span>Bertrand</span></h1>
+
+            <div class="suite">
+                <div>
+                    <p class="metier" data-i18n="hero_role">Software engineer in training. C#/.NET on weekdays. Signals, familiars and games after dark.</p>
+                    <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span data-i18n="hero_github">The code, on GitHub</span></a>
+                </div>
+                <blockquote class="chronique">
+                    <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                    <span data-i18n="hero_chronicle">He is slow, as his kind are slow. Do not mistake it for sleep: what he raises, stays raised.</span>
+                    <cite data-i18n="chronicler">The Chronicler</cite>
+                </blockquote>
+            </div>
+
+            <p class="tampon gothique" data-i18n="hero_stamp">Sought: an internship abroad, summer of 2027</p>
+
+            <ul class="barres faits">
+                <li data-i18n="fact_work">Work-study developer at XLConcept since 2025</li>
+                <li data-i18n="fact_school">Engineering student, software and AI, ESILV Nantes, 2025 to 2028</li>
+                <li data-i18n="fact_languages">French, English, some German</li>
+            </ul>
+        </section>
+
+        <!-- LES SIX ÉCOLES : les projets viennent de /js/projects.json, rendus par /js/index.js -->
+        <h2 id="ecoles" class="titre gothique" data-i18n="schools_title">The six schools</h2>
+        <div class="intro">
+            <p><span data-i18n="schools_intro">What I have built and what I am building, sorted by craft.</span> <span id="nb-projets"></span> <span data-i18n="schools_count">entries, finished or not.</span></p>
+            <ul class="barres legende">
+                <li><i class="etat vivant" aria-hidden="true"></i><span data-i18n="state_alive_legend">alive: in use</span></li>
+                <li><i class="etat rituel" aria-hidden="true"></i><span data-i18n="state_ritual_legend">in ritual: in progress</span></li>
+                <li><i class="etat repos" aria-hidden="true"></i><span data-i18n="state_rest_legend">at rest: finished</span></li>
+            </ul>
+        </div>
+
+        <div class="ecoles">
+            <!-- Galvanisme en vedette : c'est la direction visée (neurotechnologies) -->
+            <section class="ecole parchemin vedette">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <div class="scel" style="top:-2.6rem; right:2.4rem" aria-hidden="true"><i class="cire"><svg><use href="/assets/img/signes.svg#feu"/></svg></i><span class="ruban g" data-i18n="seal_heading">where I'm heading</span><span class="ruban d" data-i18n="seal_due">April 2027</span></div>
+                <div class="vedette-texte">
+                    <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#feu"/></svg><div><h3 class="gothique" data-i18n="school_galvanism">Galvanism</h3><div class="sous" data-i18n="school_galvanism_sub">hardware and signal</div></div></header>
+                    <p class="dit" data-i18n="school_galvanism_say">Dead metal, a little current, and the patience to wait for a twitch.</p>
+                    <p class="cap" data-i18n="galvanism_cap">The field I want to work in: neurotechnology, signals from the body turned into control.</p>
+                    <ul class="registre" data-ecole="galvanisme"></ul>
+                </div>
+                <figure class="schema">
+                    <svg viewBox="0 0 560 160" role="img" aria-labelledby="schema-titre">
+                        <title id="schema-titre" data-i18n="schema_alt">From muscle to metal: EMG sensors on the forearm, an ESP32-S3, a decoding model, then the robot arm.</title>
+                        <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- signal EMG -->
+                            <path d="M14 62h14l5-20 7 40 6-50 7 58 6-36 5 16 5-8h30" stroke-width="3.5"/>
+                            <!-- flèches -->
+                            <path d="M112 62h36M142 55l8 7-8 7M252 62h36M282 55l8 7-8 7M392 62h36M422 55l8 7-8 7"/>
+                            <!-- puce ESP32-S3 -->
+                            <rect x="166" y="30" width="68" height="64"/><rect x="184" y="48" width="32" height="28"/>
+                            <path d="M178 30v-9M194 30v-9M210 30v-9M226 30v-9M178 94v9M194 94v9M210 94v9M226 94v9"/>
+                            <!-- modèle -->
+                            <path d="M310 36l36 14M310 36l36 38M310 62l36-12M310 62l36 12M310 88l36-38M310 88l36-14M346 50l30 12M346 74l30-12"/>
+                            <circle cx="310" cy="36" r="6" fill="#e7dcc4"/><circle cx="310" cy="62" r="6" fill="#e7dcc4"/><circle cx="310" cy="88" r="6" fill="#e7dcc4"/>
+                            <circle cx="346" cy="50" r="6" fill="#e7dcc4"/><circle cx="346" cy="74" r="6" fill="#e7dcc4"/><circle cx="376" cy="62" r="6" fill="currentColor"/>
+                            <!-- bras et pince -->
+                            <path d="M446 104h44M468 104l8-42 34-16M510 46l12-12h10M510 46l12 12h10" stroke-width="5"/>
+                            <circle cx="476" cy="62" r="5" fill="#e7dcc4"/><circle cx="510" cy="46" r="5" fill="#e7dcc4"/>
+                        </g>
+                        <g class="schema-legendes" fill="currentColor" text-anchor="middle">
+                            <text x="62" y="140" data-i18n="schema_muscle">forearm EMG</text>
+                            <text x="200" y="140">ESP32-S3</text>
+                            <text x="342" y="140" data-i18n="schema_model">model</text>
+                            <text x="488" y="140" data-i18n="schema_arm">PiPER arm</text>
+                        </g>
+                    </svg>
+                </figure>
+            </section>
+
+            <section class="ecole encre a1">
+                <div class="plaque" aria-hidden="true"><i></i></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#terre"/></svg><div><h3 class="gothique" data-i18n="school_artifice">Artifice</h3><div class="sous" data-i18n="school_artifice_sub">applications and tools</div></div></header>
+                <p class="dit" data-i18n="school_artifice_say">Tools, mostly. Forged because someone needed them on a Monday.</p>
+                <ul class="registre" data-ecole="artifice"></ul>
+            </section>
+
+            <section class="ecole prune a2">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <div class="scel" style="top:-2.5rem; right:2.1rem" aria-hidden="true"><i class="cire"><svg><use href="/assets/img/signes.svg#air"/></svg></i><span class="ruban g" data-i18n="seal_daily">in daily use</span><span class="ruban d" data-i18n="seal_three">three bound</span></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#air"/></svg><div><h3 class="gothique" data-i18n="school_conjuration">Conjuration</h3><div class="sous" data-i18n="school_conjuration_sub">AI familiars</div></div></header>
+                <p class="dit court" data-i18n="school_conjuration_say">Small spirits bound to small chores: notes, larder, ledger.</p>
+                <ul class="registre" data-ecole="conjuration"></ul>
+            </section>
+
+            <section class="ecole parchemin b1">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <div class="scel" style="top:-2.75rem; right:2.5rem" aria-hidden="true"><i class="cire"><svg><use href="/assets/img/signes.svg#mercure"/></svg></i><span class="ruban g" data-i18n="seal_measured">measured</span><span class="ruban d" data-i18n="seal_not_guessed">not guessed</span></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#mercure"/></svg><div><h3 class="gothique" data-i18n="school_divination">Divination</h3><div class="sous" data-i18n="school_divination_sub">data and game AI</div></div></header>
+                <p class="dit court" data-i18n="school_divination_say">Numbers, asked politely what comes next.</p>
+                <ul class="registre" data-ecole="divination"></ul>
+            </section>
+
+            <section class="ecole encre b2">
+                <div class="plaque" aria-hidden="true"><i></i></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#eau"/></svg><div><h3 class="gothique" data-i18n="school_illusion">Illusion</h3><div class="sous" data-i18n="school_illusion_sub">games</div></div></header>
+                <p class="dit" data-i18n="school_illusion_say">Worlds made of rules, and the long evenings spent balancing them.</p>
+                <ul class="registre" data-ecole="illusion"></ul>
+            </section>
+
+            <section class="ecole prune c2">
+                <div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div>
+                <header><svg aria-hidden="true"><use href="/assets/img/signes.svg#sel"/></svg><div><h3 class="gothique" data-i18n="school_transmutation">Transmutation</h3><div class="sous" data-i18n="school_transmutation_sub">the workshop, Créalab</div></div></header>
+                <p class="dit" data-i18n="school_transmutation_say">A workshop of plastic and heat, and the ledger that keeps it honest.</p>
+                <ul class="registre" data-ecole="transmutation"></ul>
+            </section>
+        </div>
+
+        <!-- LA CHRONIQUE : parcours -->
+        <h2 id="parcours" class="titre gothique" data-i18n="path_title">The chronicle</h2>
+        <div class="intro"><p data-i18n="path_intro">Where I have served, and where I have studied.</p></div>
+
+        <div class="parcours">
+            <section>
+                <h3 data-i18n="path_work">in service</h3>
+                <ol class="annales">
+                    <li><div class="dates">2025 – <span data-i18n="path_now">now</span></div><div><b data-i18n="work1_title">Full-stack developer, work-study. XLConcept</b><span data-i18n="work1_text">Sole developer of an internal B2B bid-production tool, from back end to front end. C#, .NET, Blazor.</span></div></li>
+                    <li><div class="dates">2023 – 2024</div><div><b data-i18n="work2_title">Developer, internship then fixed-term contract. Pétrarque</b><span data-i18n="work2_text">A complete home-automation system on Jeedom, then a website and REST API collecting IoT sensor data.</span></div></li>
+                    <li><div class="dates">2021 – 2022</div><div><b data-i18n="work3_title">Full-stack developer, work-study. XLConcept Corporation</b><span data-i18n="work3_text">Web platform for workplace cleaning management: business API and back end. C#, .NET, SQL Server.</span></div></li>
+                </ol>
+            </section>
+            <section>
+                <h3 data-i18n="path_studies">in study</h3>
+                <ol class="annales">
+                    <li><div class="dates">2025 – 2028</div><div><b data-i18n="study1_title">Engineering degree, software engineering and AI</b><span>ESILV, Nantes</span></div></li>
+                    <li><div class="dates">2022 – 2023</div><div><b data-i18n="study2_title">Professional bachelor's, video game careers</b><span>IUT Sorbonne Paris Nord</span></div></li>
+                    <li><div class="dates">2021 – 2022</div><div><b data-i18n="study3_title">Professional bachelor's, web and mobile development</b><span>IUT Sorbonne Paris Nord</span></div></li>
+                    <li><div class="dates">2019 – 2021</div><div><b data-i18n="study4_title">DUT, computer science</b><span>IUT Sorbonne Paris Nord</span></div></li>
+                </ol>
+            </section>
+        </div>
+    </main>

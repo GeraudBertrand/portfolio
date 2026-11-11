@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreaState | Géraud Bertrand</title>
+    <meta name="description" content="Platform for Créalab, my school's maker space: print requests, 3D-printer monitoring, inventory, members. I built the first version alone; it is now being tested.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/creastate/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/creastate/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/creastate/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/creastate/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="CreaState | Géraud Bertrand">
+    <meta property="og:description" content="Platform for Créalab, my school's maker space: print requests, 3D-printer monitoring, inventory, members. I built the first version alone; it is now being tested.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/creastate/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"CreaState","description":"The platform of Créalab, the maker space of my school: print and cutting requests, 3D-printer monitoring, inventory, maintenance, members. I built the first version alone; it is now being tested.","url":"https://portfolio.gerios.fr/creastate/","inLanguage":"en","keywords":"Blazor, ASP.NET Identity, MQTT","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="creastate">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/#ecoles">Schools</a></li>
+        <li><a href="/#parcours">Path</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibility</button></li>
+        <li><a id="lang-indicator" href="/fr/creastate/" lang="fr" hreflang="fr">Français</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/#ecoles">← The six schools</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#sel"/></svg><span>Transmutation · the workshop, Créalab</span></p><h1 class="fiche-titre gothique">CreaState</h1><p class="fiche-lede">The platform of Créalab, the maker space of my school: print and cutting requests, 3D-printer monitoring, inventory, maintenance, members. I built the first version alone; it is now being tested.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Why</h2><p>A maker space receives all kinds of requests: a part to print, a sheet to cut, a machine to repair, a training session to plan. CreaState tries to answer each of them in one place, instead of one tool per need. It is less a single site than a set of tools for the association.</p><h2 class="gothique">What it does</h2><ul><li>A public side for students: submit a print or cutting request, follow it, talk about it in a chat.</li><li>A private side for members: dashboard, printers, requests, inventory, maintenance, events, training sessions.</li><li>Live state of the Bambu Lab printers, read over MQTT.</li><li>Sign-up restricted to the school's e-mail domain, with permissions per role.</li></ul><h2 class="gothique">Where it stands</h2><p>I designed it, built it and produced the first version. The association is now testing it, to decide whether it will be adopted in full. Whatever the answer, it maps what Créalab actually needs, and that alone was worth doing.</p><h2 class="gothique">How it is built</h2><p>Blazor Server on .NET 9 with REST controllers in the same host, MySQL through Entity Framework, ASP.NET Core Identity. Permissions in the database become claims, then policies; a role is just a set of permissions. Packaged with Docker, meant to run on a Raspberry Pi in the workshop.</p><h2 class="gothique">What it taught me</h2><ul><li>In Blazor Server there is no HTTP context inside the live connection, so login has to go through a form posted to a controller.</li><li>Talking to real machines: MQTT over TLS, reconnections, shared state in memory.</li><li>The same authorization pattern as DevisNet. Each project improves the other.</li></ul></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The entry</h3><dl><dt>State</dt><dd><span class="fiche-etat"><i class="etat rituel" aria-hidden="true"></i>in ritual: in progress</span></dd><dt>Period</dt><dd>2026 – now</dd><dt>Context</dt><dd>Student association, ESILV</dd><dt>Role</dt><dd>Sole developer</dd><dt>Status</dt><dd>First version, in testing</dd><dt>Stack</dt><dd>Blazor | ASP.NET Identity | MQTT</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Plastic, heat, and the ledger that keeps the workshop honest.</span><cite>The Chronicler</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Previous entry / Next entry"><a href="/uttt/"><small>← Previous entry</small><b>UTTT</b></a><a href="/myoarm/"><small>Next entry →</small><b>MyoArm</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Send word</h2>
+            <p class="dit">An internship, a question about a project, anything else: write to me.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Write an email</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

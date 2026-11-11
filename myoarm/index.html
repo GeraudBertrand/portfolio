@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyoArm | Géraud Bertrand</title>
+    <meta name="description" content="A robot arm driven by the muscles of my forearm: EMG sensors read the muscle signal, a model decodes it, the gripper follows. I write all the software. Due April 2027.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/myoarm/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/myoarm/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/myoarm/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/myoarm/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="MyoArm | Géraud Bertrand">
+    <meta property="og:description" content="A robot arm driven by the muscles of my forearm: EMG sensors read the muscle signal, a model decodes it, the gripper follows. I write all the software. Due April 2027.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/myoarm/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"MyoArm","description":"A robot arm driven by my muscles. Sensors on my forearm read the electrical activity of the muscles (EMG), a model decodes the intent, and the gripper opens and closes with my grip. ESILV engineering project, due in April 2027.","url":"https://portfolio.gerios.fr/myoarm/","inLanguage":"en","keywords":"Python, C++, ESP32-S3, ONNX, ROS","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="myoarm">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/#ecoles">Schools</a></li>
+        <li><a href="/#parcours">Path</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibility</button></li>
+        <li><a id="lang-indicator" href="/fr/myoarm/" lang="fr" hreflang="fr">Français</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/#ecoles">← The six schools</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#feu"/></svg><span>Galvanism · hardware and signal</span></p><h1 class="fiche-titre gothique">MyoArm</h1><p class="fiche-lede">A robot arm driven by my muscles. Sensors on my forearm read the electrical activity of the muscles (EMG), a model decodes the intent, and the gripper opens and closes with my grip. ESILV engineering project, due in April 2027.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">The idea</h2><p>The principle of a myoelectric prosthesis. When a muscle contracts, it gives off a small electrical signal that sensors on the skin can read. A model turns that signal into an intention, open, close, how hard, and the gripper of a robot arm follows. In a second phase, motion sensors on the arm and forearm drive the shoulder and the elbow.</p><h2 class="gothique">Why this one</h2><p>It is the field I want to work in: neurotechnology, signals from the body turned into control. Prostheses, exoskeletons, human-machine interfaces. This project is my first real step there.</p><h2 class="gothique">Who does what</h2><p>We are two. Raphaël takes the robotics and the hardware: the gripper, the mechanics, turning commands into motor movements. I own the whole software chain: acquisition, filtering, decoding, real-time command, safety, and a dashboard that replays recorded sessions.</p><h2 class="gothique">How it is built</h2><ul><li>A wireless band made by the team: four MyoWare 2.0 EMG sensors on an ESP32-S3, streaming over Wi-Fi to a small PC under Ubuntu.</li><li>That PC runs the ONNX model and a ROS node that drives an AgileX PiPER arm over its CAN bus.</li><li>A simple baseline first, LDA or SVM on hand-made features. Deep learning only if it does better.</li><li>Speed limits and a mandatory emergency stop. A short calibration at each session, because EMG drifts from day to day.</li></ul><h2 class="gothique">Calendar</h2><ul><li>October 2026: scoping done, sensors and model chosen together.</li><li>End of November: stable band, clean signal.</li><li>End of January: gripper and first model.</li><li>End of February: real-time control.</li><li>March: tests on the real arm. Mid-April 2027: defence.</li></ul></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The entry</h3><dl><dt>State</dt><dd><span class="fiche-etat"><i class="etat rituel" aria-hidden="true"></i>in ritual: in progress</span></dd><dt>Period</dt><dd>2026 – 2027</dd><dt>Context</dt><dd>ESILV engineering project (PI²)</dd><dt>Role</dt><dd>All the software</dd><dt>Signal</dt><dd>Surface EMG, 4 channels</dd><dt>Stack</dt><dd>Python | C++ | ESP32-S3 | ONNX | ROS</dd></dl></section><section class="carte prune"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The company</h3><ul class="equipe"><li class="moi"><b>Géraud Bertrand</b><span>software: signal, model, control</span></li><li><b>Raphaël Espinosa</b><span>robotics and hardware</span></li></ul></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>The arm is dead metal. It moves when he clenches his fist.</span><cite>The Chronicler</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Previous entry / Next entry"><a href="/creastate/"><small>← Previous entry</small><b>CreaState</b></a><a href="/devisnet/"><small>Next entry →</small><b>DevisNet</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Send word</h2>
+            <p class="dit">An internship, a question about a project, anything else: write to me.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Write an email</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

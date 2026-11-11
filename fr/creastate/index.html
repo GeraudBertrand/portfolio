@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreaState | Géraud Bertrand</title>
+    <meta name="description" content="Plateforme du Créalab, le fablab de mon école : demandes d'impression, suivi des imprimantes 3D, inventaire, membres. J'en ai construit seul la première version ; elle est en test.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/creastate/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/creastate/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/creastate/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/creastate/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="CreaState | Géraud Bertrand">
+    <meta property="og:description" content="Plateforme du Créalab, le fablab de mon école : demandes d'impression, suivi des imprimantes 3D, inventaire, membres. J'en ai construit seul la première version ; elle est en test.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/creastate/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"CreaState","description":"La plateforme du Créalab, le fablab de mon école : demandes d'impression et de découpe, suivi des imprimantes 3D, inventaire, maintenance, membres. J'en ai construit seul la première version ; elle est en test.","url":"https://portfolio.gerios.fr/fr/creastate/","inLanguage":"fr","keywords":"Blazor, ASP.NET Identity, MQTT","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="creastate">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/creastate/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#sel"/></svg><span>Transmutation · l'atelier, Créalab</span></p><h1 class="fiche-titre gothique">CreaState</h1><p class="fiche-lede">La plateforme du Créalab, le fablab de mon école : demandes d'impression et de découpe, suivi des imprimantes 3D, inventaire, maintenance, membres. J'en ai construit seul la première version ; elle est en test.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Pourquoi</h2><p>Un fablab reçoit toutes sortes de demandes : une pièce à imprimer, une plaque à découper, une machine à réparer, une formation à organiser. CreaState essaie d'y répondre au même endroit, plutôt qu'avec un outil par besoin. C'est moins un site qu'un ensemble d'outils pour l'association.</p><h2 class="gothique">Ce qu'il fait</h2><ul><li>Un espace public pour les élèves : déposer une demande d'impression ou de découpe, la suivre, en discuter dans un chat.</li><li>Un espace privé pour les membres : tableau de bord, imprimantes, demandes, inventaire, maintenance, événements, formations.</li><li>L'état en direct des imprimantes Bambu Lab, lu en MQTT.</li><li>Inscription réservée au domaine de messagerie de l'école, avec des permissions par rôle.</li></ul><h2 class="gothique">Où il en est</h2><p>Je l'ai conçu, construit, et j'en ai produit la première version. L'association la teste maintenant, pour décider si elle sera exploitée entièrement. Quelle que soit la réponse, elle cartographie ce dont le Créalab a vraiment besoin, et rien que pour ça, ça valait le coup.</p><h2 class="gothique">Comment il est construit</h2><p>Blazor Server sous .NET 9 avec des contrôleurs REST dans le même hôte, MySQL via Entity Framework, ASP.NET Core Identity. Des permissions en base deviennent des claims, puis des policies ; un rôle n'est qu'un ensemble de permissions. Empaqueté avec Docker, prévu pour tourner sur un Raspberry Pi dans l'atelier.</p><h2 class="gothique">Ce qu'il m'a appris</h2><ul><li>En Blazor Server, il n'y a pas de contexte HTTP dans la connexion vivante : la connexion doit passer par un formulaire envoyé à un contrôleur.</li><li>Parler à de vraies machines : MQTT sur TLS, reconnexions, état partagé en mémoire.</li><li>Le même modèle d'autorisation que DevisNet. Chaque projet améliore l'autre.</li></ul></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat rituel" aria-hidden="true"></i>en rituel : en cours</span></dd><dt>Période</dt><dd>2026 – now</dd><dt>Contexte</dt><dd>Association étudiante, ESILV</dd><dt>Rôle</dt><dd>Seul développeur</dd><dt>Statut</dt><dd>Première version, en test</dd><dt>Outils</dt><dd>Blazor | ASP.NET Identity | MQTT</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Du plastique, de la chaleur, et le registre qui garde l'atelier honnête.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/uttt/"><small>← Entrée précédente</small><b>UTTT</b></a><a href="/fr/myoarm/"><small>Entrée suivante →</small><b>MyoArm</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

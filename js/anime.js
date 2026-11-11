@@ -9,7 +9,7 @@
     racine.classList.add('anime');
 
     // entrée sur le site : une fois par visite, seulement sur l'accueil
-    const accueil = location.pathname === '/' || location.pathname.endsWith('/index.html');
+    const accueil = /^\/(fr\/)?(index\.html)?$/.test(location.pathname);
     let premiereVisite = false;
     try { premiereVisite = accueil && !sessionStorage.getItem('seuil'); sessionStorage.setItem('seuil', '1'); } catch { /* stockage bloqué : pas d'entrée */ }
     if (premiereVisite) racine.classList.add('seuil', 'porte'); // .seuil cache la page jusqu'à ce que les battants soient posés
@@ -22,11 +22,13 @@
         io.unobserve(e.target);
     }), { rootMargin: '0px 0px -10% 0px' });
 
-    // après un changement de langue, la page projet est redessinée : on n'en rejoue pas l'entrée
-    let calme = false;
-    const armer = el => calme ? el.classList.add('vu') : io.observe(el);
+    // changer de langue recharge la même page dans l'autre langue : on n'en rejoue pas l'entrée et on reste au même endroit
+    let calme = null; // position de défilement laissée par la page d'avant, ou null
+    try { calme = sessionStorage.getItem('calme'); sessionStorage.removeItem('calme'); } catch { /* stockage bloqué */ }
+    if (calme !== null) racine.classList.add('calme');
+    const armer = el => calme !== null ? el.classList.add('vu') : io.observe(el);
     document.addEventListener('click', e => {
-        if (e.target.closest?.('#lang-indicator')) { calme = true; racine.classList.add('calme'); }
+        if (e.target.closest?.('#lang-indicator')) try { sessionStorage.setItem('calme', scrollY); } catch { /* idem */ }
     }, true);
 
     // trait qui frémit : trois bruits d'encre indépendants (graines différentes) se fondent l'un dans l'autre en boucle.
@@ -77,9 +79,10 @@
         document.getElementById('encre')?.insertAdjacentHTML('afterend',
             vif('encre-vif', .03, [4, 13, 29], 12, '1.2s') + vif('encre-fin-vif', .05, [9, 18, 33], 5, '2s'));
         if (premiereVisite) ouvrir();
+        if (calme !== null) scrollTo({ top: +calme, behavior: 'instant' });
 
         document.querySelectorAll(CIBLES).forEach(armer);
-        // les pages projet arrivent après coup (projet.js) : on arme ce qui est ajouté
+        // on arme aussi ce qui est ajouté après coup (fenêtre d'accessibilité)
         new MutationObserver(lots => lots.forEach(m => m.addedNodes.forEach(n => {
             if (n.nodeType !== 1) return;
             if (n.matches(CIBLES)) armer(n);

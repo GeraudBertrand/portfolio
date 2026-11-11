@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevisNet | Géraud Bertrand</title>
+    <meta name="description" content="B2B bid-production tool: contracts, tender specifications, PDF responses. I am its sole developer, at XLConcept.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/devisnet/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/devisnet/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/devisnet/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/devisnet/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="DevisNet | Géraud Bertrand">
+    <meta property="og:description" content="B2B bid-production tool: contracts, tender specifications, PDF responses. I am its sole developer, at XLConcept.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/devisnet/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"DevisNet","description":"The tool my employer uses to answer calls for tender: from the catalogue of cleaning operations to the contract the client signs.","url":"https://portfolio.gerios.fr/devisnet/","inLanguage":"en","keywords":"C#, Blazor Server, EF Core / MariaDB, Nextcloud, JasperReports","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="devisnet">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/#ecoles">Schools</a></li>
+        <li><a href="/#parcours">Path</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibility</button></li>
+        <li><a id="lang-indicator" href="/fr/devisnet/" lang="fr" hreflang="fr">Français</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/#ecoles">← The six schools</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#terre"/></svg><span>Artifice · applications and tools</span></p><h1 class="fiche-titre gothique">DevisNet</h1><p class="fiche-lede">The tool my employer uses to answer calls for tender: from the catalogue of cleaning operations to the contract the client signs.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">What it is for</h2><p>Account managers build answers to calls for tender for workplace cleaning. They need a catalogue of operations and frequencies, contracts split into sites and rooms, a technical specification for each site, and clean documents to send. DevisNet holds all of it, from the first draft to the signed contract.</p><h2 class="gothique">What I built</h2><ul><li>A library of operations and grouped operations, generic or specific to one client, with Excel import and export.</li><li>Versioned contracts with history, states, annexes, and a lot › site › room tree built from room templates.</li><li>A rich editor for the technical specification of each site, with photos and drag and drop, exported to PDF.</li><li>A separate client portal where clients read their contracts, sign them and discuss them in a chat.</li><li>Document storage in Nextcloud, isolated per client, with a personal account for each user.</li></ul><h2 class="gothique">How it is built</h2><p>Blazor Server on .NET 9, Entity Framework Core over MariaDB, ASP.NET Identity. The internal tool and the client portal are two applications sharing one library, each with its own database. PDF reports come from JasperReports and SQL views. Tests are written with xUnit and NSubstitute.</p><h2 class="gothique">Security and production</h2><ul><li>Two-factor authentication is mandatory, sessions expire every 30 days, permissions are fine-grained, and every change is written to an audit log.</li><li>Authorization tests run before each deployment. The deploy script runs the tests and can roll back.</li><li>It runs on a Linux server under systemd, with a runbook and a written production protocol.</li></ul><h2 class="gothique">What was hard</h2><p>The hardest part was not a feature: it was serving two kinds of users at once. Account managers work inside the tool; clients and candidates come from outside. Each new request had to be placed on the right side, and every door to the outside had to be thought through before it was opened.</p><p>So I split it into two applications with separate databases, sharing only one library, and put security first: two-factor authentication, permissions per action, an audit log, authorization tests before each release. Security is not my first field; that is exactly why I treated it as a design question, not a finishing touch.</p><p>On the technical side, Blazor Server taught me one lesson the hard way: a database context shared by a whole connection fails as soon as two operations overlap. I moved to one context per operation.</p></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">The entry</h3><dl><dt>State</dt><dd><span class="fiche-etat"><i class="etat rituel" aria-hidden="true"></i>in ritual: in progress</span></dd><dt>Period</dt><dd>2025 – now</dd><dt>Context</dt><dd>Work-study, XLConcept</dd><dt>Role</dt><dd>Sole developer, back end to front end</dd><dt>In production</dt><dd>Version 2.1</dd><dt>Stack</dt><dd>C# | Blazor Server | EF Core / MariaDB | Nextcloud | JasperReports</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>One scribe, one tome of contracts. Every room counted, every frequency written down.</span><cite>The Chronicler</cite></blockquote></aside></div><nav class="fiche-suite" aria-label="Previous entry / Next entry"><a href="/myoarm/"><small>← Previous entry</small><b>MyoArm</b></a><a href="/cardcenter/"><small>Next entry →</small><b>Card Center</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Send word</h2>
+            <p class="dit">An internship, a question about a project, anything else: write to me.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Write an email</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

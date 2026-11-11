@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk of Library | Géraud Bertrand</title>
+    <meta name="description" content="Un petit wiki des objets de Risk of Rain 2, en ligne et utilisé.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/riskof/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/riskof/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/riskof/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/riskof/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Risk of Library | Géraud Bertrand">
+    <meta property="og:description" content="Un petit wiki des objets de Risk of Rain 2, en ligne et utilisé.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/riskof/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Risk of Library","description":"Un wiki rapide des objets de Risk of Rain 2, parce que le wiki officiel est trop lent à lire en pleine partie.","url":"https://portfolio.gerios.fr/fr/riskof/","inLanguage":"fr","keywords":"PHP, vanilla JS, MariaDB","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="riskof">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/riskof/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#terre"/></svg><span>Artifice · applications et outils</span></p><h1 class="fiche-titre gothique">Risk of Library</h1><p class="fiche-lede">Un wiki rapide des objets de Risk of Rain 2, parce que le wiki officiel est trop lent à lire en pleine partie.</p><div class="liens"><a class="lien" href="https://riskof.gerios.fr" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>Aller sur riskof.gerios.fr</span></a></div></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Pourquoi</h2><p>En jeu, il faut l'effet d'un objet en deux secondes. Le wiki Fandom est lourd et plein de publicités. Je voulais une seule page avec toutes les icônes et les chiffres au survol.</p><h2 class="gothique">Ce qu'il fait</h2><ul><li>Toutes les icônes dans une seule grille, repliée par rareté.</li><li>Au survol d'une icône : nom, citation et effet, avec les chiffres en couleur.</li><li>Recherche instantanée par nom.</li><li>Un interrupteur par extension, pour afficher ou masquer ses objets.</li><li>Une page d'administration protégée pour modifier les objets et téléverser les icônes.</li></ul><h2 class="gothique">Comment il est construit</h2><p>Volontairement sans framework ni étape de build : HTML statique et JavaScript sans bibliothèque, une petite API PHP qui renvoie du JSON, et MariaDB. Il tourne sur mon NAS Synology, derrière un tunnel Cloudflare.</p><p>Les objets sont importés automatiquement : un script lit les modules Lua derrière le wiki Fandom et remplit la base.</p><h2 class="gothique">Au fil des ans</h2><ul><li>2023 : première version, une page statique et une API PHP.</li><li>2025 : une seule requête au lieu d'une par onglet, recherche, refonte visuelle.</li><li>2026 : import automatique depuis le wiki, puis la page d'administration.</li></ul></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat vivant" aria-hidden="true"></i>vivant : en service</span></dd><dt>Période</dt><dd>2023 – now</dd><dt>Contexte</dt><dd>Projet personnel, en ligne</dd><dt>Rôle</dt><dd>Tout, seul</dd><dt>Contenu</dt><dd>189 objets et 44 équipements</dd><dt>Outils</dt><dd>PHP | vanilla JS | MariaDB</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Un bestiaire de babioles, assez léger pour être lu entre deux morts.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><div class="planches"><figure class="planche moyenne"><img src="/assets/img/riskof/grille.webp" alt="La grille des objets sur riskof.gerios.fr, avec l’infobulle d’un objet." width="800" height="499" loading="lazy"><figcaption>La grille des objets sur riskof.gerios.fr, avec l’infobulle d’un objet.</figcaption></figure></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/cardcenter/"><small>← Entrée précédente</small><b>Card Center</b></a><a href="/fr/pot2colle/"><small>Entrée suivante →</small><b>Pot2Colle</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

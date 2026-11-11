@@ -1,5 +1,9 @@
 {
     "en": {
+        "meta_title": "Géraud Bertrand | Software and AI engineer in training",
+        "meta_description": "Géraud Bertrand, software and AI engineering student at ESILV Nantes and work-study C#/.NET developer. Software, signal, AI and game projects, sorted by craft.",
+        "meta_job": "Software and AI engineering student, work-study C#/.NET developer",
+        "meta_topics": ["software engineering", "artificial intelligence", "machine learning", "signal processing", "neurotechnology", "C#", ".NET", "Blazor", "Python", "C++", "game development"],
         "emblem_alt": "Emblem: a skeletal sloth hanging from a branch, inside a seal with six marks.",
         "hero_role": "Software engineer in training. C#/.NET on weekdays. Signals, familiars and games after dark.",
         "hero_github": "The code, on GitHub",
@@ -61,6 +65,10 @@
         "schema_arm": "PiPER arm"
     },
     "fr": {
+        "meta_title": "Géraud Bertrand | Ingénieur logiciel et IA en formation",
+        "meta_description": "Géraud Bertrand, élève ingénieur logiciel et IA à l'ESILV Nantes, développeur C#/.NET en alternance. Projets de logiciel, de traitement du signal, d'IA et de jeux.",
+        "meta_job": "Élève ingénieur logiciel et IA, développeur C#/.NET en alternance",
+        "meta_topics": ["génie logiciel", "intelligence artificielle", "apprentissage automatique", "traitement du signal", "neurotechnologies", "C#", ".NET", "Blazor", "Python", "C++", "développement de jeux"],
         "emblem_alt": "Emblème : un paresseux squelette pendu à une branche, dans un sceau à six marques.",
         "hero_role": "Ingénieur logiciel en formation. C#/.NET en semaine. Signaux, familiers et jeux à la nuit tombée.",
         "hero_github": "Le code, sur GitHub",
