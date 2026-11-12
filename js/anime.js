@@ -82,6 +82,8 @@
         if (calme !== null) scrollTo({ top: +calme, behavior: 'instant' });
 
         document.querySelectorAll(CIBLES).forEach(armer);
+        const lecteur = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()));
+        document.querySelectorAll('video[data-auto]').forEach(v => { v.muted = true; lecteur.observe(v); });
         // on arme aussi ce qui est ajouté après coup (fenêtre d'accessibilité)
         new MutationObserver(lots => lots.forEach(m => m.addedNodes.forEach(n => {
             if (n.nodeType !== 1) return;

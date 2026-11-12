@@ -117,6 +117,12 @@ function fiche(p, recit, lang) {
         liens.length ? h('div', { class: 'liens' }, liens.map(l => lien(l, lang))) : null
     );
 
+    // bande-annonce : lancée par anime.js (muette, en boucle) sauf si le système demande moins de mouvement
+    const bande = recit.trailer ? h('figure', { class: 'planche large bande-annonce' },
+        h('video', { src: recit.trailer.src, poster: recit.trailer.poster, width: recit.trailer.w, height: recit.trailer.h,
+            controls: 'controls', muted: 'muted', loop: 'loop', playsinline: 'playsinline', preload: 'metadata', 'data-auto': '', 'aria-label': recit.trailer[lang] }),
+        h('figcaption', null, recit.trailer[lang])) : null;
+
     const texte = h('article', { class: 'fiche-texte' },
         r.sections.map(s => [
             h('h2', { class: 'gothique' }, s.h),
@@ -156,7 +162,7 @@ function fiche(p, recit, lang) {
         h('a', { href: `/${suiv.id}/` }, h('small', null, t.next, ' →'), h('b', null, titre(suiv, lang)))
     );
 
-    return h('main', { id: 'fiche', class: 'page' }, tete, h('div', { class: 'fiche-corps' }, texte, cote), planches, suite).html;
+    return h('main', { id: 'fiche', class: 'page' }, tete, bande, h('div', { class: 'fiche-corps' }, texte, cote), planches, suite).html;
 }
 
 // --- squelette commun à toutes les pages ---

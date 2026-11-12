@@ -1,5 +1,8 @@
 {
     "year": "2026",
+    "trailer": { "src": "/assets/video/hitmap-banc.mp4", "poster": "/assets/video/hitmap-banc.webp", "w": 1280, "h": 860,
+        "en": "The bench running live, at real speed (page in French): 400 viewers click once a second, collection stops for 10 seconds, then a new target. Each scenario runs on a fixed scene, then on a drifting one.",
+        "fr": "Le banc en direct, en vitesse réelle : 400 spectateurs cliquent une fois par seconde, la collecte s'arrête 10 secondes, puis une nouvelle cible. Chaque scénario tourne sur une scène fixe, puis sur une scène qui dérive." },
     "figures": [
         { "src": "/assets/img/hitmap/bench-renders.webp", "w": 1324, "h": 284, "size": "large",
           "en": "The same clicks drawn three ways: covariance ellipses, density field, both. Both are computed by the server; the streamer picks the display.", "fr": "Les mêmes clics dessinés de trois façons : ellipses de covariance, champ de densité, les deux. Le serveur calcule les deux ; le streamer choisit l'affichage." },

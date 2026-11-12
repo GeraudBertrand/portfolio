@@ -207,8 +207,9 @@ body.grayscale > :not(#access-modal) { filter:grayscale(100%); }
 .planche { margin:0; transform:rotate(-.5deg); }
 .planche:nth-child(even) { transform:rotate(.6deg); }
 .planche.large { grid-column:1 / -1; }
+.bande-annonce { margin-top:1rem; transform:none; }
 .planche.moyenne { grid-column:span 2; }
-.planche img { display:block; width:100%; height:auto; border:.25rem solid var(--os); background:var(--noir); }
+.planche img, .planche video { display:block; width:100%; height:auto; border:.25rem solid var(--os); background:var(--noir); }
 .planche figcaption { margin-top:.5rem; font-style:italic; font-size:1rem; color:var(--cendre); }
 
 .fiche-suite { display:flex; justify-content:space-between; gap:2rem; margin-top:5rem; padding-top:1.2rem; border-top:.3rem solid var(--os); }
