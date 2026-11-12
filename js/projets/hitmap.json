@@ -1,0 +1,83 @@
+{
+    "year": "2026",
+    "figures": [
+        { "src": "/assets/img/hitmap/bench-renders.webp", "w": 1324, "h": 284, "size": "large",
+          "en": "The same clicks drawn three ways: covariance ellipses, density field, both. Both are computed by the server; the streamer picks the display.", "fr": "Les mêmes clics dessinés de trois façons : ellipses de covariance, champ de densité, les deux. Le serveur calcule les deux ; le streamer choisit l'affichage." },
+        { "src": "/assets/img/hitmap/bench-summary.webp", "w": 1394, "h": 513, "size": "large",
+          "en": "The bench report (in French): 4 scenarios, each on a fixed and on a drifting scene, against the real API over HTTP.", "fr": "Le rapport du banc : 4 scénarios, chacun sur une scène fixe et sur une scène qui dérive, contre l'API réelle en HTTP." },
+        { "src": "/assets/img/hitmap/bench-stop-restart.webp", "w": 1358, "h": 1027, "size": "large",
+          "en": "One scenario in detail (in French): collection stopped for 10 seconds, map frozen, then a new target after restart.", "fr": "Un scénario en détail : collecte coupée 10 secondes, carte gelée, puis nouvelle cible après la reprise." }
+    ],
+    "en": {
+        "lede": "A Twitch extension: the streamer asks a question, viewers click on the video, and a .NET server turns the clicks into ranked interest zones shown on stream, five times a second. Measured up to 50,000 simulated viewers.",
+        "say": "A thousand fingers pointing at one screen, counted five times a second.",
+        "facts": [["Context", "Personal project, finished"], ["Role", "Everything, alone"], ["Tests", "104 unit tests, bench 44/44"], ["Deployment", "Not yet: tested inside Twitch, no public server"]],
+        "sections": [
+            { "h": "Why", "p": ["Strategy and Warhammer streamers run interactive moments during events like ZEvent: they ask a question and want to see where the chat is pointing. HitMap shows it on the stream, almost live. The target was 5,000 to 10,000 viewers, and it had to hold 50,000, with up to ten clicks each on a big moment."] },
+            { "h": "How a click travels", "p": ["The extension sends a POST with the viewer's Twitch token. The server keeps the last click of each viewer in the channel's session. Every 200 ms, one timer per channel builds the map: a 128×72 density field and the zones sorted by size. The map goes out by Server-Sent Events to the overlay, a browser source in OBS."] },
+            { "h": "Decisions I can defend", "ul": [
+                "Stateless HTTP POST in, Server-Sent Events out. No SignalR, no WebSocket: viewers only send positions and receive nothing.",
+                "Ingestion and broadcast are decoupled. Nothing is sent per click; the timer produces the map.",
+                "Last click wins for each viewer: an upsert, not a counter.",
+                "Anonymous viewers are filtered when the map is built, not when clicks arrive, so the setting can be changed without losing anything.",
+                "The core library has no ASP.NET dependency: all the logic is tested without a server."
+            ] },
+            { "h": "The algorithm", "ul": [
+                "Positions are stored raw, so a changed setting applies to every click already received.",
+                "Distances are computed in a space corrected for the 16:9 aspect, or a rotated ellipse comes out distorted.",
+                "A separable sliding-sum blur: its cost does not depend on the radius, and no mass is lost at the edges.",
+                "Peak detection, then one zone per peak: centre, covariance ellipse, percentage.",
+                "No allocation per tick: pooled buffers, value types, a bounded stackalloc."
+            ] },
+            { "h": "Security", "ul": [
+                "Channel and role always come from the validated Twitch JWT, never from the request body.",
+                "Stream controls are reserved to the broadcaster.",
+                "The overlay URL is an HMAC token with a generation number: regenerating it revokes the old URL and cuts open streams. It is never written to the logs, and a test checks that."
+            ] },
+            { "h": "The bench", "p": ["A tool that plays the real thing: real HTTP POSTs, real JWTs, and the map received over SSE like the overlay. Four scenarios, from 10,000 viewers clicking once to 50,000 viewers of whom 30,000 click. Its central check replays the accepted clicks locally and requires a map identical to the one received.", "Results: tick p99 at most 7.2 ms, click to broadcast p99 211 to 217 ms (bounded by the 200 ms tick), POST p99 at most 19 ms, zero failures, 44 checks out of 44."] },
+            { "h": "What the bench taught me", "ul": [
+                "Perfect Gaussian clicks only make discs and ellipses. I wrote a crowd generator: irregular targets, each viewer's own aim, sloppy clicks, arrivals in waves, people changing their minds.",
+                "That crowd revealed a real limit: an hourglass-shaped target is split into two zones. It is documented, not hidden.",
+                "Stopping a round dropped the last clicks; the channel's loop now plays a final tick.",
+                "Chrome blocks twitch.tv from calling localhost, so the API serves the extension itself, behind a tunnel, to test inside Twitch."
+            ] },
+            { "h": "How it was built", "p": ["In six steps with Claude Code as an assistant, each one stopped and reviewed before the next. A project file set the decisions that could not move, and the order of priorities: correctness, then testability, then performance, then elegance."] }
+        ]
+    },
+    "fr": {
+        "lede": "Une extension Twitch : le streamer pose une question, les spectateurs cliquent sur la vidéo, et un serveur .NET transforme les clics en zones d'intérêt classées, affichées dans le stream cinq fois par seconde. Mesurée jusqu'à 50 000 spectateurs simulés.",
+        "say": "Mille doigts pointés sur un seul écran, comptés cinq fois par seconde.",
+        "facts": [["Contexte", "Projet personnel, terminé"], ["Rôle", "Tout, seul"], ["Tests", "104 tests unitaires, banc 44/44"], ["Déploiement", "Pas encore : testée dans Twitch, pas de serveur public"]],
+        "sections": [
+            { "h": "Pourquoi", "p": ["Les streamers stratégie et Warhammer font des moments interactifs pendant des événements comme le ZEvent : ils posent une question et veulent voir où le chat pointe. HitMap l'affiche dans le stream, presque en direct. La cible était 5 000 à 10 000 spectateurs, et il fallait tenir 50 000, avec jusqu'à dix clics chacun sur un moment fort."] },
+            { "h": "Le trajet d'un clic", "p": ["L'extension envoie un POST avec le jeton Twitch du spectateur. Le serveur garde le dernier clic de chaque spectateur dans la session du canal. Toutes les 200 ms, un minuteur par canal construit la carte : un champ de densité 128×72 et les zones triées par taille. La carte part en Server-Sent Events vers l'overlay, une source navigateur dans OBS."] },
+            { "h": "Des choix que je peux défendre", "ul": [
+                "POST HTTP sans état en entrée, Server-Sent Events en sortie. Ni SignalR ni WebSocket : les spectateurs n'envoient que des positions et ne reçoivent rien.",
+                "Ingestion et diffusion découplées. Rien n'est envoyé par clic ; c'est le minuteur qui produit la carte.",
+                "Le dernier clic gagne pour chaque spectateur : une mise à jour, pas un compteur.",
+                "Les spectateurs anonymes sont filtrés au calcul de la carte, pas à la réception, pour changer le réglage sans rien perdre.",
+                "Le noyau ne dépend pas d'ASP.NET : toute la logique se teste sans serveur."
+            ] },
+            { "h": "L'algorithme", "ul": [
+                "Les positions sont stockées brutes : un réglage changé s'applique à tous les clics déjà reçus.",
+                "Les distances sont calculées dans un espace corrigé du format 16:9, sinon une ellipse inclinée sort déformée.",
+                "Un flou séparable à somme glissante : son coût ne dépend pas du rayon, et aucune masse n'est perdue aux bords.",
+                "Détection des pics, puis une zone par pic : centre, ellipse de covariance, pourcentage.",
+                "Aucune allocation par tick : tampons réutilisés, types valeur, stackalloc borné."
+            ] },
+            { "h": "Sécurité", "ul": [
+                "Le canal et le rôle viennent toujours du JWT Twitch validé, jamais du corps de la requête.",
+                "Les commandes du stream sont réservées au diffuseur.",
+                "L'URL de l'overlay est un jeton HMAC avec un numéro de génération : la régénérer révoque l'ancienne et coupe les flux ouverts. Elle n'est jamais écrite dans les journaux, et un test le vérifie."
+            ] },
+            { "h": "Le banc de mesure", "p": ["Un outil qui joue le vrai jeu : vrais POST HTTP, vrais JWT, et la carte reçue en SSE comme l'overlay. Quatre scénarios, de 10 000 spectateurs qui cliquent une fois à 50 000 spectateurs dont 30 000 cliquent. Sa vérification centrale rejoue en local les clics acceptés et exige une carte identique à celle reçue.", "Résultats : tick p99 au plus 7,2 ms, clic → diffusion p99 de 211 à 217 ms (borné par le tick de 200 ms), POST p99 au plus 19 ms, aucun échec, 44 vérifications sur 44."] },
+            { "h": "Ce que le banc m'a appris", "ul": [
+                "Des clics en gaussiennes parfaites ne font que des disques et des ellipses. J'ai écrit un générateur de foule : cibles irrégulières, visée propre à chaque spectateur, clics bâclés, arrivées par vagues, changements d'avis.",
+                "Cette foule a révélé une vraie limite : une cible en sablier est coupée en deux zones. Elle est documentée, pas cachée.",
+                "Arrêter une manche perdait les derniers clics ; la boucle du canal joue maintenant un tick final.",
+                "Chrome empêche twitch.tv d'appeler localhost : l'API sert donc elle-même l'extension, derrière un tunnel, pour tester dans Twitch."
+            ] },
+            { "h": "Comment il a été construit", "p": ["En six étapes avec Claude Code comme assistant, chacune arrêtée et relue avant la suivante. Un fichier de projet fixait les décisions qui ne bougeaient pas, et l'ordre des priorités : correction, puis testabilité, puis performance, puis élégance."] }
+        ]
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitMap Aggregator | Géraud Bertrand</title>
+    <meta name="description" content="Extension Twitch : les clics des spectateurs deviennent des zones d'intérêt affichées en direct dans le stream. Mesurée avec 50 000 spectateurs simulés, 44 vérifications sur 44.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/hitmap/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/hitmap/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/hitmap/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/hitmap/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="HitMap Aggregator | Géraud Bertrand">
+    <meta property="og:description" content="Extension Twitch : les clics des spectateurs deviennent des zones d'intérêt affichées en direct dans le stream. Mesurée avec 50 000 spectateurs simulés, 44 vérifications sur 44.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/hitmap/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"HitMap Aggregator","description":"Une extension Twitch : le streamer pose une question, les spectateurs cliquent sur la vidéo, et un serveur .NET transforme les clics en zones d'intérêt classées, affichées dans le stream cinq fois par seconde. Mesurée jusqu'à 50 000 spectateurs simulés.","url":"https://portfolio.gerios.fr/fr/hitmap/","inLanguage":"fr","keywords":"C# / .NET 10, ASP.NET Core, Server-Sent Events, Twitch Extensions, xUnit, NBomber","author":{"@type":"Person","@id":"https://portfolio.gerios.fr/#geraud","name":"Géraud Bertrand","url":"https://portfolio.gerios.fr/"}}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body data-projet="hitmap">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/hitmap/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main id="fiche" class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><a class="retour" href="/fr/#ecoles">← Les six écoles</a><p class="fiche-ecole"><svg aria-hidden="true"><use href="/assets/img/signes.svg#terre"/></svg><span>Artifice · applications et outils</span></p><h1 class="fiche-titre gothique">HitMap Aggregator</h1><p class="fiche-lede">Une extension Twitch : le streamer pose une question, les spectateurs cliquent sur la vidéo, et un serveur .NET transforme les clics en zones d'intérêt classées, affichées dans le stream cinq fois par seconde. Mesurée jusqu'à 50 000 spectateurs simulés.</p><div class="liens"><a class="lien" href="https://github.com/GeraudBertrand/HitMapAggregator" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>Le code sur GitHub</span></a></div></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Pourquoi</h2><p>Les streamers stratégie et Warhammer font des moments interactifs pendant des événements comme le ZEvent : ils posent une question et veulent voir où le chat pointe. HitMap l'affiche dans le stream, presque en direct. La cible était 5 000 à 10 000 spectateurs, et il fallait tenir 50 000, avec jusqu'à dix clics chacun sur un moment fort.</p><h2 class="gothique">Le trajet d'un clic</h2><p>L'extension envoie un POST avec le jeton Twitch du spectateur. Le serveur garde le dernier clic de chaque spectateur dans la session du canal. Toutes les 200 ms, un minuteur par canal construit la carte : un champ de densité 128×72 et les zones triées par taille. La carte part en Server-Sent Events vers l'overlay, une source navigateur dans OBS.</p><h2 class="gothique">Des choix que je peux défendre</h2><ul><li>POST HTTP sans état en entrée, Server-Sent Events en sortie. Ni SignalR ni WebSocket : les spectateurs n'envoient que des positions et ne reçoivent rien.</li><li>Ingestion et diffusion découplées. Rien n'est envoyé par clic ; c'est le minuteur qui produit la carte.</li><li>Le dernier clic gagne pour chaque spectateur : une mise à jour, pas un compteur.</li><li>Les spectateurs anonymes sont filtrés au calcul de la carte, pas à la réception, pour changer le réglage sans rien perdre.</li><li>Le noyau ne dépend pas d'ASP.NET : toute la logique se teste sans serveur.</li></ul><h2 class="gothique">L'algorithme</h2><ul><li>Les positions sont stockées brutes : un réglage changé s'applique à tous les clics déjà reçus.</li><li>Les distances sont calculées dans un espace corrigé du format 16:9, sinon une ellipse inclinée sort déformée.</li><li>Un flou séparable à somme glissante : son coût ne dépend pas du rayon, et aucune masse n'est perdue aux bords.</li><li>Détection des pics, puis une zone par pic : centre, ellipse de covariance, pourcentage.</li><li>Aucune allocation par tick : tampons réutilisés, types valeur, stackalloc borné.</li></ul><h2 class="gothique">Sécurité</h2><ul><li>Le canal et le rôle viennent toujours du JWT Twitch validé, jamais du corps de la requête.</li><li>Les commandes du stream sont réservées au diffuseur.</li><li>L'URL de l'overlay est un jeton HMAC avec un numéro de génération : la régénérer révoque l'ancienne et coupe les flux ouverts. Elle n'est jamais écrite dans les journaux, et un test le vérifie.</li></ul><h2 class="gothique">Le banc de mesure</h2><p>Un outil qui joue le vrai jeu : vrais POST HTTP, vrais JWT, et la carte reçue en SSE comme l'overlay. Quatre scénarios, de 10 000 spectateurs qui cliquent une fois à 50 000 spectateurs dont 30 000 cliquent. Sa vérification centrale rejoue en local les clics acceptés et exige une carte identique à celle reçue.</p><p>Résultats : tick p99 au plus 7,2 ms, clic → diffusion p99 de 211 à 217 ms (borné par le tick de 200 ms), POST p99 au plus 19 ms, aucun échec, 44 vérifications sur 44.</p><h2 class="gothique">Ce que le banc m'a appris</h2><ul><li>Des clics en gaussiennes parfaites ne font que des disques et des ellipses. J'ai écrit un générateur de foule : cibles irrégulières, visée propre à chaque spectateur, clics bâclés, arrivées par vagues, changements d'avis.</li><li>Cette foule a révélé une vraie limite : une cible en sablier est coupée en deux zones. Elle est documentée, pas cachée.</li><li>Arrêter une manche perdait les derniers clics ; la boucle du canal joue maintenant un tick final.</li><li>Chrome empêche twitch.tv d'appeler localhost : l'API sert donc elle-même l'extension, derrière un tunnel, pour tester dans Twitch.</li></ul><h2 class="gothique">Comment il a été construit</h2><p>En six étapes avec Claude Code comme assistant, chacune arrêtée et relue avant la suivante. Un fichier de projet fixait les décisions qui ne bougeaient pas, et l'ordre des priorités : correction, puis testabilité, puis performance, puis élégance.</p></article><aside class="fiche-cote"><section class="carte parchemin"><div class="plaque" aria-hidden="true"><i class="ombre"></i><i></i></div><h3 class="gothique">La fiche</h3><dl><dt>État</dt><dd><span class="fiche-etat"><i class="etat repos" aria-hidden="true"></i>au repos : terminé</span></dd><dt>Période</dt><dd>2026</dd><dt>Contexte</dt><dd>Projet personnel, terminé</dd><dt>Rôle</dt><dd>Tout, seul</dd><dt>Tests</dt><dd>104 tests unitaires, banc 44/44</dd><dt>Déploiement</dt><dd>Pas encore : testée dans Twitch, pas de serveur public</dd><dt>Outils</dt><dd>C# / .NET 10 | ASP.NET Core | Server-Sent Events | Twitch Extensions | xUnit | NBomber</dd></dl></section><blockquote class="chronique"><div class="plaque" aria-hidden="true"><i></i></div><span>Mille doigts pointés sur un seul écran, comptés cinq fois par seconde.</span><cite>Le Chroniqueur</cite></blockquote></aside></div><div class="planches"><figure class="planche large"><img src="/assets/img/hitmap/bench-renders.webp" alt="Les mêmes clics dessinés de trois façons : ellipses de covariance, champ de densité, les deux. Le serveur calcule les deux ; le streamer choisit l'affichage." width="1324" height="284" loading="lazy"><figcaption>Les mêmes clics dessinés de trois façons : ellipses de covariance, champ de densité, les deux. Le serveur calcule les deux ; le streamer choisit l'affichage.</figcaption></figure><figure class="planche large"><img src="/assets/img/hitmap/bench-summary.webp" alt="Le rapport du banc : 4 scénarios, chacun sur une scène fixe et sur une scène qui dérive, contre l'API réelle en HTTP." width="1394" height="513" loading="lazy"><figcaption>Le rapport du banc : 4 scénarios, chacun sur une scène fixe et sur une scène qui dérive, contre l'API réelle en HTTP.</figcaption></figure><figure class="planche large"><img src="/assets/img/hitmap/bench-stop-restart.webp" alt="Un scénario en détail : collecte coupée 10 secondes, carte gelée, puis nouvelle cible après la reprise." width="1358" height="1027" loading="lazy"><figcaption>Un scénario en détail : collecte coupée 10 secondes, carte gelée, puis nouvelle cible après la reprise.</figcaption></figure></div><nav class="fiche-suite" aria-label="Entrée précédente / Entrée suivante"><a href="/fr/riskof/"><small>← Entrée précédente</small><b>Risk of Library</b></a><a href="/fr/pot2colle/"><small>Entrée suivante →</small><b>Pot2Colle</b></a></nav></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> © 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>
