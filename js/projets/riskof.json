@@ -1,5 +1,8 @@
 {
     "year": "2023 – now",
+    "trailer": { "src": "/assets/video/riskof-demo.mp4", "poster": "/assets/video/riskof-demo.webp", "w": 1280, "h": 720,
+        "en": "The demo, filmed on the live site: the grid, the tooltips, search and the expansion switches on a computer, then the same site on a phone.",
+        "fr": "La démo, filmée sur le site en ligne : la grille, les infobulles, la recherche et les interrupteurs d'extension sur ordinateur, puis le même site sur téléphone." },
     "figures": [
         { "src": "/assets/img/riskof/grille.webp", "w": 800, "h": 499, "size": "moyenne",
           "en": "The item grid on riskof.gerios.fr, with the tooltip of one item.", "fr": "La grille des objets sur riskof.gerios.fr, avec l’infobulle d’un objet." }
@@ -7,42 +10,44 @@
     "en": {
         "lede": "A fast wiki of Risk of Rain 2 items, because the official wiki is too slow to read in the middle of a run.",
         "say": "A bestiary of trinkets, kept light enough to read between two deaths.",
-        "facts": [["Context", "Personal project, online"], ["Role", "Everything, alone"], ["Content", "189 items and 44 equipment"]],
+        "facts": [["Context", "Personal project, online"], ["Role", "Everything, alone"], ["Content", "179 items, base game and three expansions"]],
         "sections": [
             { "h": "Why", "p": ["In the game you need an item's effect in two seconds. The Fandom wiki is heavy and full of ads. I wanted one page with every icon and the numbers on hover."] },
             { "h": "What it does", "ul": [
                 "Every item icon in one grid, folded by rarity.",
-                "Hover an icon: name, quote and effect, with the numbers in colour.",
+                "Hover an icon: name, quote and effect, with the base and per-stack numbers in colour. The tooltip has a fixed size and always stays inside the screen.",
                 "Instant search by name.",
-                "A switch for each expansion, to show or hide its items.",
+                "A switch for each of the three expansions, to show or hide its items, and a badge on the items it adds.",
+                "On a phone, tap an item to open its tooltip.",
                 "A protected admin page to edit items and upload icons."
             ] },
-            { "h": "How it is built", "p": ["On purpose, without a framework or a build step: static HTML and vanilla JavaScript, a small PHP API that returns JSON, and MariaDB. It runs on my Synology NAS, behind a Cloudflare Tunnel.", "Items are imported automatically: a script reads the Lua modules behind the Fandom wiki and fills the database."] },
+            { "h": "How it is built", "p": ["On purpose, without a framework or a build step: static HTML and vanilla JavaScript, a small PHP API that returns JSON, and MariaDB. It runs on my Synology NAS, behind a Cloudflare Tunnel.", "Item data comes from the Risk of Rain 2 wiki. Items are added and corrected through the admin page.", "The demo is recorded by two Playwright scripts that drive the live site, one for the computer and one for the phone, so it can be filmed again after a change."] },
             { "h": "Over the years", "ul": [
                 "2023: first version, a static page and a PHP API.",
                 "2025: one request instead of one per tab, search, redesign.",
-                "2026: automatic import from the wiki, then the admin page."
+                "2026: the admin page, the Alloyed Collective expansion, then the phone layout."
             ] }
         ]
     },
     "fr": {
         "lede": "Un wiki rapide des objets de Risk of Rain 2, parce que le wiki officiel est trop lent à lire en pleine partie.",
         "say": "Un bestiaire de babioles, assez léger pour être lu entre deux morts.",
-        "facts": [["Contexte", "Projet personnel, en ligne"], ["Rôle", "Tout, seul"], ["Contenu", "189 objets et 44 équipements"]],
+        "facts": [["Contexte", "Projet personnel, en ligne"], ["Rôle", "Tout, seul"], ["Contenu", "179 objets, jeu de base et trois extensions"]],
         "sections": [
             { "h": "Pourquoi", "p": ["En jeu, il faut l'effet d'un objet en deux secondes. Le wiki Fandom est lourd et plein de publicités. Je voulais une seule page avec toutes les icônes et les chiffres au survol."] },
             { "h": "Ce qu'il fait", "ul": [
                 "Toutes les icônes dans une seule grille, repliée par rareté.",
-                "Au survol d'une icône : nom, citation et effet, avec les chiffres en couleur.",
+                "Au survol d'une icône : nom, citation et effet, avec les valeurs de base et de cumul en couleur. L'infobulle a une taille fixe et reste toujours dans l'écran.",
                 "Recherche instantanée par nom.",
-                "Un interrupteur par extension, pour afficher ou masquer ses objets.",
+                "Un interrupteur pour chacune des trois extensions, pour afficher ou masquer ses objets, et un badge sur les objets qu'elle ajoute.",
+                "Sur téléphone, on touche un objet pour ouvrir son infobulle.",
                 "Une page d'administration protégée pour modifier les objets et téléverser les icônes."
             ] },
-            { "h": "Comment il est construit", "p": ["Volontairement sans framework ni étape de build : HTML statique et JavaScript sans bibliothèque, une petite API PHP qui renvoie du JSON, et MariaDB. Il tourne sur mon NAS Synology, derrière un tunnel Cloudflare.", "Les objets sont importés automatiquement : un script lit les modules Lua derrière le wiki Fandom et remplit la base."] },
+            { "h": "Comment il est construit", "p": ["Volontairement sans framework ni étape de build : HTML statique et JavaScript sans bibliothèque, une petite API PHP qui renvoie du JSON, et MariaDB. Il tourne sur mon NAS Synology, derrière un tunnel Cloudflare.", "Les données des objets viennent du wiki Risk of Rain 2. Les objets sont ajoutés et corrigés depuis la page d'administration.", "La démo est enregistrée par deux scripts Playwright qui pilotent le site en ligne, un pour l'ordinateur et un pour le téléphone : on peut la refilmer après un changement."] },
             { "h": "Au fil des ans", "ul": [
                 "2023 : première version, une page statique et une API PHP.",
                 "2025 : une seule requête au lieu d'une par onglet, recherche, refonte visuelle.",
-                "2026 : import automatique depuis le wiki, puis la page d'administration."
+                "2026 : la page d'administration, l'extension Alloyed Collective, puis l'affichage sur téléphone."
             ] }
         ]
     }
