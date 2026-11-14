@@ -6,7 +6,7 @@
  *   js/traductions/*.json, js/projects.json, js/projets/<id>.json
  * Sorties (ne pas modifier à la main, elles sont réécrites) :
  *   /index.html, /<id>/index.html, /fr/index.html, /fr/<id>/index.html,
- *   /404.html, /403.html, /sitemap.xml, /robots.txt, /src/pages/<id>.html (redirections des anciennes adresses)
+ *   /404.html, /403.html, /fr/404.html, /fr/403.html, /sitemap.xml, /robots.txt, /src/pages/<id>.html (redirections des anciennes adresses)
  *
  * Tout le texte est dans le HTML servi, en anglais à la racine et en français sous /fr/ :
  * un moteur de recherche lit chaque page sans exécuter de script.
@@ -193,8 +193,8 @@ function traduire(html, lang) {
     });
 }
 
-/** adresse : chemin sans préfixe de langue ('/', '/myoarm/'). indexable=false pour la 404. */
-function page({ lang, adresse, titrePage, description, main, id, ld, indexable = true }) {
+/** adresse : chemin sans préfixe de langue ('/', '/myoarm/'). indexable=false pour les pages d'erreur. tete : balisage ajouté au <head>. */
+function page({ lang, adresse, titrePage, description, main, id, ld, indexable = true, tete = '' }) {
     const base = l => (l === 'fr' ? '/fr' : '') + adresse;
     const autre = lang === 'fr' ? 'en' : 'fr';
     let corps = traduire(NAV + '\n\n' + main + '\n\n' + PIED, lang);
@@ -230,7 +230,7 @@ function page({ lang, adresse, titrePage, description, main, id, ld, indexable =
     <title>${esc(titrePage)}</title>
     <meta name="description" content="${esc(description)}">
     <meta name="author" content="Géraud Bertrand">
-    ${referencement}
+    ${referencement}${tete}
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
@@ -325,26 +325,31 @@ function glypheErreur(code) {
         <path class="t t5" stroke-width="2" pathLength="1" d="M0 60L-52-30H52Z"/>
         ${signes}</g>${centre}</svg>`;
 }
-function pageErreur(code, t) {
-    ecrire(`${code}.html`, page({ lang: 'en', adresse: '/', indexable: false, titrePage: `${t.titre} | Géraud Bertrand`, description: t.lede,
-        main: `<main class="page erreur">
+// Une page par langue : /404.html (anglais) et /fr/404.html. Le serveur ne sert que celle de la racine,
+// d'où le renvoi vers la version française quand l'adresse introuvable est sous /fr/ (sans script : anglais).
+function pageErreur(code, textes) {
+    for (const lang of LANGUES) {
+        const t = textes[lang];
+        ecrire(`${lang === 'fr' ? 'fr/' : ''}${code}.html`, page({ lang, adresse: `/${code}.html`, indexable: false, titrePage: `${t.titre} | Géraud Bertrand`, description: t.lede,
+            tete: lang === 'en' ? `\n    <script>if (location.pathname.startsWith('/fr/')) location.replace('/fr/${code}.html');</script>` : '',
+            main: `<main class="page erreur">
         ${glypheErreur(code)}
         <header class="fiche-tete">
-            <p class="fiche-ecole"><span>${code} · ${t.sous} · <span lang="fr">${t.sous_fr}</span></span></p>
+            <p class="fiche-ecole"><span>${code} · ${t.sous}</span></p>
             <h1 class="fiche-titre gothique">${t.titre}</h1>
-            <p class="fiche-lede">${t.lede} <span lang="fr">${t.lede_fr}</span></p>
-            <div class="liens">
-                <a class="lien" href="/">${signe('cle').html}<span>Back to the six schools</span></a>
-                <a class="lien" href="/fr/" lang="fr">${signe('cle').html}<span>Retour aux six écoles</span></a>
-            </div>
+            <p class="fiche-lede">${t.lede}</p>
+            <div class="liens"><a class="lien" href="/">${signe('cle').html}<span>${t.retour}</span></a></div>
         </header>
     </main>` }));
+    }
 }
-pageErreur(404, { titre: 'Lost page', sous: 'not found', sous_fr: 'introuvable',
-    lede: 'This page is not in the grimoire.', lede_fr: 'Cette page n\'est pas dans le grimoire.' });
+pageErreur(404, {
+    en: { titre: 'Lost page', sous: 'not found', lede: 'This page is not in the grimoire.', retour: 'Back to the six schools' },
+    fr: { titre: 'Page perdue', sous: 'introuvable', lede: 'Cette page n\'est pas dans le grimoire.', retour: 'Retour aux six écoles' } });
 // GitHub Pages ne renvoie jamais de 403 : cette page ne sert que sur un serveur qui la déclare (Apache : ErrorDocument 403 /403.html)
-pageErreur(403, { titre: 'Sealed door', sous: 'forbidden', sous_fr: 'accès refusé',
-    lede: 'This page exists, but it is not open to visitors.', lede_fr: 'Cette page existe, mais elle n\'est pas ouverte aux visiteurs.' });
+pageErreur(403, {
+    en: { titre: 'Sealed door', sous: 'forbidden', lede: 'This page exists, but it is not open to visitors.', retour: 'Back to the six schools' },
+    fr: { titre: 'Porte scellée', sous: 'accès refusé', lede: 'Cette page existe, mais elle n\'est pas ouverte aux visiteurs.', retour: 'Retour aux six écoles' } });
 
 const alternes = adresse => `<xhtml:link rel="alternate" hreflang="en" href="${SITE}${adresse}"/><xhtml:link rel="alternate" hreflang="fr" href="${SITE}/fr${adresse}"/><xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${adresse}"/>`;
 ecrire('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
@@ -354,4 +359,4 @@ ${plan.flatMap(([adresse, maj]) => ['', '/fr'].map(b => `  <url><loc>${SITE}${b}
 `);
 ecrire('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
-console.log(`${plan.length * 2} pages écrites (${LANGUES.join(', ')}), plus 404.html, 403.html, sitemap.xml, robots.txt et ${PAGES.length} redirections.`);
+console.log(`${plan.length * 2} pages écrites (${LANGUES.join(', ')}), plus les pages 404 et 403 (en, fr), sitemap.xml, robots.txt et ${PAGES.length} redirections.`);
