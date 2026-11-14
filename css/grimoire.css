@@ -82,7 +82,7 @@ body.grayscale > :not(#access-modal) { filter:grayscale(100%); }
 .ecoles { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:4rem 2.5rem; align-items:start; }
 .ecole { position:relative; isolation:isolate; padding:2.1rem 2.25rem 2rem; }
 .parchemin { --bg:var(--os); color:#1b131f; }
-.parchemin .sous, .parchemin .registre small { color:#5b4a60; }
+.parchemin .sous, .parchemin .registre small, .parchemin .mot-etat { color:#5b4a60; }
 .parchemin .dit, .parchemin .chiffre { color:#4a2f52; }
 .encre { --bg:var(--noir); }
 .prune { --bg:var(--prune); }
@@ -97,6 +97,7 @@ body.grayscale > :not(#access-modal) { filter:grayscale(100%); }
 .registre li { display:grid; grid-template-columns:1.9rem minmax(0,1fr); padding:.7rem 0; border-top:1px solid color-mix(in srgb, currentColor 28%, transparent); }
 .registre .etat { margin-top:.5rem; }
 .registre b { font-size:1.31rem; font-weight:700; margin-right:.5rem; }
+.mot-etat { font-size:.94rem; color:var(--cendre); font-variant-caps:small-caps; letter-spacing:.04em; white-space:nowrap; }
 .registre small { display:block; font-size:.94rem; color:var(--cendre); font-variant-caps:small-caps; letter-spacing:.04em; }
 .deux { columns:2; column-gap:2.5rem; }
 .deux li { break-inside:avoid; }

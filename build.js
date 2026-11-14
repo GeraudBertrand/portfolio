@@ -78,10 +78,10 @@ function registre(ecole, lang) {
             ...(p.links || [])
         ];
         return h('li', null,
-            h('i', { class: `etat ${p.state}`, role: 'img', 'aria-label': ETATS[p.state][lang] }),
+            h('i', { class: `etat ${p.state}`, 'aria-hidden': 'true' }),
             h('div', null,
                 p.figure ? h('span', { class: 'chiffre gothique' }, p.figure[lang]) : null,
-                h('b', null, titre(p, lang)), p[lang],
+                h('b', null, titre(p, lang)), h('span', { class: 'mot-etat' }, ETATS[p.state][lang]), ' ', p[lang],
                 p.stack ? h('small', null, p.stack.join(' | ')) : null,
                 tous.length ? h('div', { class: 'liens' }, tous.map(l => lien(l, lang))) : null));
     });
