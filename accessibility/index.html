@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility | Géraud Bertrand</title>
+    <meta name="description" content="What this site does for accessibility, what it does not do yet, and how to tell me about a problem.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/accessibility/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/accessibility/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/accessibility/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/accessibility/">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Accessibility | Géraud Bertrand">
+    <meta property="og:description" content="What this site does for accessibility, what it does not do yet, and how to tell me about a problem.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/accessibility/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Accessibility","description":"What this site does for accessibility, what it does not do yet, and how to tell me about a problem.","url":"https://portfolio.gerios.fr/accessibility/","inLanguage":"en"}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/#ecoles">Schools</a></li>
+        <li><a href="/#parcours">Path</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibility</button></li>
+        <li><a id="lang-indicator" href="/fr/accessibility/" lang="fr" hreflang="fr">Français</a></li>
+    </ul>
+</nav>
+
+
+<main class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><h1 class="fiche-titre gothique">Accessibility</h1><p class="fiche-lede">What this site does for accessibility, what it does not do yet, and how to tell me about a problem.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">What is in place</h2><ul><li>Contrast: every text and background colour pair of the site reaches at least 4.5:1, the WCAG AA level for body text (measured on 14 November 2026).</li><li>Keyboard: every link and button can be reached with Tab, and the focused element is outlined in yellow. The Accessibility panel takes the focus when it opens and closes with Escape.</li><li>Motion: when your system asks for less motion (prefers-reduced-motion), animations, the opening sequence and the autoplay of videos are switched off.</li><li>Images: every image has a text alternative; decorative signs are hidden from screen readers, and the two drawings of the home page have a title.</li><li>Status of a project: it is written in words next to its mark, not shown by a shape alone.</li><li>Language: each page states its language, English at the root and French under /fr/.</li></ul><h2 class="gothique">The Accessibility panel</h2><p>The Accessibility button in the menu opens a panel with three settings: text size (100, 120 or 140 %), a narrator that reads aloud what the pointer touches with the voices of your browser, and colour filters for protanopia, deuteranopia and tritanopia. The panel needs JavaScript; the rest of the site works without it.</p><h2 class="gothique">Known limits</h2><ul><li>There is no “skip to content” link yet.</li><li>The site has not been audited by a third party.</li><li>The PDF documents linked from the Pot2Colle and La Lisière de R'yleh entries have not been checked for accessibility.</li></ul><h2 class="gothique">Report a problem</h2><p>If something blocks you, write to geraud.bertrand@gmail.com with the page and what went wrong.</p></article></div></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Send word</h2>
+            <p class="dit">An internship, a question about a project, anything else: write to me.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Write an email</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.</span> <a href="/accessibility/">Accessibility</a> · 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

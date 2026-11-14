@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Page générée par build.js : modifier les sources (voir l'en-tête de build.js), pas ce fichier. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibilité | Géraud Bertrand</title>
+    <meta name="description" content="Ce que ce site fait pour l'accessibilité, ce qu'il ne fait pas encore, et comment me signaler un problème.">
+    <meta name="author" content="Géraud Bertrand">
+    <link rel="canonical" href="https://portfolio.gerios.fr/fr/accessibility/">
+    <link rel="alternate" hreflang="en" href="https://portfolio.gerios.fr/accessibility/">
+    <link rel="alternate" hreflang="fr" href="https://portfolio.gerios.fr/fr/accessibility/">
+    <link rel="alternate" hreflang="x-default" href="https://portfolio.gerios.fr/accessibility/">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Géraud Bertrand">
+    <meta property="og:title" content="Accessibilité | Géraud Bertrand">
+    <meta property="og:description" content="Ce que ce site fait pour l'accessibilité, ce qu'il ne fait pas encore, et comment me signaler un problème.">
+    <meta property="og:url" content="https://portfolio.gerios.fr/fr/accessibility/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://portfolio.gerios.fr/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Accessibilité","description":"Ce que ce site fait pour l'accessibilité, ce qu'il ne fait pas encore, et comment me signaler un problème.","url":"https://portfolio.gerios.fr/fr/accessibility/","inLanguage":"fr"}</script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1b131f">
+    <link rel="preload" href="/assets/fonts/pirata-one-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/vollkorn-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/grimoire.css">
+    <script src="/js/anime.js"></script>
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="encre" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+        <filter id="encre-fin" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </svg>
+
+<!-- Navigation : une ligne de petites capitales, sans icônes. Elle passe à la ligne sur mobile, pas de menu caché.
+     « langue » est remplacé par build.js : un vrai lien vers la même page dans l'autre langue. -->
+<nav class="nav" aria-label="Main">
+    <a class="nav-nom" href="/fr/#accueil">Géraud Bertrand</a>
+    <ul class="barres nav-droite">
+        <li><a href="/fr/#ecoles">Écoles</a></li>
+        <li><a href="/fr/#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" onclick="window.toggleAccessModal()">Accessibilité</button></li>
+        <li><a id="lang-indicator" href="/accessibility/" lang="en" hreflang="en">English</a></li>
+    </ul>
+</nav>
+
+
+<main class="page"><header class="fiche-tete"><div class="masse" aria-hidden="true"><i></i></div><h1 class="fiche-titre gothique">Accessibilité</h1><p class="fiche-lede">Ce que ce site fait pour l'accessibilité, ce qu'il ne fait pas encore, et comment me signaler un problème.</p></header><div class="fiche-corps"><article class="fiche-texte"><h2 class="gothique">Ce qui est en place</h2><ul><li>Contrastes : chaque couple de couleurs texte et fond du site atteint au moins 4,5:1, le niveau WCAG AA pour le texte courant (mesuré le 14 novembre 2026).</li><li>Clavier : chaque lien et chaque bouton s'atteint avec Tab, et l'élément actif est entouré de jaune. Le panneau Accessibilité prend le focus à l'ouverture et se ferme avec Échap.</li><li>Mouvement : quand le système demande moins de mouvement (prefers-reduced-motion), les animations, la séquence d'entrée et la lecture automatique des vidéos sont coupées.</li><li>Images : chaque image a un texte alternatif ; les signes décoratifs sont masqués aux lecteurs d'écran, et les deux dessins de l'accueil ont un titre.</li><li>État d'un projet : il est écrit en toutes lettres à côté de sa marque, pas seulement montré par une forme.</li><li>Langue : chaque page déclare sa langue, l'anglais à la racine et le français sous /fr/.</li></ul><h2 class="gothique">Le panneau Accessibilité</h2><p>Le bouton Accessibilité du menu ouvre un panneau à trois réglages : la taille du texte (100, 120 ou 140 %), un narrateur qui lit à voix haute ce que touche le pointeur avec les voix du navigateur, et des filtres de couleur pour la protanopie, la deutéranopie et la tritanopie. Le panneau demande JavaScript ; le reste du site fonctionne sans.</p><h2 class="gothique">Limites connues</h2><ul><li>Il n'y a pas encore de lien « aller au contenu ».</li><li>Le site n'a pas été audité par un tiers.</li><li>Les documents PDF liés depuis les fiches Pot2Colle et La Lisière de R'yleh n'ont pas été vérifiés pour l'accessibilité.</li></ul><h2 class="gothique">Signaler un problème</h2><p>Si quelque chose vous bloque, écrivez-moi à geraud.bertrand@gmail.com en précisant la page et ce qui n'a pas marché.</p></article></div></main>
+
+<footer id="contact" class="pied">
+    <div class="pied-haut">
+        <div>
+            <h2 class="gothique">Écrivez-moi</h2>
+            <p class="dit">Un stage, une question sur un projet, autre chose : écrivez-moi.</p>
+        </div>
+        <div class="liens">
+            <a class="lien" href="mailto:geraud.bertrand@gmail.com"><svg aria-hidden="true"><use href="/assets/img/signes.svg#lettre"/></svg><span>Envoyer un e-mail</span></a>
+            <a class="lien" href="https://linkedin.com/in/geraud-bertrand-pro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>LinkedIn</span></a>
+            <a class="lien" href="https://github.com/GeraudBertrand" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="/assets/img/signes.svg#porte"/></svg><span>GitHub</span></a>
+        </div>
+    </div>
+    <small><span>Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.</span> <a href="/fr/accessibility/">Accessibilité</a> · 2026 Géraud Bertrand</small>
+</footer>
+
+
+    <script src="/js/accessibility.js" defer></script>
+</body>
+</html>

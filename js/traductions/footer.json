@@ -3,12 +3,14 @@
         "footer_title": "Écrivez-moi",
         "footer_say": "Un stage, une question sur un projet, autre chose : écrivez-moi.",
         "footer_email": "Envoyer un e-mail",
-        "footer_made": "Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages."
+        "footer_made": "Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.",
+        "footer_access": "Accessibilité"
     },
     "en": {
         "footer_title": "Send word",
         "footer_say": "An internship, a question about a project, anything else: write to me.",
         "footer_email": "Write an email",
-        "footer_made": "Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages."
+        "footer_made": "Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.",
+        "footer_access": "Accessibility"
     }
 }

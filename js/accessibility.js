@@ -201,9 +201,9 @@ function announceText(text) {
  */
 const ACCESS_TEXT = {
     en: { title: 'Accessibility', close: 'Close', scale: 'Text size', audio: 'Narrator', narrator: 'Read aloud what the pointer touches',
-          voice: 'Choose a voice', vision: 'Colour filters', none: 'Standard', protanopia: 'Protanopia', deuteranopia: 'Deuteranopia', tritanopia: 'Tritanopia' },
+          voice: 'Choose a voice', vision: 'Colour filters', none: 'Standard', protanopia: 'Protanopia', deuteranopia: 'Deuteranopia', tritanopia: 'Tritanopia', statement: 'What this site does for accessibility' },
     fr: { title: 'Accessibilité', close: 'Fermer', scale: 'Taille du texte', audio: 'Narrateur', narrator: 'Lire à voix haute ce que touche le pointeur',
-          voice: 'Choisir une voix', vision: 'Filtres de couleur', none: 'Standard', protanopia: 'Protanopie', deuteranopia: 'Deutéranopie', tritanopia: 'Tritanopie' }
+          voice: 'Choisir une voix', vision: 'Filtres de couleur', none: 'Standard', protanopia: 'Protanopie', deuteranopia: 'Deutéranopie', tritanopia: 'Tritanopie', statement: "Ce que fait ce site pour l'accessibilité" }
 };
 
 function createAccessModal() {
@@ -231,6 +231,7 @@ function createAccessModal() {
                     </div>
                 </fieldset>
                 <fieldset><legend>${t.vision}</legend><div class="modale-grille">${vision}</div></fieldset>
+                <p><a href="${window.currentLang === 'fr' ? '/fr' : ''}/accessibility/">${t.statement}</a></p>
             </div>
         </div>`);
     loadVoices();

@@ -29,6 +29,7 @@ function ecrire(f, contenu) {
 // --- données ---
 const PROJETS = json('js/projects.json');
 const PAGES = PROJETS.filter(p => p.page);
+const ACCES = json('js/accessibilite.json');
 const T = {};
 for (const lang of LANGUES) T[lang] = Object.assign({}, ...['navbar', 'footer', 'index'].map(ns => json(`js/traductions/${ns}.json`)[lang]));
 
@@ -101,6 +102,23 @@ function accueil(lang) {
 }
 
 // --- page projet ---
+const article = sections => h('article', { class: 'fiche-texte' },
+    sections.map(s => [
+        h('h2', { class: 'gothique' }, s.h),
+        (s.p || []).map(x => h('p', null, x)),
+        s.ul ? h('ul', null, s.ul.map(x => h('li', null, x))) : null
+    ])
+);
+
+// page de texte seul (accessibilité) : même tête et même corps qu'une fiche, sans carte ni planches
+const pageTexte = r => h('main', { class: 'page' },
+    h('header', { class: 'fiche-tete' },
+        h('div', { class: 'masse', 'aria-hidden': 'true' }, h('i')),
+        h('h1', { class: 'fiche-titre gothique' }, r.title),
+        h('p', { class: 'fiche-lede' }, r.lede)),
+    h('div', { class: 'fiche-corps' }, article(r.sections))
+).html;
+
 function fiche(p, recit, lang) {
     const t = FICHE_TEXTE[lang];
     const r = recit[lang];
@@ -123,13 +141,7 @@ function fiche(p, recit, lang) {
             controls: 'controls', muted: 'muted', loop: 'loop', playsinline: 'playsinline', preload: 'metadata', 'data-auto': '', 'aria-label': recit.trailer[lang] }),
         h('figcaption', null, recit.trailer[lang])) : null;
 
-    const texte = h('article', { class: 'fiche-texte' },
-        r.sections.map(s => [
-            h('h2', { class: 'gothique' }, s.h),
-            (s.p || []).map(x => h('p', null, x)),
-            s.ul ? h('ul', null, s.ul.map(x => h('li', null, x))) : null
-        ])
-    );
+    const texte = article(r.sections);
 
     const faits = [
         [t.state, h('span', { class: 'fiche-etat' }, h('i', { class: `etat ${p.state}`, 'aria-hidden': 'true' }), ETATS_FICHE[p.state][lang])],
@@ -267,8 +279,12 @@ for (const lang of LANGUES) {
         const recit = json(`js/projets/${p.id}.json`);
         ecrire(`${racine}${p.id}/index.html`, page({ lang, adresse: `/${p.id}/`, id: p.id, titrePage: `${titre(p, lang)} | Géraud Bertrand`, description: p[lang], main: fiche(p, recit, lang), ld: ldProjet(p, recit, lang) }));
     }
+    const a = ACCES[lang];
+    ecrire(`${racine}accessibility/index.html`, page({ lang, adresse: '/accessibility/', titrePage: `${a.title} | Géraud Bertrand`, description: a.lede, main: pageTexte(a),
+        ld: { '@context': 'https://schema.org', '@type': 'WebPage', name: a.title, description: a.lede, url: `${SITE}${racine ? '/fr' : ''}/accessibility/`, inLanguage: lang } }));
 }
 plan.push(['/', date('src/accueil.html', 'js/projects.json', 'js/traductions/index.json')]);
+plan.push(['/accessibility/', date('js/accessibilite.json')]);
 for (const p of PAGES) {
     plan.push([`/${p.id}/`, date(`js/projets/${p.id}.json`)]);
     // les anciennes adresses /src/pages/<id>.html mènent à la nouvelle

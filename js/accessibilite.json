@@ -1,0 +1,52 @@
+{
+    "en": {
+        "title": "Accessibility",
+        "lede": "What this site does for accessibility, what it does not do yet, and how to tell me about a problem.",
+        "sections": [
+            { "h": "What is in place", "ul": [
+                "Contrast: every text and background colour pair of the site reaches at least 4.5:1, the WCAG AA level for body text (measured on 14 November 2026).",
+                "Keyboard: every link and button can be reached with Tab, and the focused element is outlined in yellow. The Accessibility panel takes the focus when it opens and closes with Escape.",
+                "Motion: when your system asks for less motion (prefers-reduced-motion), animations, the opening sequence and the autoplay of videos are switched off.",
+                "Images: every image has a text alternative; decorative signs are hidden from screen readers, and the two drawings of the home page have a title.",
+                "Status of a project: it is written in words next to its mark, not shown by a shape alone.",
+                "Language: each page states its language, English at the root and French under /fr/."
+            ] },
+            { "h": "The Accessibility panel", "p": [
+                "The Accessibility button in the menu opens a panel with three settings: text size (100, 120 or 140 %), a narrator that reads aloud what the pointer touches with the voices of your browser, and colour filters for protanopia, deuteranopia and tritanopia. The panel needs JavaScript; the rest of the site works without it."
+            ] },
+            { "h": "Known limits", "ul": [
+                "There is no “skip to content” link yet.",
+                "The site has not been audited by a third party.",
+                "The PDF documents linked from the Pot2Colle and La Lisière de R'yleh entries have not been checked for accessibility."
+            ] },
+            { "h": "Report a problem", "p": [
+                "If something blocks you, write to geraud.bertrand@gmail.com with the page and what went wrong."
+            ] }
+        ]
+    },
+    "fr": {
+        "title": "Accessibilité",
+        "lede": "Ce que ce site fait pour l'accessibilité, ce qu'il ne fait pas encore, et comment me signaler un problème.",
+        "sections": [
+            { "h": "Ce qui est en place", "ul": [
+                "Contrastes : chaque couple de couleurs texte et fond du site atteint au moins 4,5:1, le niveau WCAG AA pour le texte courant (mesuré le 14 novembre 2026).",
+                "Clavier : chaque lien et chaque bouton s'atteint avec Tab, et l'élément actif est entouré de jaune. Le panneau Accessibilité prend le focus à l'ouverture et se ferme avec Échap.",
+                "Mouvement : quand le système demande moins de mouvement (prefers-reduced-motion), les animations, la séquence d'entrée et la lecture automatique des vidéos sont coupées.",
+                "Images : chaque image a un texte alternatif ; les signes décoratifs sont masqués aux lecteurs d'écran, et les deux dessins de l'accueil ont un titre.",
+                "État d'un projet : il est écrit en toutes lettres à côté de sa marque, pas seulement montré par une forme.",
+                "Langue : chaque page déclare sa langue, l'anglais à la racine et le français sous /fr/."
+            ] },
+            { "h": "Le panneau Accessibilité", "p": [
+                "Le bouton Accessibilité du menu ouvre un panneau à trois réglages : la taille du texte (100, 120 ou 140 %), un narrateur qui lit à voix haute ce que touche le pointeur avec les voix du navigateur, et des filtres de couleur pour la protanopie, la deutéranopie et la tritanopie. Le panneau demande JavaScript ; le reste du site fonctionne sans."
+            ] },
+            { "h": "Limites connues", "ul": [
+                "Il n'y a pas encore de lien « aller au contenu ».",
+                "Le site n'a pas été audité par un tiers.",
+                "Les documents PDF liés depuis les fiches Pot2Colle et La Lisière de R'yleh n'ont pas été vérifiés pour l'accessibilité."
+            ] },
+            { "h": "Signaler un problème", "p": [
+                "Si quelque chose vous bloque, écrivez-moi à geraud.bertrand@gmail.com en précisant la page et ce qui n'a pas marché."
+            ] }
+        ]
+    }
+}
