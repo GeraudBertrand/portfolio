@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" width="1000" height="440" role="img" aria-label="UTTT architecture">
+<style>
+text{font-family:Georgia,'Times New Roman',serif;fill:#e7dcc4}
+.t{font-size:22px;font-weight:bold}
+.s{font-size:16px;fill:#a999ab}
+.k{font-size:14px;fill:#d9b43a;font-style:italic}
+.b{fill:#0e0910;stroke:#e7dcc4;stroke-width:2}
+.a{fill:#3d2744;stroke:#d9b43a;stroke-width:2}
+.l{stroke:#86598c;stroke-width:2;fill:none}
+</style>
+<defs><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#86598c"/></marker></defs>
+<rect width="1000" height="440" fill="#1b131f"/>
+<rect class="b" x="30" y="150" width="230" height="130"/>
+<text class="t" x="45" y="182">UltimateGameManager</text>
+<text class="s" x="45" y="212">plays the tournament,</text>
+<text class="s" x="45" y="234">asks the AI for each move,</text>
+<text class="s" x="45" y="256">writes a CSV log</text>
+<rect class="b" x="30" y="40" width="230" height="64" stroke-dasharray="6 5"/>
+<text class="t" x="45" y="70">IGame</text>
+<text class="k" x="45" y="92">the teacher's interface</text>
+<rect class="b" x="350" y="30" width="270" height="170"/>
+<text class="t" x="365" y="62">UltimateBoard</text>
+<text class="s" x="365" y="92">9 SubBoards (3 × 3)</text>
+<text class="s" x="365" y="114">target small grid to play in</text>
+<text class="s" x="365" y="136">81 UndoInfo: play / undo</text>
+<text class="s" x="365" y="158">Zobrist hash of the position</text>
+<text class="k" x="365" y="184">legal moves, winner, terminal</text>
+<rect class="a" x="350" y="240" width="270" height="170"/>
+<text class="t" x="365" y="272">MinimaxAI</text>
+<text class="s" x="365" y="302">alpha-beta, iterative deepening</text>
+<text class="s" x="365" y="324">time budget per move</text>
+<text class="s" x="365" y="346">move ordering</text>
+<text class="s" x="365" y="368">positional evaluation</text>
+<text class="k" x="365" y="394">findBestMove(board)</text>
+<rect class="b" x="710" y="240" width="260" height="46"/>
+<text class="s" x="725" y="270">Transposition table, 2²⁰ entries</text>
+<rect class="b" x="710" y="300" width="260" height="46"/>
+<text class="s" x="725" y="330">Killer moves, 2 per depth</text>
+<rect class="b" x="710" y="360" width="260" height="46"/>
+<text class="s" x="725" y="390">History table, 2 × 81 cells</text>
+<path class="l" marker-end="url(#p)" d="M260 195H350"/>
+<path class="l" marker-end="url(#p)" d="M145 150V104"/>
+<path class="l" marker-end="url(#p)" d="M260 255L350 300"/>
+<path class="l" marker-end="url(#p)" d="M620 263H710"/>
+<path class="l" marker-end="url(#p)" d="M620 323H710"/>
+<path class="l" marker-end="url(#p)" d="M620 383H710"/>
+<path class="l" marker-end="url(#p)" d="M485 240V200"/>
+</svg>
