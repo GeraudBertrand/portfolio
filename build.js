@@ -6,7 +6,7 @@
  *   js/traductions/*.json, js/projects.json, js/projets/<id>.json
  * Sorties (ne pas modifier à la main, elles sont réécrites) :
  *   /index.html, /<id>/index.html, /fr/index.html, /fr/<id>/index.html,
- *   /404.html, /sitemap.xml, /robots.txt, /src/pages/<id>.html (redirections des anciennes adresses)
+ *   /404.html, /403.html, /sitemap.xml, /robots.txt, /src/pages/<id>.html (redirections des anciennes adresses)
  *
  * Tout le texte est dans le HTML servi, en anglais à la racine et en français sous /fr/ :
  * un moteur de recherche lit chaque page sans exécuter de script.
@@ -301,18 +301,50 @@ for (const p of PAGES) {
 `);
 }
 
-ecrire('404.html', page({ lang: 'en', adresse: '/', indexable: false, titrePage: 'Lost page | Géraud Bertrand', description: 'This page does not exist.',
-    main: `<main class="page">
+// --- pages d'erreur : bilingues, car GitHub Pages sert la même 404 pour toutes les adresses, /fr/ compris ---
+// Le glyphe reprend celui de l'entrée (anime.js, glyphe()) : mêmes cercles, triangles et signes, mais le sort échoue.
+// 404 : le cercle ne se referme pas, un signe tombe, « 404 » est tamponné au centre.
+// 403 : tout se trace, la serrure tente de tourner et revient en butée.
+// Sans html.anime (mouvement réduit, pas de script), l'état final s'affiche directement.
+const SIGNES_ENTREE = ['feu', 'terre', 'air', 'mercure', 'eau', 'sel'];
+function glypheErreur(code) {
+    const rompu = code === 404;
+    const signes = SIGNES_ENTREE.map((s, i) => {
+        const a = (i * 60 - 90) * Math.PI / 180;
+        // le signe sel (en haut à gauche) est celui qui tombe par la brèche du cercle
+        return `<use href="/assets/img/signes.svg#${s}" x="${(84 * Math.cos(a) - 12).toFixed(1)}" y="${(84 * Math.sin(a) - 12).toFixed(1)}" width="24" height="24" style="--i:${i}"${rompu && s === 'sel' ? ' class="tombe"' : ''}/>`;
+    }).join('');
+    const centre = rompu
+        ? '<text class="code gothique" y="4">404</text>'
+        : '<g class="serrure"><g transform="scale(1.7)"><circle cy="-7" r="10"/><path d="M-5.5 0L-9 24H9L5.5 0Z"/></g></g>';
+    return `<svg class="glyphe g${code}" viewBox="-120 -120 240 240" aria-hidden="true"><g class="traits">
+        <circle class="t t1${rompu ? ' rompu' : ''}" r="114" stroke-width="3" pathLength="1" transform="rotate(-90)"/>
+        <circle class="t t2" r="106" stroke-width="1.2" pathLength="1" transform="rotate(90)"/>
+        <circle class="t t3" r="60" stroke-width="2" pathLength="1" transform="rotate(-90)"/>
+        <path class="t t4" stroke-width="2" pathLength="1" d="M0-60L52 30H-52Z"/>
+        <path class="t t5" stroke-width="2" pathLength="1" d="M0 60L-52-30H52Z"/>
+        ${signes}</g>${centre}</svg>`;
+}
+function pageErreur(code, t) {
+    ecrire(`${code}.html`, page({ lang: 'en', adresse: '/', indexable: false, titrePage: `${t.titre} | Géraud Bertrand`, description: t.lede,
+        main: `<main class="page erreur">
+        ${glypheErreur(code)}
         <header class="fiche-tete">
-            <div class="masse" aria-hidden="true"><i></i></div>
-            <h1 class="fiche-titre gothique">Lost page</h1>
-            <p class="fiche-lede">This page is not in the grimoire. <span lang="fr">Cette page n'est pas dans le grimoire.</span></p>
+            <p class="fiche-ecole"><span>${code} · ${t.sous} · <span lang="fr">${t.sous_fr}</span></span></p>
+            <h1 class="fiche-titre gothique">${t.titre}</h1>
+            <p class="fiche-lede">${t.lede} <span lang="fr">${t.lede_fr}</span></p>
             <div class="liens">
                 <a class="lien" href="/">${signe('cle').html}<span>Back to the six schools</span></a>
                 <a class="lien" href="/fr/" lang="fr">${signe('cle').html}<span>Retour aux six écoles</span></a>
             </div>
         </header>
     </main>` }));
+}
+pageErreur(404, { titre: 'Lost page', sous: 'not found', sous_fr: 'introuvable',
+    lede: 'This page is not in the grimoire.', lede_fr: 'Cette page n\'est pas dans le grimoire.' });
+// GitHub Pages ne renvoie jamais de 403 : cette page ne sert que sur un serveur qui la déclare (Apache : ErrorDocument 403 /403.html)
+pageErreur(403, { titre: 'Sealed door', sous: 'forbidden', sous_fr: 'accès refusé',
+    lede: 'This page exists, but it is not open to visitors.', lede_fr: 'Cette page existe, mais elle n\'est pas ouverte aux visiteurs.' });
 
 const alternes = adresse => `<xhtml:link rel="alternate" hreflang="en" href="${SITE}${adresse}"/><xhtml:link rel="alternate" hreflang="fr" href="${SITE}/fr${adresse}"/><xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${adresse}"/>`;
 ecrire('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
@@ -322,4 +354,4 @@ ${plan.flatMap(([adresse, maj]) => ['', '/fr'].map(b => `  <url><loc>${SITE}${b}
 `);
 ecrire('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
-console.log(`${plan.length * 2} pages écrites (${LANGUES.join(', ')}), plus 404.html, sitemap.xml, robots.txt et ${PAGES.length} redirections.`);
+console.log(`${plan.length * 2} pages écrites (${LANGUES.join(', ')}), plus 404.html, 403.html, sitemap.xml, robots.txt et ${PAGES.length} redirections.`);

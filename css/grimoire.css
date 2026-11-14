@@ -330,3 +330,33 @@ html.seuil::before { content:""; position:fixed; inset:0; z-index:200; backgroun
 }
 @keyframes page-sort { to { opacity:0; } }
 @keyframes page-entre { from { opacity:0; translate:0 .8rem; } }
+
+/* --- pages d'erreur (404, 403) : le glyphe de l'entrée, mais le sort échoue.
+ * Hors de html.anime, l'état final : cercle rompu, signe tombé, code posé, serrure fermée. --- */
+.erreur { display:flex; flex-wrap:wrap; align-items:center; gap:1rem 4rem; min-height:72vh; }
+.erreur .fiche-tete { flex:1 1 22rem; }
+.glyphe { flex:none; width:min(22rem,72vw); height:auto; color:var(--os); overflow:visible; }
+.glyphe .traits { fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; }
+.glyphe use { stroke-width:2.2; }
+.glyphe .rompu { stroke-dasharray:.86 1; } /* le cercle ne se referme pas */
+.glyphe .tombe { opacity:0; transform-box:fill-box; transform-origin:center; }
+.glyphe .code { fill:var(--accent); font-size:62px; text-anchor:middle; dominant-baseline:middle; stroke:var(--fond); stroke-width:7px; paint-order:stroke; }
+.glyphe .serrure { fill:var(--accent); }
+html.anime .glyphe { filter:url(#encre-fin-vif); }
+html.anime .glyphe .t { stroke-dasharray:var(--l,1) 1; stroke-dashoffset:var(--l,1); animation:dessine .9s var(--glisse) both; }
+html.anime .glyphe .rompu { --l:.86; }
+html.anime .glyphe .t1 { animation-delay:.05s; } html.anime .glyphe .t2 { animation-delay:.2s; } html.anime .glyphe .t3 { animation-delay:.4s; }
+html.anime .glyphe .t4 { animation-delay:.6s; } html.anime .glyphe .t5 { animation-delay:.75s; }
+html.anime .glyphe use { stroke-dasharray:80; stroke-dashoffset:80; animation:trace .6s var(--glisse) calc(.85s + var(--i) * .07s) both; }
+html.anime .glyphe .tombe { animation:trace .6s var(--glisse) 1.2s both, tombe .8s cubic-bezier(.55,0,1,.45) 1.8s both; }
+html.anime .glyphe .code { animation:tampon .85s 1.3s both; }
+html.anime .g403 .serrure { animation:refus 1.4s 1.05s both; }
+@keyframes tombe { from { opacity:1; } to { opacity:0; translate:-60px 90px; rotate:-60deg; } }
+/* la clé tourne, bute, revient en tremblant : la porte reste scellée */
+@keyframes refus {
+    0%  { opacity:0; scale:.5; }
+    25% { opacity:1; scale:1; rotate:0deg; animation-timing-function:cubic-bezier(.77,0,.175,1); }
+    48% { rotate:32deg; animation-timing-function:cubic-bezier(.6,0,.9,.4); }
+    60% { rotate:-7deg; } 70% { rotate:4deg; } 80% { rotate:-2deg; }
+    100% { opacity:1; scale:1; rotate:0deg; }
+}
