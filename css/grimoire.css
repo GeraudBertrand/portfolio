@@ -147,6 +147,8 @@ body.grayscale > :not(#access-modal) { filter:grayscale(100%); }
 .pied .liens { margin:0 0 .6rem; }
 .pied .lien { font-size:1.19rem; }
 .pied small { display:block; margin-top:3rem; color:var(--cendre); font-size:.94rem; }
+.cv { flex-basis:100%; margin:.4rem 0 0; color:var(--cendre); font-size:.94rem; }
+.cv a { white-space:nowrap; }
 
 /* --- fenêtre d'accessibilité (générée par accessibility.js). Tailles en px : elle doit rester utilisable à 140 %. --- */
 .modale { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:24px; background:rgba(14,9,16,.86); }

@@ -4,13 +4,23 @@
         "footer_say": "Un stage, une question sur un projet, autre chose : écrivez-moi.",
         "footer_email": "Envoyer un e-mail",
         "footer_made": "Écrit à la main en HTML, CSS et JavaScript, sans framework. Hébergé sur GitHub Pages.",
-        "footer_access": "Accessibilité"
+        "footer_access": "Accessibilité",
+        "cv_label": "CV, en PDF :",
+        "cv_ats_en": "anglais, sobre",
+        "cv_design_en": "anglais, mis en page",
+        "cv_ats_fr": "français, sobre",
+        "cv_design_fr": "français, mis en page"
     },
     "en": {
         "footer_title": "Send word",
         "footer_say": "An internship, a question about a project, anything else: write to me.",
         "footer_email": "Write an email",
         "footer_made": "Written by hand in HTML, CSS and JavaScript, no framework. Hosted on GitHub Pages.",
-        "footer_access": "Accessibility"
+        "footer_access": "Accessibility",
+        "cv_label": "Résumé, PDF:",
+        "cv_ats_en": "English, plain",
+        "cv_design_en": "English, designed",
+        "cv_ats_fr": "French, plain",
+        "cv_design_fr": "French, designed"
     }
 }
